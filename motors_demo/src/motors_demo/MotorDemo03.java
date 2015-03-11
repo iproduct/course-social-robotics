@@ -29,7 +29,7 @@ public class MotorDemo03 {
 		m.rotateTo(760);
 		int angle = m.getTachoCount(); // should be -360
 		lcd.drawInt(angle, 0, 0);
-		keys.waitForAnyPress();
+//		keys.waitForAnyPress();
 		
 		m.rotateTo(-100, true);
 		do{
@@ -37,7 +37,7 @@ public class MotorDemo03 {
 		} while (sample[0] == 0);
 		m.stop();	
 		
-		angle = m.getTachoCount(); // should be -360
+		angle = m.getTachoCount(); // should be < -100
 		lcd.drawInt(angle, 0, 1);
 		keys.waitForAnyPress();
 	}
