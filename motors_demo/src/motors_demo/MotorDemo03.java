@@ -5,6 +5,7 @@ import lejos.hardware.Keys;
 import lejos.hardware.ev3.EV3;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
+import lejos.hardware.motor.Motor;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
@@ -26,20 +27,24 @@ public class MotorDemo03 {
 		RegulatedMotor m = new EV3LargeRegulatedMotor(MotorPort.A);
 		m.resetTachoCount();
 		
-		m.rotateTo(760);
-		int angle = m.getTachoCount(); // should be -360
-		lcd.drawInt(angle, 0, 0);
+		m.rotateTo(320, true);
+		
+//		int angle = m.getTachoCount(); // should be -360
+//		lcd.drawInt(angle, 0, 0);
 //		keys.waitForAnyPress();
 		
-		m.rotateTo(-100, true);
-		do{
-			touch.fetchSample(sample, 0);
-		} while (sample[0] == 0);
+//		m.rotateTo(-100, true);
+//		do{
+//			touch.fetchSample(sample, 0);
+//		} while (sample[0] == 0);
+		
+		while (m.isMoving())
+			Thread.yield();
 		m.stop();	
 		
-		angle = m.getTachoCount(); // should be < -100
+		int angle = m.getTachoCount(); // should be < -100
 		lcd.drawInt(angle, 0, 1);
-		keys.waitForAnyPress();
+//		keys.waitForAnyPress();
 	}
 
 }
