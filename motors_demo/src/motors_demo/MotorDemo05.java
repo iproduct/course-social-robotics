@@ -27,25 +27,17 @@ public class MotorDemo05 {
 		float[] sample = new float[touch.sampleSize()];
 
 		RegulatedMotor mA, mB, mC;
-		// mA.resetTachoCount();
-		// mB.resetTachoCount();
-		// mC.resetTachoCount();
-
-		// mA.rotateTo(760);
-		// int angle = mA.getTachoCount(); // should be -360
-		// lcd.drawInt(angle, 0, 0);
-		// keys.waitForAnyPress();
-
+		mA = new EV3LargeRegulatedMotor(MotorPort.A);
+		mB = new EV3LargeRegulatedMotor(MotorPort.B);
+		mC = new EV3LargeRegulatedMotor(MotorPort.C);
+		mB.setSpeed(360);// 2 RPM
+		mC.setSpeed(360);
+		mB.synchronizeWith(new RegulatedMotor[] { mC });
+		
 		long startTime = System.currentTimeMillis();
 		long duration;
 
 		for (int i = 0; i < 3; i++) {
-			mA = new EV3LargeRegulatedMotor(MotorPort.A);
-			mB = new EV3LargeRegulatedMotor(MotorPort.B);
-			mC = new EV3LargeRegulatedMotor(MotorPort.C);
-			mB.setSpeed(360);// 2 RPM
-			mC.setSpeed(360);
-			mB.synchronizeWith(new RegulatedMotor[] { mC });
 
 			// go forward
 			mB.startSynchronization();
@@ -75,23 +67,19 @@ public class MotorDemo05 {
 			while (mB.isMoving() && mC.isMoving())
 				Thread.yield();
 
-			mB.flt();
-			mC.flt();
 
-			mA.close();
-			mB.close();
-			mC.close();
-
-			Audio audio = ev3.getAudio();
-			lcd.drawInt(audio.playSample(new File("az_robot.wav"), 50), 0, 1);
-			keys.waitForAnyEvent();
+//			Audio audio = ev3.getAudio();
+//			lcd.drawInt(audio.playSample(new File("az_robot.wav"), 50), 0, 1);
+//			keys.waitForAnyEvent();
 //			Delay.msDelay(3000);
 			
 		}
+		mB.flt();
+		mC.flt();
 
-		// mA.close();
-		// mB.close();
-		// mC.close();
+		mA.close();
+		mB.close();
+		mC.close();
 
 		// Delay.msDelay(1000);
 		// mB.stop();
