@@ -27,7 +27,7 @@ public class MotorDemo07 {
 		
 		//Color sensor
 		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S3);
-		SensorMode color = colorSensor.getColorIDMode();
+		SensorMode color = colorSensor.getRGBMode();
 		float[] colorSample = new float[color.sampleSize()];
 		
 		playMessage(audio);
@@ -40,8 +40,8 @@ public class MotorDemo07 {
 		mA = new EV3LargeRegulatedMotor(MotorPort.A);
 		mB = new EV3LargeRegulatedMotor(MotorPort.B);
 		mC = new EV3LargeRegulatedMotor(MotorPort.C);
-		mB.setSpeed(720);// 2 RPM
-		mC.setSpeed(720);
+		mB.setSpeed(120);// 2 RPM
+		mC.setSpeed(120);
 		mB.synchronizeWith(new RegulatedMotor[] { mC });
 		
 		long startTime = System.currentTimeMillis();
@@ -61,28 +61,17 @@ public class MotorDemo07 {
 				duration = System.currentTimeMillis() - startTime;
 				touch.fetchSample(sample, 0);
 				color.fetchSample(colorSample, 0);
-				int colorId = (int)colorSample[0];
-				String colorName = "";
-				switch(colorId){
-					case Color.NONE: colorName = "NONE"; break;
-					case Color.BLACK: colorName = "BLACK"; break;
-					case Color.BLUE: colorName = "BLUE"; break;
-					case Color.GREEN: colorName = "GREEN"; break;
-					case Color.YELLOW: colorName = "YELLOW"; break;
-					case Color.RED: colorName = "RED"; break;
-					case Color.WHITE: colorName = "WHITE"; break;
-					case Color.BROWN: colorName = "BROWN"; break;
-				}
-				lcd.drawString(colorId + " - " + colorName, 0, 0);
+				lcd.drawString("" + colorSample[0], 0, 3);
+				lcd.drawString("" + colorSample[1], 0, 4);
+				lcd.drawString("" + colorSample[2], 0, 5);
 			} while (duration < 60000 && mB.isMoving() && mC.isMoving()
-					&& sample[0] == 0);
+					&& sample[0] == 0 && isReflecting(colorSample));
 
 			// go back
 			mB.startSynchronization();
 			mB.backward();
 			mC.backward();
 			mB.endSynchronization();
-			Delay.msDelay(700);
 
 			// turn back
 			mB.startSynchronization();
@@ -92,9 +81,6 @@ public class MotorDemo07 {
 			while (mB.isMoving() && mC.isMoving())
 				Thread.yield();
 
-			playMessage(audio);
-
-			
 		}
 		mB.flt();
 		mC.flt();
@@ -124,7 +110,8 @@ public class MotorDemo07 {
 		// lcd.drawInt((int)duration, 0, 1);
 		// keys.waitForAnyEvent();
 		
-		keys.waitForAnyPress();
+//		getColor(lcd, color, colorSample);
+//		keys.waitForAnyPress();
 	}
 
 	private static void playMessage(final Audio audio) {
@@ -138,6 +125,12 @@ public class MotorDemo07 {
 		t.start();
 		Delay.msDelay(6000);
 		t.interrupt();
+	}
+	
+	private static boolean isReflecting(float[] colorSample){
+		return colorSample[0] > 0.015 
+				|| colorSample[1] > 0.015 
+				|| colorSample[2] > 0.015;
 	}
 
 }

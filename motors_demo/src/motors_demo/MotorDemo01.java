@@ -18,7 +18,7 @@ public class MotorDemo01 {
 		RegulatedMotor m = new EV3LargeRegulatedMotor(MotorPort.A);
 		m.resetTachoCount();
 		
-		m.rotateTo(40);
+		m.rotateTo(-40);
 		int angle = m.getTachoCount(); // should be 760
 		lcd.drawInt(angle, 0, 0);
 //		keys.waitForAnyPress();
