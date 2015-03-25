@@ -22,7 +22,7 @@ public class AudioDemo02 {
 		
 		
 		Audio audio = ev3.getAudio();
-		audio.playSample(new File("az_robot.wav"), 100);
+		audio.playSample(new File("pozdrav_01.wav"), 100);
 //		audio.playNote(Audio.XYLOPHONE, 420, 500);
 //		audio.playNote(Audio.XYLOPHONE, 510, 500);
 //		audio.playNote(Audio.XYLOPHONE, 420, 500);
