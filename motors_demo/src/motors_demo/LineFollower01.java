@@ -56,7 +56,7 @@ public class LineFollower01 {
 			mC.forward();
 			mB.endSynchronization();
 
-			// go until not obstacle
+			// go forward while on red track and no obstacle
 			do {
 				duration = System.currentTimeMillis() - startTime;
 				touch.fetchSample(sample, 0);
@@ -66,7 +66,14 @@ public class LineFollower01 {
 				lcd.drawString("" + colorSample[2], 0, 5);
 			} while (duration < 60000 && mB.isMoving() && mC.isMoving()
 					&& sample[0] == 0 && isReflecting(colorSample)
-					&& colorSample[0] > 0.05);
+					&& isRed(colorSample));
+			mB.startSynchronization();
+			mB.stop();
+			mC.stop();
+			mB.endSynchronization();
+			
+			//Seek the red line 
+//			seekRed();
 
 //			// go back
 //			mB.startSynchronization();
@@ -83,8 +90,6 @@ public class LineFollower01 {
 //				Thread.yield();
 
 //		}
-		mB.flt();
-		mC.flt();
 
 		mA.close();
 		mB.close();
@@ -128,10 +133,18 @@ public class LineFollower01 {
 		t.interrupt();
 	}
 	
+	private static boolean isRed(float[] colorSample){
+		return colorSample[0] > 0.05 
+				&& colorSample[1] < 0.04 
+				&& colorSample[2] < 0.04;
+	}
+
 	private static boolean isReflecting(float[] colorSample){
 		return colorSample[0] > 0.015 
 				|| colorSample[1] > 0.015 
 				|| colorSample[2] > 0.015;
 	}
+	
+//	private static boolean findRedTrack()
 
 }
