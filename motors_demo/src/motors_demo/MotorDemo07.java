@@ -30,7 +30,7 @@ public class MotorDemo07 {
 		SensorMode color = colorSensor.getRGBMode();
 		float[] colorSample = new float[color.sampleSize()];
 		
-		playMessage(audio);
+//		playMessage(audio);
 
 		EV3TouchSensor touchSensor = new EV3TouchSensor(SensorPort.S1);
 		SensorMode touch = touchSensor.getTouchMode();
@@ -40,14 +40,25 @@ public class MotorDemo07 {
 		mA = new EV3LargeRegulatedMotor(MotorPort.A);
 		mB = new EV3LargeRegulatedMotor(MotorPort.B);
 		mC = new EV3LargeRegulatedMotor(MotorPort.C);
-		mB.setSpeed(120);// 2 RPM
-		mC.setSpeed(120);
+		mB.setSpeed(150);// degrees per second
+		mC.setSpeed(150);
 		mB.synchronizeWith(new RegulatedMotor[] { mC });
 		
 		long startTime = System.currentTimeMillis();
 		long duration;
 		int lastColorId = Color.NONE;
 
+		//reset the hand to initial position
+		lcd.drawString("Initial positioning", 0, 0);
+		mA.rotateTo(-700); //hand fully open
+		mA.resetTachoCount();
+		mA.rotate(350); //optical sensor horizontal in front
+		
+		int angle = mA.getTachoCount(); // should be -360
+		lcd.drawInt(angle, 0, 1);
+		keys.waitForAnyPress();
+		
+		
 		for (int i = 0; i < 4; i++) {
 
 			// go forward
