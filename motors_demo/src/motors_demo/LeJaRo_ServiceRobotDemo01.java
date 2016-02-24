@@ -163,7 +163,7 @@ public class LeJaRo_ServiceRobotDemo01 {
 	}
 
 	private boolean isOnWhite() {
-		return colorSample[0] > 0.08 && colorSample[1] > 0.08 && colorSample[2] > 0.08;
+		return colorSample[0] > 0.07 && colorSample[1] > 0.07 && colorSample[2] > 0.07;
 	}
 
 	
