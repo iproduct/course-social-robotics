@@ -28,6 +28,7 @@ public class MoveRobot {
 
 		mB.startSynchronization();
 		mB.forward();
+		mC.forward();
 		mB.endSynchronization();
 
 		Delay.msDelay(3000);
