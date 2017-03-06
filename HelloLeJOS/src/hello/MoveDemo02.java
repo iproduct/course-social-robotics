@@ -15,7 +15,8 @@ public class MoveDemo02 {
 	private TextLCD lcd = ev3.getTextLCD();
 	private Keys keys = ev3.getKeys();
 
-	private RegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A), mB = new EV3LargeRegulatedMotor(MotorPort.B),
+	private RegulatedMotor mA = new EV3LargeRegulatedMotor(MotorPort.A), 
+			mB = new EV3LargeRegulatedMotor(MotorPort.B),
 			mC = new EV3LargeRegulatedMotor(MotorPort.C);
 
 	public void run() {
@@ -27,10 +28,11 @@ public class MoveDemo02 {
 		mC.setSpeed(900);
 		mB.synchronizeWith(new RegulatedMotor[] { mC });
 		
-		for (int i = 0; i < 4; i++) {
-			moveForward(2000); //2s
-			turnLeft(520);
-		}
+//		for (int i = 0; i < 4; i++) {
+//			moveForward(2000); //2s
+//			turnLeft(520);
+//		}
+		moveBackward(2000); //2s
 
 	}
 	

@@ -16,7 +16,7 @@ public class HelloWorld {
 		
 		lcd.drawString("Hello Trayan", 4, 2);
 		lcd.drawString("from leJOS", 4, 3);
-		keys.waitForAnyPress(5000);
+		keys.waitForAnyPress(50000);
 		
 	}
 }
