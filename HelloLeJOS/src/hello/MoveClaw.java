@@ -47,25 +47,5 @@ public class MoveClaw {
 			lcd.drawString("Tacho: " + count, 0, 2);
 		}
 
-		// mA.rotateTo(0, false);
-
-		// Move forward
-		// RegulatedMotor mB = new EV3LargeRegulatedMotor(MotorPort.B);
-		// RegulatedMotor mC = new EV3LargeRegulatedMotor(MotorPort.C);
-		// mB.synchronizeWith(new RegulatedMotor[] { mC });
-		//
-		// mB.startSynchronization();
-		// mB.forward();
-		// mC.forward();
-		// mB.endSynchronization();
-		//
-		// Delay.msDelay(3000);
-		//
-		// mB.startSynchronization();
-		// mB.stop();
-		// mC.stop();
-		// mB.endSynchronization();
-
-		// keys.waitForAnyPress(5000);
 	}
 }
