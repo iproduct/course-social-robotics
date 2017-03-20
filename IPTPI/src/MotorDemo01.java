@@ -56,7 +56,7 @@ public class MotorDemo01 {
 		// turn duration
 		Thread.sleep(3000);
 
-
+//
 		System.out.println("Turning right");
 		//setting motor directions 
 		Gpio.digitalWrite(5, 1);
