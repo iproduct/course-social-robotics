@@ -1,0 +1,6 @@
+.panel { max-width: 500px; }
+.position-display {margin-top: 10px; margin-bottom: 10px;}
+.position-display label {display: inline-block; margin-left: 5px;}
+.pos-display {width: 50px; text-align:right;}
+.robot-controls {margin-top:5px;}
+.robot-controls button, .position-display button {font-size: 2em; line-height: 1em;} 
