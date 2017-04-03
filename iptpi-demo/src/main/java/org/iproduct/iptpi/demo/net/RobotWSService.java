@@ -3,8 +3,12 @@ package org.iproduct.iptpi.demo.net;
 import static org.iproduct.iptpi.domain.CommandName.MOVE_RELATIVE;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.nio.charset.Charset;
+import java.util.Enumeration;
 import java.util.function.Function;
 
 import org.iproduct.iptpi.domain.Command;
@@ -29,17 +33,26 @@ public class RobotWSService {
 	private PositionsFlux positions;
 	private MovementCommandSubscriber movements;
 	private Gson gson = new Gson();
+	private String ipAddress = "192.168.0.108";
 
 	private static final Charset UTF_8 = Charset.forName("utf-8");
 	private static final String GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
-	private final String MY_ADDRESS = "10.0.244.20";
-	private final int MY_PORT = 80;
+	private static final String DEFAULT_IP_ADDRESS = "192.168.0.108";
+	private static final int PORT = 80;
+	private static final String IP_V4_REGEX = "\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b";
 	private Logger log = Loggers.getLogger("RobotWSService");
 
 	public RobotWSService(PositionsFlux positions, MovementCommandSubscriber movementSubscriber)
 			throws UnknownHostException {
 		this.positions = positions;
 		this.movements = movementSubscriber;
+
+		try {
+			ipAddress = findMyInetAddress();
+		} catch (SocketException e1) {
+			e1.printStackTrace();
+		}
+
 		try {
 			setup();
 			movementCommands = TopicProcessor.create();
@@ -47,18 +60,18 @@ public class RobotWSService {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	public void setup() throws InterruptedException {
 		setupServer();
-
+		
 	}
 
 	private void setupServer() throws InterruptedException {
 		// EventLoopGroup workerGroup = new NioEventLoopGroup(6);
 
-		ServerOptions hso = ServerOptions.on(MY_ADDRESS, MY_PORT).timeoutMillis(5000);
+		ServerOptions hso = ServerOptions.on(ipAddress, PORT).timeoutMillis(5000);
 		// .keepAlive(false)
 		// .eventLoopGroup(workerGroup);
 		httpServer = HttpServer.create(hso);
@@ -179,5 +192,24 @@ public class RobotWSService {
 					);
 			});
 	}
+	
+	protected String findMyInetAddress() throws SocketException {
+		Enumeration<NetworkInterface> netInterfaces = NetworkInterface.getNetworkInterfaces();
+		while(netInterfaces.hasMoreElements())
+		{
+		    NetworkInterface n = netInterfaces.nextElement();
+		    Enumeration<InetAddress> ee = n.getInetAddresses();
+		    while (ee.hasMoreElements())
+		    {
+		        InetAddress ip = ee.nextElement();
+		        if(ip.getCanonicalHostName().matches(IP_V4_REGEX)) {
+		        	System.out.println(ip.getHostAddress() + " : " + ip.getCanonicalHostName());
+		        	return ip.getHostAddress();
+		        }
+		    }
+		}
+		return DEFAULT_IP_ADDRESS;
+	}
+
 
 }
