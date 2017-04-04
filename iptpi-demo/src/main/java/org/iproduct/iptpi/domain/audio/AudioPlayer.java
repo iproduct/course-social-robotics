@@ -43,7 +43,7 @@ public class AudioPlayer {
 //		String strFilename = "/home/pi/Music/03. For the Joy of It All.mp3";
 //		String strFilename = "/home/pi/Music/07. Sunrise at the Ganges.mp3";
 //		String strFilename = "/home/pi/az_robot.wav";
-		String strFilename = "/home/pi/proletna-sesia-fmi.mp3";
+		String strFilename = "/home/pi/dev-bg.mp3";
 		File soundFile = new File(strFilename);
 
 		new Thread(() -> {

@@ -108,8 +108,8 @@ public class LeJaRo_ServiceRobotDemo01 {
 
 	public void turn180Degree() {
 		mB.startSynchronization();
-		mB.rotate(1000, true);
-		mC.rotate(-1000, true);
+		mB.rotate(950, true);
+		mC.rotate(-950, true);
 		mB.endSynchronization();
 		while (mB.isMoving() && mC.isMoving())
 			Thread.yield();
