@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.swing.JComponent;
 
-import org.iproduct.cocktails.controller.RobotController;
+import org.iproduct.cocktails.controller.CocktailMachineController;
 import org.iproduct.cocktails.flowmeter.FlowMeterFlux;
 import org.iproduct.cocktails.net.RobotWSService;
 import org.iproduct.cocktails.pump.PumpMotorSubscriber;
-import org.iproduct.cocktails.view.RobotView;
+import org.iproduct.cocktails.view.CoctailMachineView;
 import org.iproduct.iptpi.domain.arduino.ArduinoCommandSubscriber;
 import org.iproduct.iptpi.domain.arduino.ArduinoData;
 import org.iproduct.iptpi.domain.arduino.ArduinoFactory;
