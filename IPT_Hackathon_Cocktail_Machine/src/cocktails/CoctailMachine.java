@@ -46,7 +46,7 @@ import com.pi4j.wiringpi.Gpio;
 
 public class CoctailMachine {
 
-	private static final int TARGET_IMPULS = 30;
+	private static final int TARGET_IMPULS = 15;
 
 	public static void flowMeter(List<PumpRunner> pumps) {
 
@@ -66,8 +66,8 @@ public class CoctailMachine {
 	public static void main(String[] args) throws InterruptedException {
 		List<PumpRunner> pumps = new ArrayList<PumpRunner>();
 		pumps.add(new PumpRunner(17, TARGET_IMPULS, RaspiPin.GPIO_04));
-		pumps.add(new PumpRunner(22, TARGET_IMPULS, RaspiPin.GPIO_01));
 		pumps.add(new PumpRunner(27, TARGET_IMPULS, RaspiPin.GPIO_05));
+		pumps.add(new PumpRunner(22, TARGET_IMPULS, RaspiPin.GPIO_06));
 
 		flowMeter(pumps);
 
@@ -153,8 +153,8 @@ public class CoctailMachine {
 				GpioPinDigitalStateChangeEvent event) {
 			counter++;
 			System.out.println("--> GPIO PIN STATE CHANGE " + event.getPin()
-					+ " " + event.getState());
-			if (targetCount == counter) {
+					+ " " + event.getState() + " --> " + counter);
+			if (counter >= targetCount) {
 				pump.stop();
 			}
 		}
