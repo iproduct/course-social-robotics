@@ -69,6 +69,8 @@ public class CalculatePi {
 		// Create master 
 		ActorRef master = system.actorOf(
 				Props.create(Master.class, nrOfWorkers, nrOfMessages, nrOfElements, listener), "master");
+		
+		//Tell the mastter to start calculating Pi
 		master.tell(new Calculate(), null);
 	}
 
