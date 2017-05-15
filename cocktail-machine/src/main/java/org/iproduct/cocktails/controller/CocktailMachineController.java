@@ -1,20 +1,17 @@
 package org.iproduct.cocktails.controller;
 
-import static org.iproduct.iptpi.domain.CommandName.FOLLOW_LINE;
-import static org.iproduct.iptpi.domain.CommandName.MOVE_RELATIVE;
-import static org.iproduct.iptpi.domain.CommandName.SAY_HELLO;
-import static org.iproduct.iptpi.domain.CommandName.STOP;
+import static org.iproduct.cocktails.model.CommandName.STOP;
 
 import java.util.function.Consumer;
 
-import org.iproduct.iptpi.domain.Command;
-import org.iproduct.iptpi.domain.arduino.ArduinoCommand;
-import org.iproduct.iptpi.domain.arduino.ArduinoCommandSubscriber;
-import org.iproduct.iptpi.domain.arduino.EncoderReadings;
-import org.iproduct.iptpi.domain.audio.AudioPlayer;
-import org.iproduct.iptpi.domain.movement.ForwardMovement;
-import org.iproduct.iptpi.domain.movement.MovementCommandSubscriber;
-import org.iproduct.iptpi.domain.movement.RelativeMovement;
+import org.iproduct.cocktails.model.Command;
+import org.iproduct.cocktails.model.arduino.ArduinoCommand;
+import org.iproduct.cocktails.model.arduino.ArduinoCommandSubscriber;
+import org.iproduct.cocktails.model.arduino.EncoderReadings;
+import org.iproduct.cocktails.model.audio.AudioPlayer;
+import org.iproduct.cocktails.model.movement.ForwardMovement;
+import org.iproduct.cocktails.model.movement.MovementCommandSubscriber;
+import org.iproduct.cocktails.model.movement.RelativeMovement;
 
 import reactor.core.publisher.BlockingSink;
 import reactor.core.publisher.EmitterProcessor;

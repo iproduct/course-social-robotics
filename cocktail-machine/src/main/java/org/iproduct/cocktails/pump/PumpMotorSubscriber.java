@@ -1,6 +1,6 @@
 package org.iproduct.cocktails.pump;
 
-import static com.pi4j.io.gpio.PinState.LOW;
+import static com.pi4j.io.gpio.PinState.*;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;

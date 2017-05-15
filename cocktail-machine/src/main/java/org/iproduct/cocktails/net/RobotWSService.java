@@ -1,6 +1,6 @@
 package org.iproduct.cocktails.net;
 
-import static org.iproduct.iptpi.domain.CommandName.MOVE_RELATIVE;
+import static org.iproduct.cocktails.model.CommandName.MOVE_RELATIVE;
 
 import java.io.File;
 import java.net.InetAddress;
@@ -11,10 +11,10 @@ import java.nio.charset.Charset;
 import java.util.Enumeration;
 import java.util.function.Function;
 
-import org.iproduct.iptpi.domain.Command;
-import org.iproduct.iptpi.domain.movement.MovementCommandSubscriber;
-import org.iproduct.iptpi.domain.movement.RelativeMovement;
-import org.iproduct.iptpi.domain.position.PositionsFlux;
+import org.iproduct.cocktails.model.Command;
+import org.iproduct.cocktails.model.movement.MovementCommandSubscriber;
+import org.iproduct.cocktails.model.movement.RelativeMovement;
+import org.iproduct.cocktails.model.position.PositionsFlux;
 import org.reactivestreams.Publisher;
 
 import com.google.gson.Gson;

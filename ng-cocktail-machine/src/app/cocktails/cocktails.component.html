@@ -1,0 +1,15 @@
+<h2>Available Cocktails</h2>
+<ul class="cocktails">
+  <li *ngFor="let cocktail of cocktails" class="cocktail well">
+    <h3>{{cocktail.name}}</h3>
+    <ul>
+      <li *ngFor="let ingredient of cocktail.ingredients">
+        {{ingredient.name}} - {{ingredient.percentage}}%
+      </li>
+    </ul>
+    <input type="text" [(ngModel)]="ingredientName">
+    <input type="number" [(ngModel)]="ingredientPercentage">
+    <button type="button" (click)="addIngredient()">Add Ingredient</button> 
+    <div>New Ingrdient: {{newIngredient}}</div> 
+  </li>
+</ul>
