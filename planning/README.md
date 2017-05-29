@@ -1,6 +1,6 @@
 # STRIPS PLanning Demo
 
-We'll use [JavaFF](https://nms.kcl.ac.uk/planning/software/javaff.html). Download this ZIP and extract somewhere: [javaff.zip](http://cse3521.artifice.cc/downloads/javaff.zip).
+We are using use [JavaFF](https://nms.kcl.ac.uk/planning/software/javaff.html). You can download it as ZIP: [javaff.zip](http://cse3521.artifice.cc/downloads/javaff.zip).
 
 ## JavaFF
 
