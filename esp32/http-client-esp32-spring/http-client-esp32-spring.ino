@@ -15,8 +15,12 @@ char pass[] = "";    // your network password (use for WPA, or use as key for WE
 char apiUrl[] = "http://10.108.6.106:8080/api/events";    // your Events API URL
 
 void setup() {
-  Serial.begin(115200);         // Start the Serial communication to send messages to the computer
-  Serial.println('\n');
+ //Initialize serial and wait for port to open:
+  Serial.begin(115200);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+
   // attempt to connect to Wifi network:
   int status = WL_IDLE_STATUS;
   while (status != WL_CONNECTED) {
@@ -24,9 +28,11 @@ void setup() {
     Serial.println(ssid);
     // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
     status = WiFi.begin(ssid, pass);
+
     // wait 3 seconds for connection:
     delay(3000);
   }
+  Serial.println("Connected to wifi");
   printWifiStatus();
 }
 
@@ -39,14 +45,15 @@ void loop() {
   //http.begin("https://www.howsmyssl.com/a/check", ca); //HTTPS
   http.begin(apiUrl); //HTTP
 
-  USE_SERIAL.print("[HTTP] GET: ");
+  USE_SERIAL.print("[HTTP] Post: ");
   USE_SERIAL.println(apiUrl);
   // start connection and send HTTP header
 //    int httpCode = http.GET();
   http.addHeader("Content-Type", "application/json");             //Specify content-type header
 
-  char eventString[256]; 
-  sprintf(eventString, "{time:\"%s\", distance:\"%s\"}", 1, 3);
+  char eventString[256]; //= "{\"time\":1, \"distance\":5}"; 
+  sprintf(eventString, "{\"time\":%d, \"distance\":%d}", 1, 3);
+  Serial.println(eventString);
   int httpResponseCode = http.POST(eventString);   //Send the actual POST request
  
   if(httpResponseCode>0){
