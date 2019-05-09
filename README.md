@@ -1,4 +1,4 @@
-# Reactive Java Robotics and IoT Demo
+# Course Practical Robotics & Smart Things
 
 Demo presents ent-to-end reactive hot event stream processing of IPTPI robot sensor events using Spring Reactor library from server side and WebSocket with Angular 2 (TypeScript) and RxJS (RxNext) from client side. No web server needed - all resources as well as live WebSocket events are served by custom reactive HTTP endpoint using Reactor Net.
 
