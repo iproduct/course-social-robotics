@@ -1,5 +1,15 @@
 # Reactive Java Robotics and IoT Demo
 
-Intelligent devices are all around us - automobils and homes are becoming "intelligent", clothes include "intelligent fabrics" and seamlessly embedded wearable electronics, all types of appliances and everyday "things" are becoming connected, able to communicate with each other, and with the cloud-based services. Ofthen the interaction happens using voice commands (Amazon Alexa). All this information and control capabilities become available to us using convinient embedded, mobile, voice or virtual reality interfaces from every place, whenever needed (consumer application dashboards).
+Demo presents ent-to-end reactive hot event stream processing of IPTPI robot sensor events using Spring Reactor library from server side and WebSocket with Angular 2 (TypeScript) and RxJS (RxNext) from client side. No web server needed - all resources as well as live WebSocket events are served by custom reactive HTTP endpoint using Reactor Net.
 
-Using multiple practical learning by doing projects the course provides introduction to the rapidly growing areas of Service Robotics and Internet of Things (IoT, smart things). The emphasis is on achievement of first-hand experience by building and programing educational robots and connected "things" using technologies such as C++, Python, Java, Arduino, Raspberry Pi 2/3/Zero, Lego, ESP 8266, WiFi, Bluetooth, MQTT, sensors, actuators, etc.
+The main application component class AppComponent is in src/main/webapp/app folder, together with custom reactive WebSocket implementation - IPTRxWebSocketSubject component. IPTRxWebSocketSubject is exposing WebSocket as RxJS bidirectional Subject (by idea from RxDOM), plus reactive WebSocket open and close observers.
+
+There are two types of clients - embedded client using Java Swing (whole screen mode) and mobile web client using Angular 2 (TypereScript) and RxJS:
+
+The emebedded Swing client is in class RobotView (https://github.com/iproduct/jprime-demo/blob/master/iptpi-demo/src/main/java/org/iproduct/iptpi/demo/view/RobotView.java)
+
+The web client (ng2 + RxJS) is in src/main/webapp folder (https://github.com/iproduct/jprime-demo/tree/master/iptpi-demo/src/main/webapp)
+
+The main Angular 2 application component class AppComponent is in src/main/webapp/app folder, together with custom reactive WebSocket implementation - IPTRxWebSocketSubject component. IPTRxWebSocketSubject is exposing WebSocket as RxJS bidirectional subject (by idea from RxDOM), plus reactive WebSocket open and close observers.
+
+Server side is implemented using Reactor (http://projectreactor.io/) project. Main main class is org.iproduct.iptpi.demo.IPTPIVoxxedDemo in src/main/java folder. The network communication is implemented in class org.iproduct.iptpi.demo.net.PositionsWsService. It serves all resources required by the client using Reactor Net (Netty), and could be started as console application - no webserver required. WebSocket bi-directional communication is implemented in a reactive (and compact) way in getWsHandler() method.
