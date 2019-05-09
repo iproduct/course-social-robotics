@@ -1,4 +1,5 @@
 # Reactive Java Robotics and IoT Demo
 
 Intelligent devices are all around us - automobils and homes are becoming "intelligent", clothes include "intelligent fabrics" and seamlessly embedded wearable electronics, all types of appliances and everyday "things" are becoming connected, able to communicate with each other, and with the cloud-based services. Ofthen the interaction happens using voice commands (Amazon Alexa). All this information and control capabilities become available to us using convinient embedded, mobile, voice or virtual reality interfaces from every place, whenever needed (consumer application dashboards).
+
 Using multiple practical learning by doing projects the course provides introduction to the rapidly growing areas of Service Robotics and Internet of Things (IoT, smart things). The emphasis is on achievement of first-hand experience by building and programing educational robots and connected "thigs" using technologies such as Arduino, Raspberry Pi 2/3/Zero, ESP 8266, Lego, sensors, actuators, etc.
