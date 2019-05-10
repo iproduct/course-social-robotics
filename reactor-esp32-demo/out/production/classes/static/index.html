@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>My first three.js app</title>
+    <style> body {
+        margin: 0;
+    }
+
+    canvas {
+        width: 100%;
+        height: 100%
+    } </style>
+</head>
+<body>
+<div style="position:absolute; left:0; top: 0;">
+    <h2>Distance: <span id="distance"></span></h2>
+    <h2>Button: <span id="button"></span></h2>
+</div>
+<script src="js/three.js"></script>
+<script src="js/stats.min.js"></script>
+<script>
+    var api = "http://localhost:8080/api/";
+
+    var camera, scene, renderer,
+        geometry, material, group, arrowX, arrowY, arrowZ, state;
+
+    init();
+    animate();
+    registerListeners();
+
+    function init() {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf0f0f0);
+
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
+        camera.position.z = 1200;
+        camera.position.x = 500;
+        camera.position.y = 200;
+
+        // geometry = new THREE.BoxGeometry(600, 200, 100);
+        // material = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: false});
+
+        group = new THREE.Group();
+        group.add( createBox());
+        var origin = new THREE.Vector3(0, 0, 0);
+        arrowX = createArrow(origin, new THREE.Vector3(-350, 0, 0 ), 0xff0000);
+        arrowY = createArrow(origin, new THREE.Vector3(0, 150, 0 ), 0x00ff00);
+        arrowZ = createArrow(origin, new THREE.Vector3(0, 0, -850 ), 0x0000ff);
+        group.add(arrowX);
+        group.add(arrowY);
+        group.add(arrowZ);
+
+        scene.add(group);
+
+        var sunLight = new THREE.DirectionalLight( 'rgb(255,255,255)', 1 );
+        sunLight.position.set( 5000, 7000, - 1000 );
+        sunLight.lookAt( scene.position );
+        scene.add( sunLight );
+
+        raycaster = new THREE.Raycaster();
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        stats = new Stats();
+        stats.domElement.style.cssText = 'position:absolute;top:0px;right:0px;';
+        document.body.appendChild(stats.dom);
+
+        window.addEventListener( 'resize', onWindowResize, false );
+        onWindowResize();
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        render();
+    }
+
+    function render() {
+        if (state) {
+            group.rotation.x = radians(-state.roll);
+            group.rotation.z = radians(-state.pitch - 25);
+            group.rotation.y = radians(-state.yaw - 60);
+            arrowX.setLength(300 - state.accel.x * 5);
+            arrowY.setLength(100 + state.accel.z * 5);
+            arrowZ.setLength(800 - state.accel.y * 5);
+            document.getElementById('distance').innerHTML = state.distance;
+            document.getElementById('button').innerHTML = state.button;
+        }
+
+        renderer.render(scene, camera);
+        stats.update();
+    }
+
+    function createBox() {
+        var cubeMaterials = [
+            new THREE.MeshBasicMaterial({color: 0x2173fd}),
+            new THREE.MeshBasicMaterial({color: 0xd5d918}),
+            new THREE.MeshBasicMaterial({color: 0xd2dbeb}),
+            new THREE.MeshBasicMaterial({color: 0xa3a3c6}),
+            new THREE.MeshBasicMaterial({color: 0xfe6b9f}),
+            new THREE.MeshBasicMaterial({color: 0x856af9})
+        ];
+
+        var cubeGeometry = new THREE.BoxGeometry(300, 100, 800);
+        box = new THREE.Mesh(cubeGeometry, cubeMaterials);
+        return box;
+    }
+
+    // function createArrow() {
+    //     var dir = new THREE.Vector3(0, 0, -1);
+    //     dir.normalize();
+    //
+    //     var origin = new THREE.Vector3(0, 0, 0);
+    //     var length = 1200;
+    //
+    //     var arrow = new THREE.ArrowHelper(dir, origin, 1200, 0xff0000, 200, 100);
+    //     arrow.line.material = material;
+    //     return arrow;
+    // }
+
+    function createArrow(point1, point2, color) {
+        var direction = new THREE.Vector3().subVectors(point2, point1);
+        var arrow = new THREE.ArrowHelper(direction.clone().normalize(), point1, direction.length(), color, 300, 200);
+        return arrow;
+    }
+
+    function onWindowResize() {
+        SCREEN_WIDTH = window.innerWidth;
+        SCREEN_HEIGHT = window.innerHeight;
+        renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+        camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+        camera.updateProjectionMatrix();
+    }
+
+    function registerListeners() {
+        if (!!window.EventSource) {
+            var eventSource = new EventSource(api + "events-json");
+
+            eventSource.addEventListener('message', function (event) {
+                state = JSON.parse(event.data);
+                console.log(state);
+            }, false);
+
+            eventSource.addEventListener('open', function (e) {
+                console.log('Opened: ', e);
+            }, false);
+
+            document.addEventListener('unload', function () {
+                eventSource.close();
+            });
+
+        }
+    }
+
+    function radians(degrees) {
+        return degrees * Math.PI / 180;
+    }
+</script>
+</body>
+</html>

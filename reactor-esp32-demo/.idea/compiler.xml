@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="12-reactive-streaming-demos_main" target="1.10" />
+      <module name="12-reactive-streaming-demos_test" target="1.10" />
+      <module name="demo-reactor-esp32_main" target="1.8" />
+      <module name="demo-reactor-esp32_test" target="1.8" />
+      <module name="demo-reactor_main" target="1.8" />
+      <module name="demo-reactor_test" target="1.8" />
+      <module name="reactive-streaming-demos_main" target="1.10" />
+      <module name="reactive-streaming-demos_test" target="1.10" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
