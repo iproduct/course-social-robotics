@@ -104,7 +104,7 @@ public class MotorDemo07 {
 		// mB.stop();
 		// mC.stop();
 		// mB.rotateTo(360);
-		// mB.rotate(-720, true);
+//		 mB.rotate(-720, true);
 		// while (mB.isMoving())
 		// Thread.yield();
 		// angle = mB.getTachoCount();
