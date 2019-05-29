@@ -47,11 +47,8 @@ build
 
 # IDEs and editors
 /.idea
-.project
 .metadata
-.classpath
 *.launch
-.settings/
 
 # misc
 /.sass-cache
