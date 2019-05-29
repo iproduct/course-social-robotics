@@ -79,7 +79,7 @@ public class JavaFF
 		generator = new Random();
 		
 		if (args.length < 2) {
-			System.out.println("Parameters needed: domainFile.pddl problemFile.pddl [random seed] [outputfile.sol");
+			System.out.println("Parameters needed: domainFile.pddl problemFile.pddl [random seed] [outputfile.sol]");
 
 		} else {
 			File domainFile = new File(args[0]);
