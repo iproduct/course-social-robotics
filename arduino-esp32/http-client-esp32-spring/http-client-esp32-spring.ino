@@ -8,10 +8,12 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #define USE_SERIAL Serial
+#include "arduino_secrets.h"
 
-char ssid[] = "FMI-AIR-NEW"; //  your network SSID (name)
-char pass[] = "";    // your network password (use for WPA, or use as key for WEP)
-char apiUrl[] = "http://10.108.6.106:8080/api/events";    // your Events API URL
+const char* ssid = SECRET_SSID;
+const char* pass = SECRET_PASS;
+int distance = 5;
+char apiUrl[] = "http://192.168.0.12:8080/api/events";    // your Events API URL
 
 void setup() {
  //Initialize serial and wait for port to open:
@@ -29,7 +31,7 @@ void setup() {
     status = WiFi.begin(ssid, pass);
 
     // wait 3 seconds for connection:
-    delay(3000);
+    delay(1000);
   }
   Serial.println("Connected to wifi");
   printWifiStatus();
@@ -51,7 +53,7 @@ void loop() {
   http.addHeader("Content-Type", "application/json");             //Specify content-type header
 
   char eventString[256]; //= "{\"time\":1, \"distance\":5}"; 
-  sprintf(eventString, "{\"time\":%d, \"distance\":%d}", 1, 3);
+  sprintf(eventString, "{\"time\":%d, \"distance\":%d}", millis(), distance++);
   Serial.println(eventString);
   int httpResponseCode = http.POST(eventString);   //Send the actual POST request
  

@@ -20,15 +20,16 @@
  */
 
 #include <WiFi.h>
+#include "arduino_secrets.h"
 
-char ssid[] = "FMI-AIR-NEW"; //  your network SSID (name)
-char pass[] = "";    // your network password (use for WPA, or use as key for WEP)
+const char* ssid = SECRET_SSID;
+const char* pass = SECRET_PASS;
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
 // if you don't want to use DNS (and reduce your sketch size)
 // use the numeric IP instead of the name for the server:
-IPAddress server(10,108,6,106);  // numeric IP for Google (no DNS)
+char* server ="192.168.0.12";  // numeric IP for Google (no DNS)
 //char server[] = "10.108.6.106";    // name address for Google (using DNS)
 int port = 8080;
 
@@ -67,7 +68,7 @@ void setup() {
       // Make a HTTP request:
       client.println("GET /api/events HTTP/1.1");
 //      client.println("GET /api/articles HTTP/1.1");
-      client.println("Host: 10.108.6.106");
+      client.println("Host: 192.168.0.12");
       client.println("Connection: close");
       client.println();
     }

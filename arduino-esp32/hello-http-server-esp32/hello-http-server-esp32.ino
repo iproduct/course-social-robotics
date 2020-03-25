@@ -2,13 +2,14 @@
 #include <WiFiClient.h>
 #include <WebServer.h>
 #include <ESPmDNS.h>
+#include "arduino_secrets.h"
 
-const char* ssid = "FMI-AIR-NEW";
-const char* password = "";
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
 
 WebServer server(80);
 
-const int led = 13;
+const int led = 23;
 
 void handleRoot() {
   digitalWrite(led, 1);

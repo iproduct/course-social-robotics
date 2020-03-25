@@ -20,9 +20,10 @@
  */
 
 #include <WiFi.h>
+#include "arduino_secrets.h"
 
-char ssid[] = "FMI-AIR-NEW"; //  your network SSID (name)
-char pass[] = "";    // your network password (use for WPA, or use as key for WEP)
+const char* ssid = SECRET_SSID;
+const char* pass = SECRET_PASS;
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
