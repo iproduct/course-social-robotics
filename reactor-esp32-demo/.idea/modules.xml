@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo-reactor.iml" filepath="$PROJECT_DIR$/.idea/modules/demo-reactor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo-reactor-esp32.iml" filepath="$PROJECT_DIR$/.idea/modules/demo-reactor-esp32.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo-reactor-esp32_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo-reactor-esp32_main.iml" group="demo-reactor-esp32" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo-reactor-esp32_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo-reactor-esp32_test.iml" group="demo-reactor-esp32" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo-reactor_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo-reactor_main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo-reactor_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo-reactor_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reactor-esp32-demo.iml" filepath="$PROJECT_DIR$/.idea/modules/reactor-esp32-demo.iml" group="reactor-esp32-demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reactor-esp32-demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/reactor-esp32-demo_main.iml" group="reactor-esp32-demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reactor-esp32-demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/reactor-esp32-demo_test.iml" group="reactor-esp32-demo" />
     </modules>
   </component>
 </project>

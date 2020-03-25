@@ -10,6 +10,8 @@
       <module name="demo-reactor_test" target="1.8" />
       <module name="reactive-streaming-demos_main" target="1.10" />
       <module name="reactive-streaming-demos_test" target="1.10" />
+      <module name="reactor-esp32-demo_main" target="1.8" />
+      <module name="reactor-esp32-demo_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
