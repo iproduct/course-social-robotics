@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f7f8968-8f8b-4bb3-8491-8e2dd76e61f9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../arduino-esp32/hello-http-server-esp32/hello-http-server-esp32.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/hello-http-server-esp32/hello-http-server-esp32.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../arduino-esp32/simple-http-client-esp32/simple-http-client-esp32.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/simple-http-client-esp32/simple-http-client-esp32.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../esp32-demo/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../esp32-demo/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iot-demo-springboot/src/main/java/robotics/demos/iot/dao/EventRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iot-demo-springboot/src/main/java/robotics/demos/iot/model/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iot-demo-springboot/src/main/java/robotics/demos/iot/web/EventRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arduino-async-udp-client/AsyncUDPClient.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arduino-esp32/blink-esp32-dev-board/blink-esp32-dev-board.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/blink-esp32-dev-board/blink-esp32-dev-board.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arduino-udp-wifi-LSM303D/udp-wifi-LSM303D.ino" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,6 +226,7 @@
       <workItem from="1555655595805" duration="10427000" />
       <workItem from="1556087470393" duration="2872000" />
       <workItem from="1585147757199" duration="1058000" />
+      <workItem from="1585725659165" duration="1946000" />
     </task>
     <task id="LOCAL-00001" summary="reactive webflux demo - user management with security added">
       <created>1527399441835</created>
