@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f7f8968-8f8b-4bb3-8491-8e2dd76e61f9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../iot-demo-springboot/src/main/java/robotics/demos/iot/dao/EventRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../iot-demo-springboot/src/main/java/robotics/demos/iot/model/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../iot-demo-springboot/src/main/java/robotics/demos/iot/web/EventRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../arduino-async-udp-client/AsyncUDPClient.ino" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../arduino-esp32/blink-esp32-dev-board/blink-esp32-dev-board.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/blink-esp32-dev-board/blink-esp32-dev-board.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../arduino-udp-wifi-LSM303D/udp-wifi-LSM303D.ino" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,12 +19,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="147" />
-    <option name="y" value="27" />
-    <option name="width" value="2103" />
-    <option name="height" value="1233" />
   </component>
   <component name="ProjectId" id="1ZcoU6pgm5WN5coS8WPd3wQkuPp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

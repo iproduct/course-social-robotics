@@ -13,6 +13,7 @@ const char* ssid = SECRET_SSID;
 const char* pass = SECRET_PASS;
 const char* apiUrl = "http://192.168.0.12:8080/api/events";    // your Events API URL
 
+const char* headers[1]= {"Location"};
 const int trigPin = 15;
 const int echoPin = 2;
 int distance;
@@ -88,13 +89,16 @@ String sendReadingPOST(int distance) {
   char eventString[256];
   sprintf(eventString, "{\"timestamp\":%d, \"reading\":%d}", millis(), distance);
   Serial.println(eventString);
+  http.collectHeaders(headers, 1);
   int httpResponseCode = http.POST(eventString);   //Send the actual POST request
  
   if(httpResponseCode>0){
-    String response = http.getString();                       //Get the response to the request
+    String response = http.getString();  //Get the response to the request
+    Serial.print("Response code: ");    
     Serial.println(httpResponseCode);   //Print return code
     Serial.println(response);           //Print request answer
-//    Serial.println(http.getResponse().getHeader("Location"));   //Print Location header
+    Serial.print("Location : ");    
+    Serial.println(http.header("Location"));   //Print Location header
     return response;
   }else{
     Serial.print("Error on sending POST: ");
