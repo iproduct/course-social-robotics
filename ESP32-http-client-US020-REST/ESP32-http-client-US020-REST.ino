@@ -104,12 +104,12 @@ String sendReadingPOST(int distance) {
 int readDistance() {
   // Read US sensor data
   digitalWrite(trigPin, HIGH);              //begin to send a high pulse, then US-015 begin to measure the distance
-  delayMicroseconds(50);                    //set this high pulse width as 50us (>10us)
+  delayMicroseconds(150);                    //set this high pulse width as 50us (>10us)
   digitalWrite(trigPin, LOW);               //end this high pulse  delayMicroseconds(10);
   
   unsigned long duration = pulseIn(echoPin, HIGH);
 //  if((duration < 60000) && (duration > 1)) {
-    return duration;
+    return duration*0.017;
 //  } else {
 //    return -1;
 //  }
