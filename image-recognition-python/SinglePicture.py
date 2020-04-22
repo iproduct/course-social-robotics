@@ -8,6 +8,6 @@ camera = PiCamera()
 path = os.getcwd() + "/images/"
 
 camera.start_preview()
-sleep(3)
+sleep(10)
 camera.capture(path + '/image.jpg')
 camera.stop_preview()
