@@ -49,61 +49,6 @@ public class LEDDemo01 {
 		}
 		Gpio.digitalWrite(LED, false);
 		System.out.println("LED Demo finished.");
-		
-
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, 240);
-		// Gpio.pwmWrite(13, 240);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(5000);
-		//
-		// System.out.println("Running motors forward accelerating");
-		//
-		// for (int i = 0; i <= 480; i++) {
-		// Gpio.digitalWrite(5, 1);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, i);
-		// Gpio.pwmWrite(13, i);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(40);
-		// }
-		//
-		// System.out.println("Running motors forward decelerating");
-		// for (int i = 480; i > 0; i--) {
-		// Gpio.digitalWrite(5, 1);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, i);
-		// Gpio.pwmWrite(13, i);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(20);
-		// }
-		//
-		// Gpio.digitalWrite(5, 0);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, 240);
-		// Gpio.pwmWrite(13, 240);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(5000);
-		//
-		// System.out.println("Running motors forward decelerating");
-		// for (int i = 480; i > 0; i--) {
-		// Gpio.digitalWrite(5, 1);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, i);
-		// Gpio.pwmWrite(13, i);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(50);
-		// }
-		//
-		// Gpio.digitalWrite(5, 0);
-		// Gpio.digitalWrite(6, 0);
-		// Gpio.pwmWrite(12, 0);
-		// Gpio.pwmWrite(13, 0);
 
 		System.out.println("End of the demo.");
 
