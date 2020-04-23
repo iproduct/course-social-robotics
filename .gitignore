@@ -36,6 +36,7 @@ typings
 
 # Build directory
 build
+bin
 
 # compiled output
 /dist
