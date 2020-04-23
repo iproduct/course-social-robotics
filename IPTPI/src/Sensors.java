@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import com.pi4j.io.i2c.I2CBus;
 import com.pi4j.io.i2c.I2CDevice;
 import com.pi4j.io.i2c.I2CFactory;
+import com.pi4j.io.i2c.I2CFactory.UnsupportedBusNumberException;
 
 public class Sensors {
 	public static final int GYRO_NUM_BYTES_READ = 6; // X, Y, Z axes - 2 bytes each
@@ -42,8 +43,9 @@ public class Sensors {
     /**
      * @param args
      * @throws IOException 
+     * @throws UnsupportedBusNumberException 
      */
-    public Sensors() throws IOException {
+    public Sensors() throws IOException, UnsupportedBusNumberException {
         System.out.println("Starting sensors reading:");
         
         // get I2C bus instance
@@ -302,7 +304,7 @@ public class Sensors {
         }
     }
     
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, UnsupportedBusNumberException {
     	Sensors s = new Sensors();
     	for (int i = 1; i < 100; i ++){
 //    		s.readGyro();

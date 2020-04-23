@@ -44,43 +44,47 @@ public class MotorDemo01 {
 		Gpio.pwmSetMode(Gpio.PWM_MODE_MS);
 		Gpio.pwmSetRange(480);
 		Gpio.pwmSetClock(2);
+		
+		System.out.println("Starting the demo...");
 
 
 		System.out.println("Turning left");
 		//setting motor directions 
-		Gpio.digitalWrite(5, 1);
-		Gpio.digitalWrite(6, 0);
+		Gpio.digitalWrite(5, 0);
+		Gpio.digitalWrite(6, 1);
 		//setting speed
-		Gpio.pwmWrite(12, 460); // speed 460 of 480 max
-		Gpio.pwmWrite(13, 460);
+		Gpio.pwmWrite(12, 240); // speed 460 of 480 max
+		Gpio.pwmWrite(13, 240);
 		// turn duration
 		Thread.sleep(3000);
 
-//
+
 		System.out.println("Turning right");
 		//setting motor directions 
 		Gpio.digitalWrite(5, 1);
 		Gpio.digitalWrite(6, 0);
 		//setting speed
-		Gpio.pwmWrite(12, 460); // speed 460 of 480 max
-		Gpio.pwmWrite(13, 460);
+		Gpio.pwmWrite(12, 240); // speed 460 of 480 max
+		Gpio.pwmWrite(13, 240);
+//		SoftPwm.softPwmWrite(12, 480);
+		
 		// turn duration
 		Thread.sleep(3000);
 
 		System.out.println("Running motors forward accelerating");
 
-		for (int i = 0; i <= 480; i++) {
+		for (int i = 150; i <= 360; i++) {
 			//setting motor directions 
 			Gpio.digitalWrite(5, 1);
 			Gpio.digitalWrite(6, 1);
 			//setting speed
 			Gpio.pwmWrite(12, i); 
 			Gpio.pwmWrite(13, i);
-			Thread.sleep(40);
+			Thread.sleep(20);
 		}
 
 		System.out.println("Running motors forward decelerating");
-		for (int i = 480; i > 0; i--) {
+		for (int i = 360; i > 150; i--) {
 			//setting motor directions 
 			Gpio.digitalWrite(5, 1);
 			Gpio.digitalWrite(6, 1);
@@ -90,23 +94,23 @@ public class MotorDemo01 {
 			Thread.sleep(20);
 		}
 
-		//setting motor directions 
-		Gpio.digitalWrite(5, 0);
-		Gpio.digitalWrite(6, 1);
-		//setting speed
-		Gpio.pwmWrite(12, 240);
-		Gpio.pwmWrite(13, 240);
-		Thread.sleep(5000);
+//		//setting motor directions 
+//		Gpio.digitalWrite(5, 1);
+//		Gpio.digitalWrite(6, 1);
+//		//setting speed
+//		Gpio.pwmWrite(12, 460);
+//		Gpio.pwmWrite(13, 460);
+//		Thread.sleep(5000);
 
 		System.out.println("Running motors backwards decelerating");
-		for (int i = 480; i > 0; i--) {
+		for (int i = 360; i > 150; i--) {
 			//setting motor directions 
 			Gpio.digitalWrite(5, 0);
 			Gpio.digitalWrite(6, 0);
 			//setting speed
 			Gpio.pwmWrite(12, i);
 			Gpio.pwmWrite(13, i);
-			Thread.sleep(40);
+			Thread.sleep(20);
 		}
 
 		// turning the motors off

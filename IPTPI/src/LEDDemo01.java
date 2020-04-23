@@ -30,22 +30,26 @@ import com.pi4j.wiringpi.GpioUtil;
 import com.pi4j.wiringpi.SoftPwm;
 
 public class LEDDemo01 {
+	public static final int LED  = 5;
 
 	public static void main(String[] args) throws InterruptedException {
 
+		System.out.println("LED Demo started.");
 		// initialize wiringPi library
 		Gpio.wiringPiSetupGpio();
 
 		// GPIO output pin
-		Gpio.pinMode(4, Gpio.OUTPUT);
+		Gpio.pinMode(LED, Gpio.OUTPUT);
 
 		for (int i = 0; i < 10; i++) {
-			Gpio.digitalWrite(4, true);
+			Gpio.digitalWrite(LED, true);
 			Thread.sleep(1000);
-			Gpio.digitalWrite(4, false);
+			Gpio.digitalWrite(LED, false);
 			Thread.sleep(1000);
 		}
-		Gpio.digitalWrite(4, false);
+		Gpio.digitalWrite(LED, false);
+		System.out.println("LED Demo finished.");
+		
 
 		// Gpio.digitalWrite(6, 1);
 		//
