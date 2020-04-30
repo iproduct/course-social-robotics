@@ -1,19 +1,19 @@
 # USAGE
 # python recognize.py --detector face_detection_model \
-#	--embedding-model openface_nn4.small2.v1.t7 \
-#	--recognizer output/recognizer.pickle \
-#	--le output/le.pickle
+#   --embedding-model openface_nn4.small2.v1.t7 \
+#   --recognizer output/recognizer.pickle \
+#   --le output/le.pickle
 
 # import the necessary packages
 from picamera import PiCamera
 from time import sleep
-from PIL import Image
-import coctail
+# from PIL import Image
+# import coctail
 import numpy as np
 import argparse
 import imutils
 import pickle
-import serial
+# import serial
 import cv2
 import os
 import io
@@ -22,19 +22,19 @@ import time
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--detector", required=True,
-	help="path to OpenCV's deep learning face detector")
+    help="path to OpenCV's deep learning face detector")
 ap.add_argument("-m", "--embedding-model", required=True,
-	help="path to OpenCV's deep learning face embedding model")
+    help="path to OpenCV's deep learning face embedding model")
 ap.add_argument("-r", "--recognizer", required=True,
-	help="path to model trained to recognize faces")
+    help="path to model trained to recognize faces")
 ap.add_argument("-l", "--le", required=True,
-	help="path to label encoder")
+    help="path to label encoder")
 ap.add_argument("-c", "--confidence", type=float, default=0.5,
-	help="minimum probability to filter weak detections")
+    help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
 
-ser = serial.Serial('/dev/ttyACM0', 9600)
-ser.flushInput()
+# ser = serial.Serial('/dev/ttyACM0', 9600)
+# ser.flushInput()
 
 probableNames = []
 
@@ -58,7 +58,7 @@ camera.resolution = (640, 360)
 print("[INFO] loading face detector...")
 protoPath = os.path.sep.join([args["detector"], "deploy.prototxt"])
 modelPath = os.path.sep.join([args["detector"],
-	"res10_300x300_ssd_iter_140000.caffemodel"])
+    "res10_300x300_ssd_iter_140000.caffemodel"])
 detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
 
 # load our serialized face embedding model from disk
@@ -84,18 +84,18 @@ preferences = {'mitko': (10, 0, 0), 'trayan': (50, 0, 0), 'joro': (0, 0, 10), 'm
 print ("starting endless while")
 
 while True:
-        command = int (ser.readline())
-        print("command %d" % command)
+#         command = int (ser.readline())
+#         print("command %d" % command)
+# 
+#         if command == 30:
+#             madeShapshots = False
+#             key = cv2.waitKey(250) & 0xFF
+#             # if the `q` key was pressed, break from the loop
+#             if key == ord("q"):
+#                 break
+#             continue
 
-        if command == 30:
-            madeShapshots = False
-            key = cv2.waitKey(250) & 0xFF
-            # if the `q` key was pressed, break from the loop
-            if key == ord("q"):
-                break
-            continue
-
-        if command == 25 and madeSnapshots == False:
+#         if command == 25 and madeSnapshots == False:
             madeSnapshots = True
             sleep(0.5)
             for photoIdx in range(5):
@@ -183,9 +183,9 @@ while True:
             res = most_common(probableNames)
             print("Name: '%s'" % res)
 
-            coctailProportions = preferences[res]
-            print ("calling coctails function")
-            coctail.makeCoctail(coctailProportions)
+#             coctailProportions = preferences[res]
+#             print ("calling coctails function")
+#             coctail.makeCoctail(coctailProportions)
 
             
 # show the output image
