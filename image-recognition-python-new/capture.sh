@@ -1,0 +1,1 @@
+python3 cv2_single_picture.py
