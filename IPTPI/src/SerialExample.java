@@ -27,13 +27,14 @@
  * #L%
  */
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Scanner;
 
 import com.pi4j.io.serial.Serial;
 import com.pi4j.io.serial.SerialDataEvent;
-import com.pi4j.io.serial.SerialDataListener;
+import com.pi4j.io.serial.SerialDataEventListener;
 import com.pi4j.io.serial.SerialFactory;
 import com.pi4j.io.serial.SerialPortException;
 import com.pi4j.wiringpi.Gpio;
@@ -75,21 +76,25 @@ public class SerialExample {
 		final Serial serial = SerialFactory.createInstance();
 
 		// create and register the serial data listener
-		serial.addListener(new SerialDataListener() {
+		serial.addListener(new SerialDataEventListener() {
 
 			@Override
 			public void dataReceived(SerialDataEvent event) {
 				// print out the data received to the console
-				byte[] reading = event.getData().getBytes();
-				for (int i = 0; i < reading.length; i++)
-					System.out.println(Integer.toBinaryString(reading[i]) + "  ");
-				System.out.println();
-				System.out.println(new String(reading, Charset.forName("UTF-8")));
-				System.out.println(Arrays.toString(reading));
+				try {
+					byte[] reading = event.getBytes();
+					for (int i = 0; i < reading.length; i++)
+						System.out.println(Integer.toBinaryString(reading[i]) + "  ");
+					System.out.println();
+					System.out.println(new String(reading, Charset.forName("UTF-8")));
+					System.out.println(Arrays.toString(reading));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+	
 				try {
 					Thread.sleep(10);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -101,14 +106,14 @@ public class SerialExample {
 			// try {
 			serial.open(PORT, 9600);
 			System.out.println("Demo running ... Press <ENTER> to finish.");
-			sc.nextLine();
+			// sc.nextLine();
 
-//			for (int i = 0; i < 100; i++) {
-//				Gpio.digitalWrite(14, true);
-//				Thread.sleep(40);
-//				Gpio.digitalWrite(14, false);
-//				Thread.sleep(2000);
-//			}
+			for (int i = 0; i < 100; i++) {
+				Gpio.digitalWrite(14, true);
+				Thread.sleep(40);
+				Gpio.digitalWrite(14, false);
+				Thread.sleep(2000);
+			}
 			System.out.println("Demo finished.");
 			// } catch (IOException e) {
 			// // TODO Auto-generated catch block
@@ -145,7 +150,7 @@ public class SerialExample {
 			// Thread.sleep(1000);
 			// }
 
-		} catch (SerialPortException ex) {
+		} catch (IOException ex) {
 			System.out.println(" ==>> SERIAL SETUP FAILED : " + ex.getMessage());
 			return;
 		}

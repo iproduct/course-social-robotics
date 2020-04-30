@@ -30,76 +30,25 @@ import com.pi4j.wiringpi.GpioUtil;
 import com.pi4j.wiringpi.SoftPwm;
 
 public class LEDDemo01 {
+	public static final int LED  = 5;
 
 	public static void main(String[] args) throws InterruptedException {
 
+		System.out.println("LED Demo started.");
 		// initialize wiringPi library
 		Gpio.wiringPiSetupGpio();
 
 		// GPIO output pin
-		Gpio.pinMode(4, Gpio.OUTPUT);
+		Gpio.pinMode(LED, Gpio.OUTPUT);
 
 		for (int i = 0; i < 10; i++) {
-			Gpio.digitalWrite(4, true);
+			Gpio.digitalWrite(LED, true);
 			Thread.sleep(1000);
-			Gpio.digitalWrite(4, false);
+			Gpio.digitalWrite(LED, false);
 			Thread.sleep(1000);
 		}
-		Gpio.digitalWrite(4, false);
-
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, 240);
-		// Gpio.pwmWrite(13, 240);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(5000);
-		//
-		// System.out.println("Running motors forward accelerating");
-		//
-		// for (int i = 0; i <= 480; i++) {
-		// Gpio.digitalWrite(5, 1);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, i);
-		// Gpio.pwmWrite(13, i);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(40);
-		// }
-		//
-		// System.out.println("Running motors forward decelerating");
-		// for (int i = 480; i > 0; i--) {
-		// Gpio.digitalWrite(5, 1);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, i);
-		// Gpio.pwmWrite(13, i);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(20);
-		// }
-		//
-		// Gpio.digitalWrite(5, 0);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, 240);
-		// Gpio.pwmWrite(13, 240);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(5000);
-		//
-		// System.out.println("Running motors forward decelerating");
-		// for (int i = 480; i > 0; i--) {
-		// Gpio.digitalWrite(5, 1);
-		// Gpio.digitalWrite(6, 1);
-		//
-		// Gpio.pwmWrite(12, i);
-		// Gpio.pwmWrite(13, i);
-		// // SoftPwm.softPwmWrite(12, i);
-		// Thread.sleep(50);
-		// }
-		//
-		// Gpio.digitalWrite(5, 0);
-		// Gpio.digitalWrite(6, 0);
-		// Gpio.pwmWrite(12, 0);
-		// Gpio.pwmWrite(13, 0);
+		Gpio.digitalWrite(LED, false);
+		System.out.println("LED Demo finished.");
 
 		System.out.println("End of the demo.");
 
