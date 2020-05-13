@@ -71,3 +71,6 @@ Thumbs.db
 
 #Arduino secrets
 arduino_secrets.h
+
+#python
+venv/
