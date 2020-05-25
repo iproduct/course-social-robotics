@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5a7fda7-f20d-4f9b-b5db-87b2b440dde1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/logistic_regression-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/.ipynb_checkpoints/PewDiePie-checkpoint.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistic_regression.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/pandas_intro-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pandas_intro.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +18,9 @@
   </component>
   <component name="JupyterTrust" id="fc85bae8-a9c9-43a2-bf0c-e4843a0a33e1" />
   <component name="ProjectId" id="1brIN2LO66tQQj7eFmmApF0YOE1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -52,12 +56,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589383741689</updated>
-      <workItem from="1589383744246" duration="7107000" />
+      <workItem from="1589383744246" duration="7656000" />
+      <workItem from="1589958416310" duration="823000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="120" key="#Inspections" timestamp="1589384165865">
@@ -72,5 +80,9 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state x="355" y="104" width="1249" height="713" key="SettingsEditor/0.0.1707.920@0.0.1707.920" timestamp="1589385664160" />
+    <state x="550" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1589958476680">
+      <screen x="0" y="0" width="1707" height="920" />
+    </state>
+    <state x="550" y="285" key="com.intellij.ide.util.TipDialog/0.0.1707.920@0.0.1707.920" timestamp="1589958476680" />
   </component>
 </project>
