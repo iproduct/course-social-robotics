@@ -1,0 +1,5 @@
+(define (problem planeProblem)
+  (:domain planeDomain)
+  (:objects planeOne  munich rome)
+  (:init (airport munich) (airport rome) (plane planeOne) (planeAt-airport planeOne rome))
+  (:goal (planeAt-airport planeOne munich)))
