@@ -29,7 +29,7 @@ public class LeJaRo_ServiceRobotDemo01 {
 	// Audio audio = ev3.getAudio();
 
 	// Color sensor
-	EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S3);
+	EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
 	SensorMode color = colorSensor.getRGBMode();
 	float[] colorSample = new float[color.sampleSize()];
 

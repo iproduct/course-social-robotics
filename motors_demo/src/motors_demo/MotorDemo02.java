@@ -19,7 +19,7 @@ public class MotorDemo02 {
 		Motor.C.setSpeed(720);
 		Motor.B.forward();
 		Motor.C.forward();
-		Delay.msDelay(1000);
+		Delay.msDelay(2000);
 		Motor.B.stop();
 		Motor.C.stop();
 		Motor.B.rotateTo(360);

@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.2.5.RELEASE'
+		springBootVersion = '2.4.1'
 	}
 	repositories {
 		mavenCentral()
@@ -26,7 +26,7 @@ idea {
 
 group = 'org.iproduct.demos.spring'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 8
+sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -47,7 +47,7 @@ dependencies {
 	compile ('org.slf4j:jcl-over-slf4j')
 //	compile ('ch.qos.logback:logback-classic')
 	runtime('org.springframework.boot:spring-boot-devtools')
-//	compile('org.projectlombok:lombok')
+	compile('org.projectlombok:lombok')
 	compile 'com.googlecode.json-simple:json-simple:1.1.1'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')

@@ -32,7 +32,6 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
-import java.time.Duration;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
@@ -41,12 +40,12 @@ import java.util.regex.Pattern;
 @Service
 public class UDPServer implements Runnable {
     static final int PORT = 4210;
-    static final String IP_ADDRESS = "192.168.137.1";
+    static final String IP_ADDRESS = "192.168.1.100";
 
-    private Map<Integer, AddressInfo> clientsData = new ConcurrentHashMap<>();
+    private final Map<Integer, AddressInfo> clientsData = new ConcurrentHashMap<>();
     private static final Logger log = LoggerFactory.getLogger(UDPServer.class);
-    private byte[] buffer = new byte[2000];
-    private DatagramPacket inPacket =
+    private final byte[] buffer = new byte[2000];
+    private final DatagramPacket inPacket =
             new DatagramPacket(buffer, buffer.length);
     private static DatagramSocket socket;
     private Thread thread;
@@ -120,16 +119,16 @@ public class UDPServer implements Runnable {
         server.start();
 
         // Sending some test messages
-        Flux.interval( Duration.ofMillis(10000), Duration.ofMillis(5000)).subscribe( index -> {
-            if(server.isClientConnected(1)) {
-                try {
-                    server.sendMessage("ledIRGB," + (index % 5) +"," + (20 * index) % 255
-                            + "," + (85 + 20 * index) % 256 + "," + (160 + 20 * index) % 256, 1);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        Flux.interval( Duration.ofMillis(10000), Duration.ofMillis(5000)).subscribe( index -> {
+//            if(server.isClientConnected(1)) {
+//                try {
+//                    server.sendMessage("ledIRGB," + (index % 5) +"," + (20 * index) % 255
+//                            + "," + (85 + 20 * index) % 256 + "," + (160 + 20 * index) % 256, 1);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
         server.getEventEmitter().subscribe(
                 System.out::println,

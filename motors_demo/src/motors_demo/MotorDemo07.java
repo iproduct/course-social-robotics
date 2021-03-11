@@ -30,7 +30,7 @@ public class MotorDemo07 {
 		SensorMode color = colorSensor.getRGBMode();
 		float[] colorSample = new float[color.sampleSize()];
 		
-//		playMessage(audio);
+		playMessage(audio);
 
 		EV3TouchSensor touchSensor = new EV3TouchSensor(SensorPort.S1);
 		SensorMode touch = touchSensor.getTouchMode();

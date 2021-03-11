@@ -2,16 +2,20 @@ package org.iproduct.esp32.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.iproduct.esp32.model.EspEvent;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("api/events")
 @Slf4j
 public class EspEventController {
+    private AtomicLong nextId = new AtomicLong();
 
     private List<EspEvent> events = new CopyOnWriteArrayList<>();
 
@@ -26,9 +30,13 @@ public class EspEventController {
     }
 
     @PostMapping
-    public EspEvent addEvent(@RequestBody EspEvent event) {
+    public ResponseEntity<EspEvent> addEvent(@RequestBody EspEvent event) {
         log.info("Event received:" + event.toString());
+        event.setId(nextId.incrementAndGet() + "");
         events.add(event);
-        return event;
+        return ResponseEntity.created(
+                ServletUriComponentsBuilder.fromCurrentRequest().pathSegment("{id}")
+                        .buildAndExpand(event.getId()).toUri()
+        ).body(event);
     }
 }

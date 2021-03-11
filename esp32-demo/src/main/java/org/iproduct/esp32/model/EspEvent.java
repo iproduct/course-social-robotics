@@ -12,5 +12,5 @@ public class EspEvent {
     private String id;
     private long time = System.nanoTime();
     @NonNull
-    private int distance;
+    private float distance;
 }

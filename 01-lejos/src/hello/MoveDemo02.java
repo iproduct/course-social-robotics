@@ -33,7 +33,7 @@ public class MoveDemo02 {
 			moveForward(2000); //2s
 			turnLeft(520);
 		}
-		moveBackward(2000); //2s
+		moveBackward(1000); //1s
 
 	}
 	

@@ -26,7 +26,8 @@ public class LeJaRo_ServiceRobotDemo01 {
 			mC = new EV3LargeRegulatedMotor(MotorPort.C);
 	TextLCD lcd = ev3.getTextLCD();
 	Keys keys = ev3.getKeys();
-	// Audio audio = ev3.getAudio();
+	 Audio audio = ev3.getAudio();
+
 
 	// Color sensor
 	EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
@@ -171,6 +172,7 @@ public class LeJaRo_ServiceRobotDemo01 {
 
 		LeJaRo_ServiceRobotDemo01 lejaro = new LeJaRo_ServiceRobotDemo01();
 		lejaro.init();
+		lejaro.playMessage(lejaro.audio);
 		
 		for (int i = 0; i < 4; i++) {
 			lejaro.goForward();

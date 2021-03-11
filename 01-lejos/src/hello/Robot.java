@@ -282,8 +282,8 @@ public class Robot {
 
 	public static void main(String[] args) {
 		Robot robot = new Robot(new State());
-//		robot.execute(new ObstacleAvoidanceBehavior(100));
-		robot.execute(new LineFollowBehavior(100));
+		robot.execute(new ObstacleAvoidanceBehavior(100));
+//		robot.execute(new LineFollowBehavior(100));
 		
 		
 //		robot.turnRightWhileNotColor(360, Color.RED);	
