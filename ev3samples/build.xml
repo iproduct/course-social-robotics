@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="ev3samples" basedir="." default="upload">
+    <property file="local.properties" />
+    <property file="build.properties" />
+    
+    <macrodef name="make-jar">
+		<attribute name="jar.file" />
+		<attribute name="main.class" />
+		<sequential>
+			<jar destfile="@{jar.file}" basedir="${classes.dir}">
+	            <manifest>
+	                <attribute name="Main-Class" value="@{main.class}"/>
+	                <attribute name="Class-Path" value="${lejos.home}/lib/ev3classes.jar ${lejos.home}/libjna/usr/share/java/jna.jar"/>
+	            </manifest>
+	        </jar> 		    
+		</sequential>
+	</macrodef>
+    
+    <path id="libraries.path">    
+    	<fileset dir="${ev3classes.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean" description="delete old files">
+        <delete dir="${classes.dir}"/>
+    </target>
+
+    <target name="compile" description="build class files" depends="clean">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${source.dir}" destdir="${classes.dir}"
+               source="${source.version}" target="${target.version}">
+            <classpath refid="libraries.path"/>
+        </javac>
+    </target>
+
+    <target name="pc.files" depends="compile">
+        <make-jar jar.file="GraphicsTest.jar" main.class="org.lejos.ev3.sample.graphicssample.GraphicsSample"/>
+        <make-jar jar.file="HelloWorld.jar" main.class="org.lejos.ev3.sample.helloworld.EV3HelloWorld"/>
+        <make-jar jar.file="PilotParams.jar" main.class="org.lejos.ev3.sample.pilotparams.PilotParams"/>
+        <make-jar jar.file="PilotTester.jar" main.class="org.lejos.ev3.sample.pilottest.PilotTester"/>
+        <make-jar jar.file="BumperCar.jar" main.class="org.lejos.ev3.sample.bumpercar.EV3BumperCar"/>
+        <make-jar jar.file="SensorFilter.jar" main.class="org.lejos.ev3.sample.sensorfilter.SensorAndFilterSample"/>
+        <make-jar jar.file="Publish.jar" main.class="org.lejos.ev3.sample.publish.Publish"/>
+        <make-jar jar.file="Follow.jar" main.class="org.lejos.ev3.sample.followbeacon.Follow"/>
+        <make-jar jar.file="MapTest.jar" main.class="org.lejos.ev3.sample.maptest.MapTest"/>
+        <make-jar jar.file="MCLTest.jar" main.class="org.lejos.ev3.sample.mcltest.MCLTest"/>
+        <make-jar jar.file="Chassis.jar" main.class="org.lejos.ev3.sample.chassis.RcControlChassis"/>
+    </target>
+
+    <target name="upload" depends="pc.files">
+    	<scp todir="${credentials}@${ev3.host}:${lejos.samples.dir}" trust="true">
+    	    <fileset file="*.jar"/>
+    	</scp>
+    </target>
+</project>
