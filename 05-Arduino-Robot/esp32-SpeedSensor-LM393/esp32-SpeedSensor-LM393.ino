@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------- //
-// Arduino IR Sensor SHARP SNS-GP2Y0A21YK0F + Ultrasoninc Sensor HC-SR04
+// Arduino Speed Sensor using LM393 comparator
 // ---------------------------------------------------------------- //
 
 #define SpeedL 13   // digital pin for reading the Speed sensor Left

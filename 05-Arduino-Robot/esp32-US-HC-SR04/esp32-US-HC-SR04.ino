@@ -19,11 +19,11 @@ int distanceR; // variable for the distance measurement - right
 
 void setup() {
   pinMode(trigPinL, OUTPUT); // Sets the trigPin as an OUTPUT
-  pinMode(echoPinL, INPUT); // Sets the echoPin as an INPUT
+  pinMode(echoPinL, INPUT); // Sets the echoPin as an INPUT - through 10k/22k resistive divider
   pinMode(trigPinR, OUTPUT); // Sets the trigPin as an OUTPUT
-  pinMode(echoPinR, INPUT); // Sets the echoPin as an INPUT
+  pinMode(echoPinR, INPUT); // Sets the echoPin as an INPUT - through 10k/22k resistive divider
   Serial.begin(115200); // // Serial Communication is starting with 9600 of baudrate speed
-  Serial.println("Ultrasonic Sensor HC-SR04 Test"); // print some text in Serial Monitor
+  Serial.println("Ultrasonic Sensors HC-SR04 Test"); // print some text in Serial Monitor
   Serial.println("with Arduino UNO R3");
 }
 void loop() {

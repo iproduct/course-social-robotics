@@ -2,8 +2,8 @@
 // Arduino IR Sensor SHARP SNS-GP2Y0A21YK0F + Ultrasoninc Sensor HC-SR04
 // ---------------------------------------------------------------- //
 
-#define IRpinL 35   // analog pin for reading the IR sensor
-#define IRpinR 34   // analog pin for reading the IR sensor
+#define IRpinL 35   // analog pin for reading the IR sensor - through resistive divider 10k/22k: 5V -> 3.3V
+#define IRpinR 34   // analog pin for reading the IR sensor - through resistive divider 10k/22k: 5V -> 3.3V
 #define echoPinL 22 // attach pin D2 Arduino to pin Echo of HC-SR04
 #define trigPinL 23 // attach pin D3 Arduino to pin Trig of HC-SR04
 #define echoPinR 19 // attach pin D2 Arduino to pin Echo of HC-SR04
@@ -27,8 +27,8 @@ void setup() {
 }
 void loop() {
   // reads the IR distance sensors
-  float voltsL = analogRead(IRpinL) * 0.0048828125 * 0.6887; // value from sensor * (5/1024)
-  float voltsR = analogRead(IRpinR) * 0.0048828125 * 0.6887; // value from sensor * (5/1024)
+  float voltsL = analogRead(IRpinL) * 0.0048828125 * 0.96; // value from sensor * (3.3/1024) * 3.3/5 * (10 + 22)/22
+  float voltsR = analogRead(IRpinR) * 0.0048828125 * 0.96; // value from sensor * (3.3/1024) * 3.3/5 * (10 + 22)/22
   float irDistanceL = 65 * pow(voltsL, -1.10);      // worked out from graph 65
   float irDistanceR = 65 * pow(voltsR, -1.10);      // worked out from graph 65
 
