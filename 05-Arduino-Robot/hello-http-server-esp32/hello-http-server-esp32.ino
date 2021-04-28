@@ -9,16 +9,16 @@ const char* password = SECRET_PASS;
 
 WebServer server(80);
 
-const int led = 23;
+//const int led = 23;
 
 void handleRoot() {
-  digitalWrite(led, 1);
+  //digitalWrite(led, 1);
   server.send(200, "text/plain", "Hello from esp32!");
-  digitalWrite(led, 0);
+  //digitalWrite(led, 0);
 }
 
 void handleNotFound() {
-  digitalWrite(led, 1);
+  //digitalWrite(led, 1);
   String message = "File Not Found\n\n";
   message += "URI: ";
   message += server.uri();
@@ -31,12 +31,12 @@ void handleNotFound() {
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
   server.send(404, "text/plain", message);
-  digitalWrite(led, 0);
+  //digitalWrite(led, 0);
 }
 
 void setup(void) {
-  pinMode(led, OUTPUT);
-  digitalWrite(led, 0);
+  //pinMode(led, OUTPUT);
+  //digitalWrite(led, 0);
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);

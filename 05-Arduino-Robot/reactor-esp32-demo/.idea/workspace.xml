@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59ec23d7-2d50-49c0-a5d5-029fc4c22e6d" name="Default Changelist" comment="" />
+    <list default="true" id="59ec23d7-2d50-49c0-a5d5-029fc4c22e6d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../esp8266-US020-mqtt/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../esp8266-US020-mqtt/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../esp32-demo/src/main/java/org/iproduct/esp32/model/EspEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../esp32-demo/src/main/java/org/iproduct/esp32/model/EspEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/src/main/java/org/iproduct/spring/rabbitmq/RabbitmqApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/src/main/java/org/iproduct/spring/rabbitmq/RabbitmqApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/src/test/java/org/iproduct/spring/rabbitmq/RabbitmqApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../webflux-boot-rabbitmq/src/test/java/org/iproduct/spring/rabbitmq/RabbitmqApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,15 +81,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,7 +130,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608775169670</updated>
       <workItem from="1608775173086" duration="632000" />
-      <workItem from="1619036388545" duration="957000" />
+      <workItem from="1619036388545" duration="1556000" />
+      <workItem from="1619620879222" duration="2725000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EspEvent {
     private String id;
-    private long time = System.nanoTime();
+    private long timestamp;
     @NonNull
     private float distance;
 }
