@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7f7f8968-8f8b-4bb3-8491-8e2dd76e61f9" name="Default" comment="reactive webflux demo - user management with security added">
+      <change afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="12-reactive-streaming-demos" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KotlinMultiplatform">
+    <allAvailableExecutables />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1W7LMvQDUEVC2htzOxAOYm8zdWe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561472109311" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../CourseDML/git/course-ml/10-ml-h2o/libs/x64/opencv_java450.dll" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15728477" />
+    <property name="project.structure.side.proportion" value="0.23772103" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.ReactiveStreamingDemosApp (1)">
+    <configuration name="ProfilerClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.iproduct.demos.spring.streamingdemos.client.ProfilerClient" />
+      <module name="12-reactive-streaming-demos_main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.iproduct.demos.spring.streamingdemos.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactiveStreamingDemosApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.iproduct.demos.spring.streamingdemos.ReactiveStreamingDemosApp" />
+      <module name="12-reactive-streaming-demos.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.iproduct.demos.spring.streamingdemos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactiveStreamingDemosApp (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="12-reactive-streaming-demos.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.iproduct.demos.spring.streamingdemos.ReactiveStreamingDemosApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactiveStreamingDemosApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="12-reactive-streaming-demos_main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.iproduct.demos.spring.streamingdemos.ReactiveStreamingDemosApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ProfilerClient" />
+      <item itemvalue="Application.ReactiveStreamingDemosApp" />
+      <item itemvalue="Spring Boot.ReactiveStreamingDemosApp" />
+      <item itemvalue="Spring Boot.ReactiveStreamingDemosApp (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ReactiveStreamingDemosApp" />
+        <item itemvalue="Application.ProfilerClient" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f7f8968-8f8b-4bb3-8491-8e2dd76e61f9" name="Default" comment="" />
+      <created>1527398537441</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1527398537441</updated>
+      <workItem from="1542320172663" duration="2171000" />
+      <workItem from="1547061173561" duration="1810000" />
+      <workItem from="1547064148794" duration="685000" />
+      <workItem from="1547472965125" duration="1080000" />
+      <workItem from="1547570144036" duration="1217000" />
+      <workItem from="1553441167552" duration="3899000" />
+      <workItem from="1553445393234" duration="18000" />
+      <workItem from="1553445697531" duration="162000" />
+      <workItem from="1553445876071" duration="13000" />
+      <workItem from="1558567469991" duration="36000" />
+      <workItem from="1561382306392" duration="1722000" />
+      <workItem from="1561658590778" duration="31000" />
+      <workItem from="1578495643672" duration="821000" />
+      <workItem from="1602006925826" duration="1632000" />
+      <workItem from="1602009230000" duration="1429000" />
+      <workItem from="1608573729057" duration="4082000" />
+      <workItem from="1608640306951" duration="607000" />
+      <workItem from="1620235695333" duration="1268000" />
+    </task>
+    <task id="LOCAL-00001" summary="reactive webflux demo - user management with security added">
+      <created>1527399441835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527399441835</updated>
+    </task>
+    <task id="LOCAL-00002" summary="reactive webflux demo - user management with security added">
+      <created>1620235816435</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620235816435</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="reactive webflux demo - user management with security added" />
+    <option name="LAST_COMMIT_MESSAGE" value="reactive webflux demo - user management with security added" />
+  </component>
+</project>
