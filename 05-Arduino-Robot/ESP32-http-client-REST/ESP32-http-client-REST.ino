@@ -96,6 +96,7 @@ String sendReadingPOST(float distance) {
     Serial.println(response);           //Print request answer
     Serial.print("Location : ");    
     Serial.println(http.header("Location"));   //Print Location header
+    Serial.println(http.header("Keep-Alive"));   //Print Location header
     return response;
   }else{
     Serial.print("Error on sending POST: ");

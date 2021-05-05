@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EspEvent {
     private String id;
+    @NonNull
     private long timestamp;
     @NonNull
     private float distance;
