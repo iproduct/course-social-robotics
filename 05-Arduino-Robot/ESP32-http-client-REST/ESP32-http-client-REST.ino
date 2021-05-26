@@ -12,7 +12,7 @@
 
 const char* ssid = SECRET_SSID;
 const char* pass = SECRET_PASS;
-const char* apiUrl = "http://192.168.1.101:8080/api/events";    // your Events API URL
+const char* apiUrl = "http://192.168.0.12:8080/api/events";    // your Events API URL
 
 const char* headers[1]= {"Location"};
 const int trigPin = 23;
@@ -22,7 +22,7 @@ int distance;
 
 WiFiClient client;
 HTTPClient http;
-IPAddress server(192,168,1,101);
+IPAddress server(192,168,0,12);
 
 void setup() {
  //Initialize serial and wait for port to open:
@@ -83,18 +83,18 @@ String sendReadingPOST(float distance) {
 //  client.stop();
 //  client.connect("192.168.1.101", 8080);
   Serial.println(WiFi.status() == WL_CONNECTED ? "connected": "disconnected");
-  if(!client.connected()){
-    Serial.println("Lost connection to the server! Reconnecting...");
-    int connAttempts = 0;
-    while(!client.connect(server, 8080)){
-      Serial.print("Attempting connection to the server, attempt no. ");
-      Serial.println(connAttempts++);
-      delay(1000);
-    }
-    Serial.print("Reconnection successful after ");
-    Serial.print(connAttempts);
-    Serial.println(" attempt(s)!");
-  }
+//  if(!client.connected()){
+//    Serial.println("Lost connection to the server! Reconnecting...");
+//    int connAttempts = 0;
+//    while(!client.connect(server, 8080)){
+//      Serial.print("Attempting connection to the server, attempt no. ");
+//      Serial.println(connAttempts++);
+//      delay(1000);
+//    }
+//    Serial.print("Reconnection successful after ");
+//    Serial.print(connAttempts);
+//    Serial.println(" attempt(s)!");
+//  }
   Serial.print("[HTTP] begin...\n");
   http.begin(apiUrl); //HTTP
 

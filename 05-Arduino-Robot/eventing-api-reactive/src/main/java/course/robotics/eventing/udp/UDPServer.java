@@ -18,8 +18,10 @@ package course.robotics.eventing.udp;
 // Technologies Ltd. has been advised of the possibility of such damage. 
 // Contact information: www.iproduct.org, e-mail: office@iproduct.org 
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
@@ -39,8 +41,11 @@ import java.util.regex.Pattern;
 
 @Service
 public class UDPServer implements Runnable {
+
     static final int PORT = 4210;
-    static final String IP_ADDRESS = "192.168.1.100";
+//    static final String IP_ADDRESS = "192.168..100";
+    @Value("${server.address}")
+    private String ipAddress = "192.168.0.12";
 
     private final Map<Integer, AddressInfo> clientsData = new ConcurrentHashMap<>();
     private static final Logger log = LoggerFactory.getLogger(UDPServer.class);
@@ -58,6 +63,7 @@ public class UDPServer implements Runnable {
 
     @PostConstruct
     public void start() {
+        log.info("UDP Server IP: " + ipAddress);
         thread = new Thread(this);
         thread.start();
     }
@@ -77,8 +83,8 @@ public class UDPServer implements Runnable {
     @Override
     public void run() {
         try {
-            socket = new DatagramSocket(PORT, InetAddress.getByName(IP_ADDRESS));
-            System.out.println("Server started on " + socket.getLocalSocketAddress());
+            socket = new DatagramSocket(PORT, InetAddress.getByName(ipAddress));
+            log.info("Server started on: " + socket.getLocalSocketAddress());
             while (true) {
                 socket.receive(inPacket);
                 AddressInfo addressInfo = new AddressInfo(inPacket.getAddress(), inPacket.getPort());
