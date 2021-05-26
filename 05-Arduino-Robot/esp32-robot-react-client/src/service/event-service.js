@@ -19,7 +19,7 @@
 // import { Event } from '../model/event.model';
 import { webSocket} from "rxjs/webSocket";
 import { of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators'
 
 export const WS_URL = 'ws://192.168.0.12:8080/event-emitter';
 
@@ -47,7 +47,7 @@ class EventService {
 
     get  wsSubject() {
         return this.socketSubject.pipe(
-            map(obj => JSON.stringify(obj)),
+            // map(obj => JSON.stringify(obj)),
             catchError(err => of(JSON.stringify(err)))
         );
     }

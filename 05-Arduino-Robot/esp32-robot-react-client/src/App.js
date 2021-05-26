@@ -17,7 +17,7 @@ export default class App extends Component {
             <h3>Events:</h3>
             <ul>
               {
-                this.state.messages.map(m => (<li key={m.id}>{m}</li>))
+                this.state.messages.map(m => (<li key={m.id}>{JSON.stringify(m)}</li>))
               }
             </ul>
           </div>

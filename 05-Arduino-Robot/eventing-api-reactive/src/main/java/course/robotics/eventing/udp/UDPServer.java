@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
+import reactor.core.publisher.Sinks;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -55,8 +56,7 @@ public class UDPServer implements Runnable {
     private static DatagramSocket socket;
     private Thread thread;
 
-    EmitterProcessor<String> emitter = EmitterProcessor.create();
-    FluxSink<String> sink = emitter.sink();
+    Sinks.Many<String> emitter = Sinks.many().multicast().directBestEffort();
 
     public UDPServer() {
     }
@@ -77,7 +77,7 @@ public class UDPServer implements Runnable {
     }
 
     public Flux<String> getEventEmitter() {
-        return emitter;
+        return emitter.asFlux();
     }
 
     @Override
@@ -97,15 +97,18 @@ public class UDPServer implements Runnable {
                     log.info("New client connected: " + clientId);
                     clientsData.put(clientId, addressInfo); //add new client with payload as client_id
                 } else {
-                    sink.next(payload); //Stream data with backpressure support
+                    emitter.emitNext(payload, (signalType, emitResult) -> {
+                        log.debug(String.format("!!!! Signal: %s, EmitResult: %s", signalType, emitResult));
+                        return true;
+                    }); //Stream data with backpressure support
                 }
             }
         } catch (SocketException e) {
             log.error("Can't open socket", e);
-            sink.error(e);
+            emitter.tryEmitError(e);
         } catch (IOException e) {
             log.error("Communication error", e);
-            sink.error(e);
+            emitter.tryEmitError(e);
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
-@RestController
+//@RestController
 @RequestMapping("api/events")
 @Slf4j
 public class EspEventController {
