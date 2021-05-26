@@ -5,6 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59ec23d7-2d50-49c0-a5d5-029fc4c22e6d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/14-myblogs-material-ui-jss.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../10-ml-h2o-react-client/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../12-reactive-streaming-demos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../12-reactive-streaming-demos/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +128,7 @@
       <workItem from="1608775173086" duration="632000" />
       <workItem from="1619036388545" duration="1556000" />
       <workItem from="1619620879222" duration="2725000" />
-      <workItem from="1622043431735" duration="1824000" />
+      <workItem from="1622043431735" duration="2153000" />
     </task>
     <servers />
   </component>

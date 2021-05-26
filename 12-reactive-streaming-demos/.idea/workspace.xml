@@ -5,13 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f7f8968-8f8b-4bb3-8491-8e2dd76e61f9" name="Default" comment="reactive webflux demo - user management with security added">
-      <change afterPath="$PROJECT_DIR$/../05-Arduino-Robot/reactor-esp32-demo/.idea/libraries-with-intellij-classes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/ESP32-http-client-REST/ESP32-http-client-REST.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/ESP32-http-client-REST/ESP32-http-client-REST.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/udp/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/udp/UDPServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/reactor-esp32-demo/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/reactor-esp32-demo/.idea/reactor-esp32-demo.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/webclient/ReactiveWebSocketClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/websocket/ReactiveWebSocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/14-myblogs-material-ui-jss.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../10-ml-h2o-react-client/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/reactor-esp32-demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/reactor-esp32-demo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -108,6 +119,19 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
