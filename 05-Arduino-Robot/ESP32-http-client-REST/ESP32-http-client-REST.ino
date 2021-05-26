@@ -6,6 +6,7 @@
  */
 
 #include <WiFi.h>
+#include <WiFiClient.h>
 #include <HTTPClient.h>
 #include "arduino_secrets.h"
 
@@ -19,7 +20,9 @@ const int echoPin = 22;
 int distance;
 //const int LED = 23;
 
+WiFiClient client;
 HTTPClient http;
+IPAddress server(192,168,1,101);
 
 void setup() {
  //Initialize serial and wait for port to open:
@@ -35,7 +38,7 @@ void setup() {
   Serial.println(ssid);
 
   WiFi.begin(ssid, pass);
-
+  
   while (WiFi.status() != WL_CONNECTED) {
       delay(500);
       Serial.print(".");
@@ -77,32 +80,49 @@ void printWifiStatus() {
 }
 
 String sendReadingPOST(float distance) {
+//  client.stop();
+//  client.connect("192.168.1.101", 8080);
+  Serial.println(WiFi.status() == WL_CONNECTED ? "connected": "disconnected");
+  if(!client.connected()){
+    Serial.println("Lost connection to the server! Reconnecting...");
+    int connAttempts = 0;
+    while(!client.connect(server, 8080)){
+      Serial.print("Attempting connection to the server, attempt no. ");
+      Serial.println(connAttempts++);
+      delay(1000);
+    }
+    Serial.print("Reconnection successful after ");
+    Serial.print(connAttempts);
+    Serial.println(" attempt(s)!");
+  }
   Serial.print("[HTTP] begin...\n");
   http.begin(apiUrl); //HTTP
 
   Serial.print("[HTTP] Post: ");
   Serial.println(apiUrl);
   http.addHeader("Content-Type", "application/json");             //Specify content-type header
+  http.addHeader("Accept", "*/*");             //Specify content-type header
   char eventString[256];
-  sprintf(eventString, "{\"timestamp\":%d, \"distance\":%f}", millis(), distance);
+  sprintf(eventString, "{\"sensorId\":\"%s\", \"timestamp\":%d, \"distance\":%f}", "US-L", millis(), distance);
   Serial.println(eventString);
   http.collectHeaders(headers, 1);
   int httpResponseCode = http.POST(eventString);   //Send the actual POST request
+  Serial.printf("Connected: %d\n", http.connected());
  
-  if(httpResponseCode>0){
+//  if(httpResponseCode>0){
     String response = http.getString();  //Get the response to the request
     Serial.print("Response code: ");    
     Serial.println(httpResponseCode);   //Print return code
     Serial.println(response);           //Print request answer
     Serial.print("Location : ");    
     Serial.println(http.header("Location"));   //Print Location header
-    Serial.println(http.header("Keep-Alive"));   //Print Location header
+//    Serial.println(http.header("Keep-Alive"));   //Print Location header
     return response;
-  }else{
-    Serial.print("Error on sending POST: ");
-    Serial.println(httpResponseCode);
-    return "";
-  }
+//  }else{
+//    Serial.print("Error on sending POST: ");
+//    Serial.println(httpResponseCode);
+//    return "";
+//  }
   http.end();
 }
 
