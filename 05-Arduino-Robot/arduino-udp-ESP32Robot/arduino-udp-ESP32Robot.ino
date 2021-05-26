@@ -88,7 +88,8 @@ void loop()
 
     // US-020 - read US sensor data
     float distance = readDistance();
-    int len = snprintf(report, sizeof(report), "T: %10d   USL: %5.2f",
+    int len = snprintf(report, sizeof(report), "{\"id\":%d, \"time\":%d, \"USL\": %5.2f}",
+                       counter,
                        timer,
                        distance);
     Serial.println(report);

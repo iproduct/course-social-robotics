@@ -67,8 +67,10 @@ public class ReactiveWebSocketHandler implements WebSocketHandler {
 
 
     public Mono<Void> handle(WebSocketSession webSocketSession) {
-        return webSocketSession.send(Flux.interval(Duration.ofMillis(1000))
-                .map(n -> n+ "")
+//        return webSocketSession.send(Flux.interval(Duration.ofMillis(1000))
+//                .map(n -> String.format("{\"id\": %d}", n))
+        return webSocketSession.send(udpServer.getEventEmitter()
+                .log()
                 .map(webSocketSession::textMessage))
                 .and(webSocketSession.receive()
                         .map(WebSocketMessage::getPayloadAsText)
