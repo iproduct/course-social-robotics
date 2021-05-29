@@ -8,11 +8,19 @@ export default class App extends Component {
     errors: []
   }
 
+  constructor(props) {
+    super(props);
+    this.moveForward = this.moveForward.bind(this);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h2>Robots Events Demo</h2>
+          <button onClick={this.moveForward}>Move Forward</button>
+          <button onClick={this.moveStop}>Stop</button>
+
           <div>
             <h3>Events:</h3>
             <ul>
@@ -54,5 +62,12 @@ export default class App extends Component {
   }
   showError(error) {
     this.setState(state => ({errors: state.errors.concat(error)}));
+  }
+
+  moveForward(){
+    eventService.sendEvent("moveForward");
+  }
+  moveStop = () => {
+    eventService.sendEvent("moveStop");
   }
 }

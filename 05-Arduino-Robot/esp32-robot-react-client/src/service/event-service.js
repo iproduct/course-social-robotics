@@ -21,7 +21,7 @@ import { webSocket} from "rxjs/webSocket";
 import { of } from 'rxjs';
 import { catchError } from 'rxjs/operators'
 
-export const WS_URL = 'ws://192.168.0.12:8080/event-emitter';
+export const WS_URL = 'ws://10.108.7.160:8080/event-emitter';
 
 class EventService {
     socketSubject;

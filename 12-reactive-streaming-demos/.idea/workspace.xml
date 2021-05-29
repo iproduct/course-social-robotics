@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f7f8968-8f8b-4bb3-8491-8e2dd76e61f9" name="Default" comment="reactive webflux demo - user management with security added">
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/EventingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/EventingApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/udp/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/udp/UDPServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/web/EspEventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/web/EspEventController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/websocket/ReactiveWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/java/course/robotics/eventing/websocket/ReactiveWebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/reactor-esp32-demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/reactor-esp32-demo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/eventing-api-reactive/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

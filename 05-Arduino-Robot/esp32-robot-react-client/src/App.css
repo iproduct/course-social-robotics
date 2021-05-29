@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+button {
+  font-size: 22pt;
+  padding: 10px;
+  margin: 10px;
+}

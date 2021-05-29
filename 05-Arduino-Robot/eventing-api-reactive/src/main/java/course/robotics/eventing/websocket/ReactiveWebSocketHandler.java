@@ -12,6 +12,7 @@ import org.springframework.web.reactive.socket.WebSocketSession;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.io.IOException;
 import java.time.Duration;
 
 @Component
@@ -74,7 +75,14 @@ public class ReactiveWebSocketHandler implements WebSocketHandler {
                 .map(webSocketSession::textMessage))
                 .and(webSocketSession.receive()
                         .map(WebSocketMessage::getPayloadAsText)
-                        .log());
+                        .doOnNext(message -> {
+                            try {
+                                udpServer.sendMessage(message, 1);
+                            } catch (IOException e) {
+                                log.error("Error sending UDP message to robot 1", e);
+                            }
+                        }))
+                .log();
     }
 
 }

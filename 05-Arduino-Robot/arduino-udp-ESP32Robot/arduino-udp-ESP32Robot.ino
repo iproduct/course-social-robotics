@@ -1,3 +1,4 @@
+#include <AsyncUDP.h>
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiUdp.h>
@@ -7,10 +8,11 @@
 // WiFi connection data
 const char* ssid = SECRET_SSID;
 const char* pass = SECRET_PASS;
-const char* udp_server_ip = "192.168.0.12";
+const IPAddress udp_server_ip = IPAddress(10, 108, 7, 160); //"10.108.7.160"; //"192.168.0.12";
 unsigned int udp_server_port = 4210;
 
-WiFiUDP Udp;
+//WiFiUDP Udp;
+AsyncUDP udp;
 unsigned int localUdpPort = 4210;  // local port to listen on
 char incomingPacket[255];  // buffer for incoming packets
 
@@ -50,11 +52,35 @@ void setup()
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
-  Udp.begin(localUdpPort);
+  //  udp.begin(localUdpPort);
+  if (udp.connect(udp_server_ip, udp_server_port)) {
+    Serial.println("UDP connected");
+    udp.onPacket([](AsyncUDPPacket packet) {
+      Serial.print("UDP Packet Type: ");
+      Serial.print(packet.isBroadcast() ? "Broadcast" : packet.isMulticast() ? "Multicast" : "Unicast");
+      Serial.print(", From: ");
+      Serial.print(packet.remoteIP());
+      Serial.print(":");
+      Serial.print(packet.remotePort());
+      Serial.print(", To: ");
+      Serial.print(packet.localIP());
+      Serial.print(":");
+      Serial.print(packet.localPort());
+      Serial.print(", Length: ");
+      Serial.print(packet.length());
+      Serial.print(", Data: ");
+      Serial.write(packet.data(), packet.length());
+      Serial.println();
+      //reply to the client
+      packet.printf("Got %u bytes of data", packet.length());
+    });
+  }
+  
   Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), localUdpPort);
   timer = millis();
   delay(20);
   counter = 0;
+  sendMessageUdp("connect 1");
 }
 
 
@@ -93,15 +119,18 @@ void loop()
                        timer,
                        distance);
     Serial.println(report);
-
-    // send back a reply, to the IP address and port we got the packet from
-    int result = Udp.beginPacket(udp_server_ip, udp_server_port);
-    if (result > 0) {
-      Udp.write((const uint8_t*)report, len);
-      Udp.endPacket();
-    }
+    sendMessageUdp(report);
   }
 }
+void sendMessageUdp(const char* message) {
+  // send back a reply, to the IP address and port we got the packet from
+  //  int result = Udp.beginPacket(udp_server_ip, udp_server_port);
+  //  if (result > 0) {
+  udp.write((const uint8_t*)message, strlen(message));
+  //    Udp.endPacket();
+  //  }
+}
+
 
 // utility functions
 void printWifiStatus() {

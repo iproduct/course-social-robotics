@@ -44,9 +44,9 @@ import java.util.regex.Pattern;
 public class UDPServer implements Runnable {
 
     static final int PORT = 4210;
-//    static final String IP_ADDRESS = "192.168..100";
+    //    static final String IP_ADDRESS = "192.168..100";
     @Value("${server.address}")
-    private String ipAddress = "192.168.0.12";
+    private String ipAddress = "10.108.7.160";
 
     private final Map<Integer, AddressInfo> clientsData = new ConcurrentHashMap<>();
     private static final Logger log = LoggerFactory.getLogger(UDPServer.class);
@@ -66,6 +66,11 @@ public class UDPServer implements Runnable {
         log.info("UDP Server IP: " + ipAddress);
         thread = new Thread(this);
         thread.start();
+        getEventEmitter().subscribe(
+                System.out::println,
+                err -> log.error("Error:", err),
+                () -> log.info("Done.")
+        );
     }
 
     @PreDestroy
@@ -92,7 +97,7 @@ public class UDPServer implements Runnable {
                 log.info(addressInfo + ": " + payload);
                 Pattern connectPattern = Pattern.compile("^connect[\\s,]*(\\d+)");
                 Matcher matcher = connectPattern.matcher(payload);
-                if(matcher.matches()) {
+                if (matcher.matches()) {
                     int clientId = Integer.parseInt(matcher.group(1));
                     log.info("New client connected: " + clientId);
                     clientsData.put(clientId, addressInfo); //add new client with payload as client_id
@@ -115,7 +120,7 @@ public class UDPServer implements Runnable {
     public void sendMessage(String message, int clientId) throws IOException {
         AddressInfo connection = clientsData.get(clientId);
         DatagramPacket packet =
-            DatagramUtility.getDatagramPacket(message, connection.getAddress(), connection.getPort());
+                DatagramUtility.getDatagramPacket(message, connection.getAddress(), connection.getPort());
         socket.send(packet);
     }
 
