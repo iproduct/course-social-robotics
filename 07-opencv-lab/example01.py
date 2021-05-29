@@ -11,3 +11,4 @@ if __name__ == '__main__':
     print(img.shape)
 
     cv.waitKey(30000)
+    cv.destroyAllWindows()

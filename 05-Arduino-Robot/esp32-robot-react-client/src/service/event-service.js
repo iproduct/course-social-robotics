@@ -52,8 +52,8 @@ class EventService {
         );
     }
 
-    sendEvent(resource) {
-        this.socketSubject.next(resource);
+    sendEvent(command) {
+        this.socketSubject.next(command);
     }
 
 }

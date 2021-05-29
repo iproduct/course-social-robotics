@@ -68,11 +68,20 @@ void setup()
       Serial.print(packet.localPort());
       Serial.print(", Length: ");
       Serial.print(packet.length());
+//      String data = String((char *)packet.data());
+      int len = snprintf(report, packet.length(), "%s", packet.data());
+      char* data = report + 1;
+//      String data = (char*)packet.data();
+//      String data = String(report).substring(1,packet.length());
       Serial.print(", Data: ");
-      Serial.write(packet.data(), packet.length());
+      Serial.print(data);
       Serial.println();
       //reply to the client
-      packet.printf("Got %u bytes of data", packet.length());
+      counter++;
+      packet.printf("{\"id\":%d, \"time\":%d, \"command\": \"%s\", \"complete\": true}",
+                       counter,
+                       timer,
+                       data);
     });
   }
   
@@ -126,7 +135,8 @@ void sendMessageUdp(const char* message) {
   // send back a reply, to the IP address and port we got the packet from
   //  int result = Udp.beginPacket(udp_server_ip, udp_server_port);
   //  if (result > 0) {
-  udp.write((const uint8_t*)message, strlen(message));
+//  udp.write((const uint8_t*)message, strlen(message));
+  udp.print(message);
   //    Udp.endPacket();
   //  }
 }

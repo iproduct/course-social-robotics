@@ -102,6 +102,9 @@ public class UDPServer implements Runnable {
                     log.info("New client connected: " + clientId);
                     clientsData.put(clientId, addressInfo); //add new client with payload as client_id
                 } else {
+                    if(clientsData.keySet().isEmpty()){
+                        clientsData.put(1, addressInfo);
+                    }
                     emitter.emitNext(payload, (signalType, emitResult) -> {
                         log.debug(String.format("!!!! Signal: %s, EmitResult: %s", signalType, emitResult));
                         return true;

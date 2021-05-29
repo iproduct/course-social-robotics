@@ -76,6 +76,7 @@ public class ReactiveWebSocketHandler implements WebSocketHandler {
                 .and(webSocketSession.receive()
                         .map(WebSocketMessage::getPayloadAsText)
                         .doOnNext(message -> {
+                            log.info("Command received: "+ message);
                             try {
                                 udpServer.sendMessage(message, 1);
                             } catch (IOException e) {
