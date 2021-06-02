@@ -1,0 +1,2 @@
+#define SECRET_SSID "FMI-AIR-NEW"
+#define SECRET_PASS ""
