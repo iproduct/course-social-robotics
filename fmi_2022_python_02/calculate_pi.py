@@ -14,9 +14,8 @@ def calculate_pi(n):
     return acc
 
 if __name__ == '__main__':
-    print('\n', calculate_pi(100000))
+    print('\n', calculate_pi(10000000))
     d = {'a':1, 'b':2}
     for k,v in d.items():
         print(k, '->', v)
-    n = random.randint(1000, 10000)
     print(n)
