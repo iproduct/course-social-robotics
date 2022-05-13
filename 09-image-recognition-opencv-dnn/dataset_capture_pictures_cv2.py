@@ -1,6 +1,5 @@
 import cv2
 
-
 if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
 
@@ -19,7 +18,7 @@ if __name__ == '__main__':
                     cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
         cv2.imshow('frame', frame)
         n = n + 1
-        if(n %100 == 0):
+        if (n % 100 == 0):
             text = f"dataset/trayan/trayan{n // 100}.jpg"
             cv2.imwrite(text, frame)
 
