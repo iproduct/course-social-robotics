@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from keras.datasets import mnist
-from keras.datasets import fashion_mnist
+from keras.datasets import mnist
 
 if __name__ == '__main__':
     t = np.array(12)
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     print(f'Shape: {t.shape}\n')
 
     # MNIST datasets - handwritten numbers
-    (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+    (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
     print(train_images.ndim)
     print(train_images.shape)
     print(train_images.dtype)

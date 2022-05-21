@@ -28,7 +28,7 @@ if __name__ == "__main__":
             cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:2] # 2
             for c in cnts:
                 peri = cv2.arcLength(c,True)
-                approx = cv2.approxPolyDP(c, 0.01*peri, True)
+                approx = cv2.approxPolyDP(c, 0.02*peri, True)
                 if (len(approx)==4): # if it is 4-sides polygon
                     cv2.drawContours(frame,[approx],0,(0,255,0),-1)
                 if (len(approx)>10): # if the polygon is more than 10 sides (may be circles)

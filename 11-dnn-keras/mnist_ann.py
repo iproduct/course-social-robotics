@@ -1,3 +1,5 @@
+import datetime
+
 from keras import layers
 from keras import models
 from keras.datasets import mnist
@@ -28,7 +30,10 @@ if __name__ == '__main__':
                     loss='categorical_crossentropy',
                     metrics=['accuracy'])
 
-    network.fit(train_images, train_labels, epochs=5, batch_size=128)
+    logdir = os.path.join("logs", datetime.datetime.now().strftime("!%Y%m%d-%H%M%S"))
+    tensorboard_callback = tf.keras.callbacks.TensorBoard(logdir, histogram_freq=1)
+
+    network.fit(train_images, train_labels, epochs=5, batch_size=128, callbacks=[tensorboard_callback])
 
 
     test_loss, test_acc = network.evaluate(test_images, test_labels)
