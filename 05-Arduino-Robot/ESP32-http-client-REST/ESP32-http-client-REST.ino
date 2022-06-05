@@ -1,28 +1,22 @@
-/**
- * BasicHTTPClient.ino
- *
- *  Created on: 17.04.2019
- *
- */
-
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <HTTPClient.h>
 #include "arduino_secrets.h"
 
-const char* ssid = SECRET_SSID;
-const char* pass = SECRET_PASS;
-const char* apiUrl = "http://192.168.0.12:8080/api/events";    // your Events API URL
+const char* ssid = "FMI-AIR-NEW";
+const char* pass = "";
+const char* apiUrl = "http://10.108.4.103:5000/api/events";    // your Events API URL
 
 const char* headers[1]= {"Location"};
 const int trigPin = 23;
 const int echoPin = 22;
 int distance;
-//const int LED = 23;
+const int LED = 23;
+const int POT = 34;
 
 WiFiClient client;
 HTTPClient http;
-IPAddress server(192,168,0,12);
+IPAddress server(10,108,4,103);
 
 void setup() {
  //Initialize serial and wait for port to open:
@@ -47,14 +41,14 @@ void setup() {
   
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-//  pinMode(LED, OUTPUT);     // set the LED pin mode
+  pinMode(LED, OUTPUT); // set the LED pin mode 
 }
 
 void loop() {
 //  digitalWrite(LED, HIGH);  
-  float distance = readDistance();
-//  distance+= 5;
-  Serial.printf("\nDistance is: %6.2f", distance);  //output result to Serial monitor
+  int distance = analogRead(POT);     //readDistance();
+  distance+= 5;
+  Serial.printf("\nDistance is: %6d\n", distance);  //output result to Serial monitor
   sendReadingPOST(distance);
 //  digitalWrite(LED, LOW);  
   
@@ -81,12 +75,12 @@ void printWifiStatus() {
 
 String sendReadingPOST(float distance) {
 //  client.stop();
-//  client.connect("192.168.1.101", 8080);
+//  client.connect("10.108.4.103", 5000);
   Serial.println(WiFi.status() == WL_CONNECTED ? "connected": "disconnected");
 //  if(!client.connected()){
 //    Serial.println("Lost connection to the server! Reconnecting...");
 //    int connAttempts = 0;
-//    while(!client.connect(server, 8080)){
+//    while(!client.connect(server, 5000)){
 //      Serial.print("Attempting connection to the server, attempt no. ");
 //      Serial.println(connAttempts++);
 //      delay(1000);
@@ -138,4 +132,10 @@ float readDistance() {
 //  } else {
 //    return -1;
 //  }
+}
+
+int readPot(){
+  int val = analogRead(POT);
+  Serial.println(val);
+  return val;
 }
