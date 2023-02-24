@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../fmi_2022_networking_04/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05-Arduino-Robot/ESP32-http-client-REST/ESP32-http-client-REST.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../05-Arduino-Robot/ESP32-http-client-REST/ESP32-http-client-REST.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/machine_learning_jupyter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/machine_learning_jupyter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/pandas_intro_linear_regression-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/pandas_intro_linear_regression-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bagging_vs_bosting.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/bagging_vs_bosting.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/linear_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistic_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/logistic_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-01.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ml-01.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_iris_svc.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/plot_iris_svc.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../08-open-cv-python/.idea/08-open-cv-python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../08-open-cv-python/.idea/08-open-cv-python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../08-open-cv-python/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../08-open-cv-python/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/recognizer.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/recognizer.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../11-dnn-keras/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../11-dnn-keras/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,7 +176,7 @@
       <workItem from="1641310944489" duration="5077000" />
       <workItem from="1641389475271" duration="223000" />
       <workItem from="1641913270361" duration="1201000" />
-      <workItem from="1654274264723" duration="3093000" />
+      <workItem from="1654274264723" duration="3166000" />
     </task>
     <task id="LOCAL-00001" summary="machine_learning_jupyter project config updated">
       <created>1606516029460</created>
@@ -243,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608543635014</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="demos updated">
+      <created>1654421340946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654421340946</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +248,7 @@
     <MESSAGE value="leanear regression with Titanic dataset lab added" />
     <MESSAGE value="leanear regression with Titanic dataset lab completed" />
     <MESSAGE value="ensemble learning - statcking, bagging (Random Rorest), and boosting (AdaBoost) books added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ensemble learning - statcking, bagging (Random Rorest), and boosting (AdaBoost) books added" />
+    <MESSAGE value="demos updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="demos updated" />
   </component>
 </project>
