@@ -38,12 +38,15 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=32, axle_track=172)
 # Play a sound to tell us when we are ready to start moving
 ev3.speaker.beep()
 ev3.screen.draw_text(10,10, 'Hi')
-ev3.speaker.set_speech_options('en', 'm1', 30, 50)
+ev3.speaker.set_speech_options('en', 'm1', 150, 50)
 ev3.speaker.set_volume(100)
-ev3.speaker.say('I am a lego robot')
+ev3.speaker.say('''I like to talk because I am a robot.
+Did you know that robots like to make sounds?
+Beep. Boop. Dit. Dit. Meep.
+I am just such a chatterbox.''')
 
 # Run the grip motor up to 500 degrees per second. To a target angle of 360 degrees.
-grip_motor.run_target(500, -360)
+# grip_motor.run_target(500, 360)
 
 # robot.straight(300)
 # robot.turn(90)
