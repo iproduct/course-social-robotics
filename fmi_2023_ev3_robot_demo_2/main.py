@@ -55,6 +55,10 @@ ev3.screen.draw_text(10,10, 'Hi')
 # obstacle. Then it backs up and turns around. It keeps on doing this
 # until you stop the program.
 i = 0
+turn_dir = 1
+turn_angle = 3
+turn_increment = 3
+current_turn = 0
 while True:
     # Begin driving forward at 200 millimeters per second.
     robot.drive(100, 0)
@@ -69,6 +73,9 @@ while True:
         print(color)
 
     while not obstacle and color == Color.RED:
+        turn_dir = 1
+        turn_angle = 3
+        current_turn = 0
         wait(10)
         obstacle = touch_sensor.pressed()
         color = color_sensor.color()
@@ -80,7 +87,12 @@ while True:
         #     print(beacon)
         
     if color != Color.RED:
-        robot.stop()
+        if abs(current_turn) > turn_angle: 
+            turn_dir = -turn_dir
+            turn_angle += turn_increment
+        robot.turn(turn_dir*turn_increment)
+        current_turn += turn_dir*turn_increment
+        
     elif obstacle:
          # Drive backward for 300 millimeters.
         robot.straight(-300)
