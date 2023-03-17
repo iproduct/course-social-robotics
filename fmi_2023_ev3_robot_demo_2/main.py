@@ -60,7 +60,7 @@ turn_angle = 3
 turn_increment = 3
 current_turn = 0
 while True:
-    # Begin driving forward at 200 millimeters per second.
+    # Begin driving forward at 100 millimeters per second.
     robot.drive(100, 0)
 
     # Wait until an obstacle is detected. This is done by repeatedly
@@ -76,7 +76,6 @@ while True:
         turn_dir = 1
         turn_angle = 3
         current_turn = 0
-        wait(10)
         obstacle = touch_sensor.pressed()
         color = color_sensor.color()
         # print(infrared_sensor.keypad())
@@ -99,6 +98,9 @@ while True:
         # Turn around by 90 degrees
         robot.turn(90)
 
+    else:
+        wait(10)
+        
     i += 1
 
    
