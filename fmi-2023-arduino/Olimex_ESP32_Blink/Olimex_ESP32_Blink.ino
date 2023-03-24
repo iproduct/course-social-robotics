@@ -6,7 +6,8 @@ int direction = 1; // 1 - divide, 0 - multiply
 int period = 1000;
 int current = 0;
 int ledState = HIGH;
-int buttonWaitSteps = 20;
+int buttonWait = 200; // time to wait before reading button input again
+int buttonWaitSteps = buttonWait / step;
 int buttonWaitCurrent = 0;
 
 void setup() {
