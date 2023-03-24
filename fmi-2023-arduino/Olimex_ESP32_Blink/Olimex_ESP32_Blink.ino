@@ -23,6 +23,9 @@ void loop() {
     } else {
       period = period * coeff;
     }
+    if(period < 30 || period > 2000) {
+      direction = 1 - direction;
+    }
     current = 0;
     ledState = HIGH;
     buttonWaitCurrent = 0;
