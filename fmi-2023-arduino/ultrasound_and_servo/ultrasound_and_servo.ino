@@ -16,9 +16,9 @@ float distanceCm;
 
 void setup() {
   myServo.attach(servoPin);
-  Serial.begin(115200); // Starts the serial communication
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  Serial.begin(115200);      // Starts the serial communication
+  pinMode(trigPin, OUTPUT);  // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT);   // Sets the echoPin as an Input
 }
 
 void loop() {
@@ -29,27 +29,21 @@ void loop() {
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  
+
   // Reads the echoPin, returns the sound wave travel time in microseconds
   duration = pulseIn(echoPin, HIGH);
-  
+
   // Calculate the distance
-  distanceCm = duration * SOUND_SPEED/2;
-  
+  distanceCm = duration * SOUND_SPEED / 2;
+
   // Prints the distance in the Serial Monitor
   Serial.print("Distance (cm): ");
   Serial.println(distanceCm);
-  
-  delay(1000);
-}
+  int dist = min(max((int) (distanceCm * 1000), 0), 40000);
+  angle = map(dist, 0, 40000, 0, 180);
+  Serial.print(", angle: ");
+  Serial.println(angle);
+  myServo.write(angle);
 
-// void loop() {
-//  potVal = analogRead(potPin);
-//  Serial.print("potVal: ");
-//  Serial.print(potVal);
-//  angle = map(potVal, 0, 4095, 0, 180);
-//  Serial.print(", angle: ");
-//  Serial.println(angle);
-//  myServo.write(angle);
-//  delay(15);
-// }
+  delay(15);
+}
