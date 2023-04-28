@@ -11,9 +11,9 @@
 #include "arduino_secrets.h"
 
 const char* ssid = SECRET_SSID;
-const char* pass = SECRET_PASS;
+const char* password = SECRET_PASS;
 int distance = 5;
-char apiUrl[] = "http://192.168.0.12:8080/api/events";    // your Events API URL
+char apiUrl[] = "http://192.168.1.100:8080/api/events";    // your Events API URL
 
 void setup() {
  //Initialize serial and wait for port to open:
@@ -23,17 +23,20 @@ void setup() {
   }
 
   // attempt to connect to Wifi network:
-  int status = WL_IDLE_STATUS;
-  while (status != WL_CONNECTED) {
-    Serial.print("Attempting to connect to SSID: ");
-    Serial.println(ssid);
-    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
-    status = WiFi.begin(ssid, pass);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  Serial.println("");
 
-    // wait 3 seconds for connection:
-    delay(1000);
+  // Wait for connection
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
   }
-  Serial.println("Connected to wifi");
+  Serial.println("");
+  Serial.print("Connected to ");
+  Serial.println(ssid);
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
   printWifiStatus();
 }
 

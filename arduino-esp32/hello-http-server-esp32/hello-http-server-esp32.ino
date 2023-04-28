@@ -9,12 +9,38 @@ const char* password = SECRET_PASS;
 
 WebServer server(80);
 
-const int led = 23;
+const int led = 15;
 
 void handleRoot() {
   digitalWrite(led, 1);
-  server.send(200, "text/plain", "Hello from esp32!");
+  server.send(200, "text/html", 
+  "<!DOCTYPE html>\
+  <html>\
+  <body>\
+  <h2>Arduino ESP32 Web Server &#9729;</h2>\
+  </body>\
+  </html>");
   digitalWrite(led, 0);
+}
+
+void handleLED() {
+  String message = "";
+  for (uint8_t i = 0; i < server.args(); i++) {
+    message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
+  }
+  if(server.arg("state") == "on") {
+    digitalWrite(led, 1);
+  } else {
+    digitalWrite(led, 0);
+  }
+  server.send(200, "text/html", 
+  "<!DOCTYPE html>\
+  <html>\
+  <body>\
+  <h2>" + message + "</h2>\
+  </body>\
+  </html>");
+  
 }
 
 void handleNotFound() {
@@ -53,11 +79,13 @@ void setup(void) {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("esp32")) {
+  if (MDNS.begin("esp32-trayan")) {
     Serial.println("MDNS responder started");
   }
 
   server.on("/", handleRoot);
+
+  server.on("/led", handleLED);
 
   server.on("/inline", []() {
     server.send(200, "text/plain", "this works as well");
