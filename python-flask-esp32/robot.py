@@ -1,10 +1,12 @@
 import json
 from datetime import datetime
 from flask import Flask, jsonify, make_response, request
+from flask_cors import CORS
 from pymongo import MongoClient
 from bson.json_util import dumps, ObjectId
 
 app = Flask(__name__)
+CORS(app)
 
 client = MongoClient('localhost', 27017)
 db = client.robot
@@ -55,3 +57,6 @@ def post_event():  # put application's code here
 
 if __name__ == '__main__':
     app.run(host='192.168.1.102', port=8080, debug=True)
+
+
+
