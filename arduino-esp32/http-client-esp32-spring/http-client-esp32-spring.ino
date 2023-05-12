@@ -13,7 +13,7 @@
 const char* ssid = SECRET_SSID;
 const char* password = SECRET_PASS;
 int distance = 5;
-char apiUrl[] = "http://192.168.1.100:8080/api/events";    // your Events API URL
+char apiUrl[] = "http://192.168.1.102:8080/api/events";    // your Events API URL
 
 void setup() {
  //Initialize serial and wait for port to open:

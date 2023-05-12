@@ -3,12 +3,24 @@ import uuid
 from datetime import datetime
 from flask import Flask, jsonify, make_response, request
 import atomics
+from pymongo import MongoClient
+from bson.json_util import dumps, ObjectId
+from copy import copy
 
 app = Flask(__name__)
 
-events = []
+client = MongoClient('localhost', 27017)
+db = client.robot
+events_db = db.events
+
+# events = []
 next_id = atomics.atomic(width=4, atype=atomics.INT)
 
+class JSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, ObjectId):
+            return str(o)
+        return json.JSONEncoder.default(self, o)
 
 @app.route('/')
 def hello_world():  # put application's code here
@@ -44,9 +56,9 @@ def add_event_get_args():  # put application's code here
 
 @app.route('/api/events', methods=['GET'])
 def get_events():  # put application's code here
-    dt = datetime.now()
+    events = list(events_db.find())
     response = make_response(
-        jsonify(events),
+        JSONEncoder().encode(events),
         200,
     )
     response.headers["Content-Type"] = "application/json"
@@ -57,12 +69,13 @@ def get_events():  # put application's code here
 def post_event():  # put application's code here
     dt = datetime.now()
     event = json.loads(request.data)
-    event['id'] = next_id.fetch_inc()
+    # event['id'] = next_id.fetch_inc()
     print(event)
-    events.append(event)
+    events_db.insert_one(event)
+    print(event)
     response = make_response(
         jsonify(
-            {"status": "created", "event": event}
+            {"status": "created", "event": JSONEncoder().encode(event)}
         ),
         201,
     )
@@ -70,4 +83,4 @@ def post_event():  # put application's code here
     return response
 
 if __name__ == '__main__':
-    app.run(host='192.168.1.100', port=8080, debug=True)
+    app.run(host='192.168.1.102', port=8080, debug=True)
