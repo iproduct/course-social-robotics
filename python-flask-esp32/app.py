@@ -22,6 +22,8 @@ class JSONEncoder(json.JSONEncoder):
             return str(o)
         return json.JSONEncoder.default(self, o)
 
+encoder = JSONEncoder()
+
 @app.route('/')
 def hello_world():  # put application's code here
     return 'Hello World!'
@@ -58,7 +60,7 @@ def add_event_get_args():  # put application's code here
 def get_events():  # put application's code here
     events = list(events_db.find())
     response = make_response(
-        JSONEncoder().encode(events),
+        encoder.encode(events),
         200,
     )
     response.headers["Content-Type"] = "application/json"
@@ -70,13 +72,11 @@ def post_event():  # put application's code here
     dt = datetime.now()
     event = json.loads(request.data)
     # event['id'] = next_id.fetch_inc()
-    print(event)
     events_db.insert_one(event)
-    print(event)
+    encoded = encoder.encode(event)
+    print(encoded)
     response = make_response(
-        jsonify(
-            {"status": "created", "event": JSONEncoder().encode(event)}
-        ),
+        encoded,
         201,
     )
     response.headers["Content-Type"] = "application/json"
