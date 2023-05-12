@@ -6,7 +6,8 @@ import { clearScreenDown } from 'readline';
 interface EventData {
   _id: string;
   time: number;
-  distance: number;
+  distanceL: number;
+  distanceR: number;
 }
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Distance - Left sensor: {distLeft?.distance} in {distLeft?.time} </h2>
+        <h2>Distance - Left sensor: {distLeft?.distanceL}, Right sensor: {distLeft?.distanceR} in {distLeft?.time} </h2>
         {errors && (<h3>Error: {JSON.stringify(errors)}</h3>)}
       </header>
     </div>
