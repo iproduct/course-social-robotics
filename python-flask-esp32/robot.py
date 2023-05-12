@@ -28,6 +28,16 @@ def get_events():  # put application's code here
     response.headers["Content-Type"] = "application/json"
     return response
 
+@app.route('/api/events/latest', methods=['GET'])
+def get_latest_event():  # put application's code here
+    latest_event = events_db.find().skip(events_db.estimated_document_count() - 1).next()
+    response = make_response(
+        encoder.encode(latest_event),
+        200,
+    )
+    response.headers["Content-Type"] = "application/json"
+    return response
+
 
 @app.route('/api/events', methods=['POST'])
 def post_event():  # put application's code here
