@@ -1,6 +1,3 @@
-#include <Arduino.h>
-#include <analogWrite.h>
-
 // define motor driver pins and constants
 #define DRV_A_IN1 26
 #define DRV_A_IN2 27
@@ -19,11 +16,9 @@
 #define ENCODER_L 13          // digital pin for reading the Speed sensor Left
 #define ENCODER_R 18          // digital pin for reading the Speed sensor Right
 #define SPEED_CALC_PERIOD 50  // in miliseconds
-#define DEBOUNCETIME 3        // in miliseconds
+#define DEBOUNCETIME 15       // in miliseconds
 
-
-// define button pin
-#define BUTTON 12
+int debounceTime = DEBOUNCETIME;
 
 volatile int interruptCountL = 0;
 volatile int interruptCountR = 0;
@@ -35,13 +30,14 @@ long encoderCountL = 0;
 long encoderCountR = 0;
 long encoderCountOldL = 0;
 long encoderCountOldR = 0;
+int speedL = 0;
+int speedR = 0;
 // Mutexes for synchronizing counter access between ISRs and main loop
 portMUX_TYPE muxL = portMUX_INITIALIZER_UNLOCKED;
 portMUX_TYPE muxR = portMUX_INITIALIZER_UNLOCKED;
 
-unsigned long startTime = 0;
-unsigned long endTime = 0;
-unsigned long currentTime = 0;
+unsigned long encoderPrevReadTime = 0;
+
 float rotL = 0;
 float rotR = 0;
 float rpsL = 0;
@@ -50,25 +46,25 @@ float rpsR = 0;
 // Interrupt Service Routines
 void IRAM_ATTR isrSpeedL() {
   debounceTimeoutL = xTaskGetTickCount();  // get millis() inside ISR
-  if (debounceTimeoutL - debounceTimeoutOldL > DEBOUNCETIME) {
-    // portENTER_CRITICAL_ISR(&muxL);
+  if (debounceTimeoutL - debounceTimeoutOldL > debounceTime) {
+    portENTER_CRITICAL_ISR(&muxL);
     interruptCountL++;
-    // portEXIT_CRITICAL_ISR(&muxL);
+    portEXIT_CRITICAL_ISR(&muxL);
     debounceTimeoutOldL = debounceTimeoutL;
   }
 }
 
 void IRAM_ATTR isrSpeedR() {
   debounceTimeoutR = xTaskGetTickCount();  // get millis() inside ISR
-  if (debounceTimeoutR - debounceTimeoutOldR > DEBOUNCETIME) {
-    // portENTER_CRITICAL_ISR(&muxR);
+  if (debounceTimeoutR - debounceTimeoutOldR > debounceTime) {
+    portENTER_CRITICAL_ISR(&muxR);
     interruptCountR++;
-    // portEXIT_CRITICAL_ISR(&muxR);
+    portEXIT_CRITICAL_ISR(&muxR);
     debounceTimeoutOldR = debounceTimeoutR;
   }
 }
 
-void setup() {
+void setupEncoders() {
   pinMode(DRV_B_IN1, OUTPUT);  //define the LED Pin to OUTPUT;
   pinMode(DRV_B_IN2, OUTPUT);  //define the LED Pin to OUTPUT;
   pinMode(DRV_B_PWM, OUTPUT);  //define the LED Pin to OUTPUT;
@@ -81,22 +77,22 @@ void setup() {
   pinMode(ENCODER_L, INPUT);                                             // Sets the echoPin as an INPUT
   pinMode(ENCODER_R, INPUT);                                             // Sets the echoPin as an INP
   attachInterrupt(digitalPinToInterrupt(ENCODER_L), isrSpeedL, CHANGE);  // attach iterrupt to speed sensor SpeedL pin, detects every change high->low and low->high
-  attachInterrupt(digitalPinToInterrupt(ENCODER_R), isrSpeedR, CHANGE);  // attach iterrupt to speed sensor SpeedR pin, detects every change high->low and low->high
-  Serial.begin(115200);                                                  // // Serial Communication is starting with 115200 of baudrate speed
+  attachInterrupt(digitalPinToInterrupt(ENCODER_R), isrSpeedR, CHANGE);  // attach iterrupt to speed sensor SpeedR pin, detects every change high->low and low->high                                                // // Serial Communication is starting with 115200 of baudrate speed
   Serial.println("Motors + encoders demo");                              // print some text in Serial Monitor
-  startTime = millis();
-  endTime = startTime + SPEED_CALC_PERIOD;
+  // startTime = millis();
+  // endTime = startTime + SPEED_CALC_PERIOD;
 }
-void loop() {
+
+void loopEncoders() {
   // motors demo
   int val = digitalRead(BUTTON);  //digital read the button pin
-  if (val == HIGH)                //if the button is not pressed;
+  if (val == HIGH)                //if the button is pressed;
   {
     int speed = 120;
     int timeForwardMs = 4000;
     int timeTurnRightMs = 450;
     Serial.printf("Moving forward - speed: %d, time: %d\n", speed, timeForwardMs);
-    moveForward(speed, timeForwardMs);
+    moveForward(speed);
     // for ( int i = 0; i < 4; i++) {
     //   Serial.printf("Moving forward - speed: %d, time: %d\n", speed, timeForwardMs);
     //   moveForward(speed, timeForwardMs);
@@ -105,7 +101,7 @@ void loop() {
     //   //    moveBackward(speed, timeMs);
     // }
   }
-  delay(50);
+  // delay(50);
 }
 
 void trunMotorsOff() {
@@ -138,35 +134,35 @@ void setMotorSpeed(int motor, int speed) {
 // encoders
 void updateEncoderData() {
   if (interruptCountL > 0) {
-    // portENTER_CRITICAL(&muxL);
+    portENTER_CRITICAL(&muxL);
     encoderCountL += interruptCountL;
     interruptCountL = 0;
-    // portEXIT_CRITICAL(&muxL);
+    portEXIT_CRITICAL(&muxL);
     Serial.printf("An interruptL has occurred. Total: %d\n", encoderCountL);
   }
 
   if (interruptCountR > 0) {
-    // portENTER_CRITICAL(&muxR);
+    portENTER_CRITICAL(&muxR);
     encoderCountR += interruptCountR;
     interruptCountR = 0;
-    // portEXIT_CRITICAL(&muxR);
+    portEXIT_CRITICAL(&muxR);
     Serial.printf("An interruptR has occurred. Total: %d\n", encoderCountR);
   }
 
   // Calculating the speed
-  currentTime = millis();
-  if (currentTime > endTime) {
+  int currentTime = millis();
+  if (currentTime - moveStartTime < moveDuration && encoderPrevReadTime > 0) {
     rotL = (encoderCountL - encoderCountOldL) / 40.0;  // 1 rotation = 2 x 20 impulses;
     encoderCountOldL = encoderCountL;
     rotR = (encoderCountR - encoderCountOldR) / 40.0;  // 1 rotation = 2 x 20 impulses;
     encoderCountOldR = encoderCountR;
-    rpsL = (rotL * 1000) / (currentTime - startTime);  // rotations per second
-    rpsR = (rotR * 1000) / (currentTime - startTime);  // rotations per second
+    int deltaT = currentTime - encoderPrevReadTime;
+    rpsL = (rotL * 1000) / deltaT;  // rotations per second
+    rpsR = (rotR * 1000) / deltaT;  // rotations per second
     // Displays the distance on the Serial Monitor
     Serial.printf("RotationsL: %8.2f, RotationsR: %8.2f | SpeedL: %8.2f rps, SpeedR: %8.2f rps\n", rotL, rotR, rpsL, rpsR);
-    startTime = millis();
-    endTime = startTime + SPEED_CALC_PERIOD;
   }
+  encoderPrevReadTime = currentTime;
 }
 
 void resetEncoderCounters() {
@@ -174,68 +170,87 @@ void resetEncoderCounters() {
   encoderCountR = 0;
   encoderCountOldL = 0;
   encoderCountOldR = 0;
+  portENTER_CRITICAL_ISR(&muxL);
+  interruptCountL = 0;
+  portEXIT_CRITICAL_ISR(&muxL);
+  portENTER_CRITICAL_ISR(&muxR);
+  interruptCountR = 0;
+  portEXIT_CRITICAL_ISR(&muxR);
 }
 
 // higher order commands
-void moveForward(int speed, int timeMs) {
-  int startTime = millis();
-  int endTime = startTime + timeMs;
-  int delayMs = timeMs / SPEED_CALC_PERIOD;
-  int speedL = speed;
-  int speedR = speed;
-  setMotorDirection(1, COUNTER_CLOCKWISE);
-  setMotorDirection(2, COUNTER_CLOCKWISE);
+void moveForward(int speed) {
+  speedL = speed;
+  speedR = speed;
+  debounceTime = DEBOUNCETIME;
   resetEncoderCounters();  // zero encoder counters
-  while (millis() < endTime) {
-    updateEncoderData();
-    int difference = encoderCountR - encoderCountL;
-    Serial.printf("###### BEFORE: EncoderL: %d, EncoderR: %d, Difference: %d, SpeedL: %d, SpeedR: %d\n", encoderCountL, encoderCountR, difference, speedL, speedR);
-    if (difference > 0) {
-      speedL += 1;
-    }
-    if (difference < 0) {
-      speedR += 1;
-    }
-    if (speedL > speed) {
-      speedR -= speedL - speed;
-      speedL = speed;
-    }
-    if (speedR > speed) {
-      speedL -= speedR - speed;
-      speedR = speed;
-    }
+  setMotorSpeed(MOTOR_L, speedL);
+  setMotorSpeed(MOTOR_R, speedR);
+  setMotorDirection(MOTOR_L, COUNTER_CLOCKWISE);
+  setMotorDirection(MOTOR_R, COUNTER_CLOCKWISE);
+}
 
-    setMotorSpeed(MOTOR_L, speedL);
-    setMotorSpeed(MOTOR_R, speedR);
-    Serial.printf("!!! EncoderL: %d, EncoderR: %d, SpeedL: %d, SpeedR: %d\n", encoderCountL, encoderCountR, speedL, speedR);
-    delay(SPEED_CALC_PERIOD);
+void moveBackward(int speed) {
+  speedL = speed;
+  speedR = speed;
+  debounceTime = DEBOUNCETIME;
+  resetEncoderCounters();  // zero encoder counters
+  setMotorSpeed(MOTOR_L, speedL);
+  setMotorSpeed(MOTOR_R, speedR);
+  setMotorDirection(MOTOR_L, CLOCKWISE);
+  setMotorDirection(MOTOR_R, CLOCKWISE);
+}
+
+void turnLeftInPlace(int speed) {
+  speedL = speed;
+  speedR = speed;
+  debounceTime = DEBOUNCETIME;
+  resetEncoderCounters();  // zero encoder counters
+  setMotorSpeed(MOTOR_L, speedL);
+  setMotorSpeed(MOTOR_R, speedR);
+  setMotorDirection(MOTOR_L, CLOCKWISE);
+  setMotorDirection(MOTOR_R, COUNTER_CLOCKWISE);
+}
+
+void turnRightInPlace(int speed) {
+  speedL = speed;
+  speedR = speed;
+  debounceTime = DEBOUNCETIME;
+  resetEncoderCounters();  // zero encoder counters
+  setMotorSpeed(MOTOR_L, speedL);
+  setMotorSpeed(MOTOR_R, speedR);
+  setMotorDirection(MOTOR_L, COUNTER_CLOCKWISE);
+  setMotorDirection(MOTOR_R, CLOCKWISE);
+}
+
+Readings updateSpeed() {
+  updateEncoderData();
+  if (encoderCountL + encoderCountOldR > 6) {
+    debounceTime = (50 * DEBOUNCETIME) / moveSpeed;
   }
-  trunMotorsOff();
-}
+  int difference = encoderCountR - encoderCountL;
+  Serial.printf("BEFORE: EncoderL: %d, EncoderR: %d, Difference: %d, SpeedL: %d, SpeedR: %d\n", encoderCountL, encoderCountR, difference, speedL, speedR);
+  int deltaSpeed = (moveSpeed * difference) / 6;
+  // if (difference > 0) {
+  speedL = moveSpeed + deltaSpeed;
+  speedR = moveSpeed;
+  if (speedL > 255) {
+    speedR = moveSpeed - speedL + 255;
+    speedL = 255;
+    if (speedR < 0) {
+      speedR = 0;
+    }
+  } else if (speedL < 0) {
+    speedL = 0;
+  }
 
-void moveBackward(int speed, int timeMs) {
-  setMotorDirection(1, CLOCKWISE);
-  setMotorDirection(2, CLOCKWISE);
-  setMotorSpeed(1, speed);
-  setMotorSpeed(2, speed);
-  delay(timeMs);
-  trunMotorsOff();
-}
+  setMotorSpeed(MOTOR_L, speedL);
+  setMotorSpeed(MOTOR_R, speedR);
 
-void turnLeftInPlace(int speed, int timeMs) {
-  setMotorDirection(1, COUNTER_CLOCKWISE);
-  setMotorDirection(2, CLOCKWISE);
-  setMotorSpeed(1, speed);
-  setMotorSpeed(2, speed);
-  delay(timeMs);
-  trunMotorsOff();
-}
-
-void turnRightInPlace(int speed, int timeMs) {
-  setMotorDirection(1, CLOCKWISE);
-  setMotorDirection(2, COUNTER_CLOCKWISE);
-  setMotorSpeed(1, speed);
-  setMotorSpeed(2, speed);
-  delay(timeMs);
-  trunMotorsOff();
+  sprintf(eventString, "{\"type\":\"move\", \"time\":%d, \"encoderL\":%d, \"encoderR\":%d, \"speedL\":%d, \"speedR\":%d}", millis(), encoderCountL, encoderCountR, speedL, speedR);
+  Readings result;
+  result.type = ENCODER;
+  result.readings[0] = encoderCountL;
+  result.readings[1] = encoderCountR;
+  return result;
 }

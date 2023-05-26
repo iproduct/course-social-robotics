@@ -30,7 +30,7 @@ void triger(int trigPin) {
   digitalWrite(trigPin, LOW);
 }
 
-USReadings readUSDistance() {
+Readings readUSDistance() {
   // Triger ultrasound pulse left
   triger(trigPinL);
 
@@ -55,9 +55,10 @@ USReadings readUSDistance() {
   Serial.print(", Distance right (cm): ");
   Serial.println(distanceCmR);
 
-  USReadings result;
-  result.reading[0] = distanceCmL;
-  result.reading[1] = distanceCmR;
+  Readings result;
+  result.type = ULTRASOUND_DISTANCE;
+  result.readings[0] = distanceCmL;
+  result.readings[1] = distanceCmR;
   // static float MyArray[] = {distanceCmL, distanceCmR};
   return result;
 
