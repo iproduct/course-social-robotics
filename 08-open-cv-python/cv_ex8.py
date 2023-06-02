@@ -11,7 +11,7 @@ if __name__ == "__main__":
     threshold = 0.08 # threshold for detection
     numPoints = 100 # number of points selected (best matching)
 
-    img1 = cv2.imread('target.bmp') # target image
+    img1 = cv2.imread('picture.png') # target image
     h1,w1,d1 = img1.shape
     corners1 = np.float32([ [0,0],[0,h1-1],[w1-1,h1-1],[w1-1,0] ]).reshape(-1,1,2)
     # detector

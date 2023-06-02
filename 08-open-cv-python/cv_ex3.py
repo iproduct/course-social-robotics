@@ -15,7 +15,8 @@ if __name__ == "__main__":
         while(cv2.waitKey(3) != ord('q')):
             ret, frame = cap.read()
             cv2.imshow('webCam',frame)
-
+        else:
+            cv2.imwrite("picture.png", frame)
     else:
         print('webCam is failed to use')
 

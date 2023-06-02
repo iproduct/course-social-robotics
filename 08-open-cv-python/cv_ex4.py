@@ -17,7 +17,7 @@ if __name__ == "__main__":
             # argument: image_array, minVal, maxVal
             # above maxVal: sure-edges, below minVal : non-edges
             # between maxVal and minVal : depend on the connectivity to sure-edges
-            edges = cv2.Canny(frame,100,200)
+            edges = cv2.Canny(frame,100,250)
 
             cv2.imshow('edges',edges)
 

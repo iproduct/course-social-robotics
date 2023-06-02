@@ -1,70 +1,68 @@
 //define sound speed in cm/uS
 #define SOUND_SPEED 0.034
+#define NUM_US_SENSORS 3  // number of ultarsound sensors
+#define NUM_SERVOS 2      //number of servos
 
-// Servo myServo;
-// int const potPin = 34;
-// int const servoPin = 19;
-int const trigPinL = 23;
-int const echoPinL = 22;
-int const trigPinR = 21;
-int const echoPinR = 19;
+Servo servo1;
+Servo servo2;
 
-// int potVal;
-// int angle;
-long duration;
-float distanceCmL;
-float distanceCmR;
+Servo servos[] = { servo1, servo2 };
+int usSensorTrigerPins[] = { 23, 21, 5 };  // Trigger pins - Left, Right, Servo-driven
+int usSensorEchoPins[] = { 22, 19, 39 };   // Echo pins - Left, Right, Servo-driven
+int servoPins[] = { 4, 15 };               //Servo pins - horizontal, vertical
+int servoAngles[] = { 90, 110 };           // current servo angles
 
-void setupUSSensors() {
-  // myServo.attach(servoPin);
-  pinMode(trigPinL, OUTPUT);  // Sets the trigPin as an Output
-  pinMode(echoPinL, INPUT);   // Sets the echoPin as an Input
-  pinMode(trigPinR, OUTPUT);  // Sets the trigPin as an Output
-  pinMode(echoPinR, INPUT);   // Sets the echoPin as an Input
+void setupUSSensorsServos() {
+  for (int i = 0; i < NUM_US_SENSORS; i++) {
+    pinMode(usSensorTrigerPins[i], OUTPUT);  // Sets the trigPin as an Output
+    pinMode(usSensorEchoPins[i], INPUT);     // Sets the echoPin as an Input
+  }
+  // for(int i = 0; i < NUM_SERVOS; i++) {
+  //    servos[i].attach(servoPins[i]);  // Sets the trigPin as an Output
+  //    moveServo(i, servoAngles[i]);
+  // }
 }
 
 void triger(int trigPin) {
   // Sets the trigPin on HIGH state for 10 micro seconds
   digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
+  delayMicroseconds(20);
   digitalWrite(trigPin, LOW);
 }
 
-Readings readUSDistance() {
+float readUSDistance(int sensorIndex) {
   // Triger ultrasound pulse left
-  triger(trigPinL);
+  triger(usSensorTrigerPins[sensorIndex]);
 
   // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPinL, HIGH);
+  long duration = pulseIn(usSensorEchoPins[sensorIndex], HIGH);
 
   // Calculate the distance
-  distanceCmL = duration * SOUND_SPEED / 2;
-
-  // Triger ultrasound pulse right
-  triger(trigPinR);
-
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPinR, HIGH);
-
-  // Calculate the distance
-  distanceCmR = duration * SOUND_SPEED / 2;
+  float distanceCm = duration * SOUND_SPEED / 2;
 
   // Prints the distance in the Serial Monitor
-  Serial.print("Distance left (cm): ");
-  Serial.print(distanceCmL);
-  Serial.print(", Distance right (cm): ");
-  Serial.println(distanceCmR);
+  Serial.printf("Distance (cm) - Sensor %d: %f\n", sensorIndex, distanceCm);
 
-  Readings result;
-  result.type = ULTRASOUND_DISTANCE;
-  result.readings[0] = distanceCmL;
-  result.readings[1] = distanceCmR;
+  // Readings result;
+  // result.type = ULTRASOUND_DISTANCE;
+  // result.readings[0] = distanceCmL;
+  // result.readings[1] = distanceCmR;
   // static float MyArray[] = {distanceCmL, distanceCmR};
-  return result;
+  return distanceCm;
+}
 
-  // int dist = min(max((int) (distanceCm * 1000), 0), 40000);
-  // angle = map(dist, 0, 40000, 0, 180);
-  // Serial.print(", angle: ");
-  // Serial.println(angle);
-  // myServo.write(angle);
+void attachServo(int index, int initialAngle) {
+  servos[index].attach(servoPins[index]);  // Attaches servo to the servoPin[index]
+  moveServo(index, initialAngle);
+}
+void detachServo(int index) {
+  servos[index].detach();  // Sets the trigPin as an Output
+}
+void moveServo(int index, int angle) {
+  int dist = min(max(angle, 0), 180);
+  // angle = map(dist, 0, 100000, 0, 180);
+  Serial.printf("Servo [%d] angle: %d\n", index, angle);
+  Serial.println(angle);
+  servos[index].write(angle);
+  servoAngles[index] = angle;
 }

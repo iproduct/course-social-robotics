@@ -42,7 +42,7 @@ html = """
     <body>
         <h1>WebSocket Chat</h1>
         <form action="" onsubmit="sendMessage(event)">
-            <input type="text" id="messageText" style="width:80%" />
+            <textarea rows="20" type="text" id="messageText" style="width:80%"></textarea>
             <button>Send</button>
         </form>
         <div>Distances: <span id="distances"></span></div>
@@ -62,7 +62,7 @@ html = """
                     li.appendChild(content)
                     messages.appendChild(li)
                 } else if(event.type === 'distance') {
-                    distances.innerHTML = `L: ${Math.round(event.distanceL)}, R: ${Math.round(event.distanceR)}`
+                    distances.innerHTML += `${Math.round(event.distance)}, `
                 } else if(event.type === 'move') {
                     speeds.innerHTML = `encoderL: ${event.encoderL}, encoderR: ${event.encoderR}, speedL: ${event.speedL}, speedR: ${event.speedR}`
                 }
@@ -134,13 +134,13 @@ async def start_coap_server():
     root = resource.Site()
 
     root.add_resource(['.well-known', 'core'], resource.WKCResource(root.get_resources_as_linkheader))
-    root.add_resource(['sensors', 'distance'], BlockResource())
+    root.add_resource(['sensors'], BlockResource())
     return await aiocoap.Context.create_server_context(root, bind=[SERVER_IP, 5683])
 
 
 async def send_command(message):
     print(f'Sending to ESP32: {message}')
-    req = aiocoap.Message(code=aiocoap.PUT, payload=message.encode(encoding='utf-8'), uri='coap://' + ROBOT_IP + ':5683/light')
+    req = aiocoap.Message(code=aiocoap.PUT, payload=message.encode(encoding='utf-8'), uri='coap://' + ROBOT_IP + ':5683/commands')
 
     try:
         response = await coap_ctx.request(req).response

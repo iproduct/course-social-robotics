@@ -16,7 +16,7 @@
 #define ENCODER_L 13          // digital pin for reading the Speed sensor Left
 #define ENCODER_R 18          // digital pin for reading the Speed sensor Right
 #define SPEED_CALC_PERIOD 50  // in miliseconds
-#define DEBOUNCETIME 15       // in miliseconds
+#define DEBOUNCETIME 18       // in miliseconds
 
 int debounceTime = DEBOUNCETIME;
 
@@ -225,7 +225,7 @@ void turnRightInPlace(int speed) {
 
 Readings updateSpeed() {
   updateEncoderData();
-  if (encoderCountL + encoderCountOldR > 6) {
+  if (encoderCountL + encoderCountOldR > 5) {
     debounceTime = (50 * DEBOUNCETIME) / moveSpeed;
   }
   int difference = encoderCountR - encoderCountL;

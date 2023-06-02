@@ -1,0 +1,42 @@
+[
+  {
+    "command": "MOVE_FORWARD",
+    "distance": 500,
+    "speed": 90
+  },
+  {
+    "command": "TURN_LEFT",
+    "distance": 100,
+    "speed": 90
+  },
+  {
+    "command": "MOVE_FORWARD",
+    "distance": 500,
+    "speed": 90
+  },
+  {
+    "command": "TURN_LEFT",
+    "distance": 100,
+    "speed": 90
+  },
+  {
+    "command": "MOVE_FORWARD",
+    "distance": 500,
+    "speed": 90
+  },
+  {
+    "command": "TURN_LEFT",
+    "distance": 100,
+    "speed": 90
+  },
+  {
+    "command": "MOVE_FORWARD",
+    "distance": 500,
+    "speed": 90
+  },
+  {
+    "command": "TURN_LEFT",
+    "distance": 100,
+    "speed": 90
+  }
+]

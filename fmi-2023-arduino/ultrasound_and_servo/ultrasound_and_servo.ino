@@ -4,10 +4,9 @@
 #define SOUND_SPEED 0.034
 
 Servo myServo;
-int const potPin = 34;
-int const servoPin = 19;
-int const trigPin = 18;
-int const echoPin = 5;
+int const servoPin = 15;
+int const trigPin = 5;
+int const echoPin = 39;
 
 int potVal;
 int angle;
@@ -27,7 +26,7 @@ void loop() {
   delayMicroseconds(2);
   // Sets the trigPin on HIGH state for 10 micro seconds
   digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
+  delayMicroseconds(20);
   digitalWrite(trigPin, LOW);
 
   // Reads the echoPin, returns the sound wave travel time in microseconds
@@ -39,11 +38,11 @@ void loop() {
   // Prints the distance in the Serial Monitor
   Serial.print("Distance (cm): ");
   Serial.println(distanceCm);
-  int dist = min(max((int) (distanceCm * 1000), 0), 40000);
-  angle = map(dist, 0, 40000, 0, 180);
+  int dist = min(max((int) (distanceCm * 1000), 0), 100000);
+  angle = map(dist, 0, 100000, 0, 180);
   Serial.print(", angle: ");
   Serial.println(angle);
   myServo.write(angle);
 
-  delay(15);
+  delay(50);
 }

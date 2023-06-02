@@ -1,7 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="" />
+    <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/joining04.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/manipulation02.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/matplotlib08.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/numpy01.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/random05.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/reshaping03.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/seaborn07.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/sets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/splitting05.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-lab/ufuncs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/add_ufunc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/assets/cat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/assets/cat_tinted.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/data/air_quality_no2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/data/dirtydata.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/data/workouts.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/data/workouts.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/dectobin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/jupyter-notebook-tutorial.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/matplot.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/matplot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/matplotlib02.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/matplotlib03.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/matplotlib04.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/matplotlib_demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/numpy01.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/numpy02.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/numpy03_universal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/pandas00.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/pandas01.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/pandas02.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/pandas03.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/pie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/scipy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../07-numpy-pandas-lab/workouts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2023-08-scikit-learn-lab/knn_hello.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2023-08-scikit-learn-lab/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2023-fastapi/robot_commands/led_on.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2023-fastapi/robot_commands/square.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/machine_learning_jupyter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/machine_learning_jupyter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bagging_vs_bosting.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/bagging_vs_bosting.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linear-regression.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/linear_regression.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistic_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/logistic_regression.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml-01.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ml-01.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_iris_svc.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/plot_iris_svc.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08-open-cv-python/cv_ex3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../08-open-cv-python/cv_ex3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08-open-cv-python/cv_ex4.py" beforeDir="false" afterPath="$PROJECT_DIR$/../08-open-cv-python/cv_ex4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08-open-cv-python/cv_ex5.py" beforeDir="false" afterPath="$PROJECT_DIR$/../08-open-cv-python/cv_ex5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../08-open-cv-python/cv_ex8.py" beforeDir="false" afterPath="$PROJECT_DIR$/../08-open-cv-python/cv_ex8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/embeddings.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/embeddings.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/le.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/le.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/recognizer.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/output/recognizer.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2023-arduino/ultrasound_and_servo/ultrasound_and_servo.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-arduino/ultrasound_and_servo/ultrasound_and_servo.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2023-esp32-robot/esp32-motors-encoders.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-esp32-robot/esp32-motors-encoders.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2023-esp32-robot/fmi-2023-esp32-robot.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-esp32-robot/fmi-2023-esp32-robot.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2023-esp32-robot/ultrasound.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-esp32-robot/ultrasound.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2023-fastapi/websocket.py" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-fastapi/websocket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../planning/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../planning/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +89,9 @@
   <component name="KotlinMultiplatform">
     <allAvailableExecutables />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1ktMJdUhSMXoyycLW17m5mGNIl7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -30,29 +100,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/linear-regression-lab.py" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CourseDML\git\course-ml\08-machine_learning_jupyter" />
       <recent name="D:\CourseDML\git\course-ml\machine_learning_jupyter" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.matplotlib_demo">
+  <component name="RunManager" selected="Python.sets">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="machine_learning_jupyter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,8 +205,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sets" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="machine_learning_jupyter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../07-numpy-lab" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../07-numpy-lab/sets.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sets" />
         <item itemvalue="Python.matplotlib_demo" />
       </list>
     </recent_temporary>
@@ -176,7 +263,12 @@
       <workItem from="1641310944489" duration="5077000" />
       <workItem from="1641389475271" duration="223000" />
       <workItem from="1641913270361" duration="1201000" />
-      <workItem from="1654274264723" duration="3166000" />
+      <workItem from="1670347230890" duration="663000" />
+      <workItem from="1670352665710" duration="1625000" />
+      <workItem from="1671550381990" duration="4280000" />
+      <workItem from="1673370876203" duration="817000" />
+      <workItem from="1673372033402" duration="597000" />
+      <workItem from="1685725787618" duration="1094000" />
     </task>
     <task id="LOCAL-00001" summary="machine_learning_jupyter project config updated">
       <created>1606516029460</created>
@@ -227,14 +319,7 @@
       <option name="project" value="LOCAL" />
       <updated>1608543635014</updated>
     </task>
-    <task id="LOCAL-00008" summary="demos updated">
-      <created>1654421340946</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1654421340946</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +333,6 @@
     <MESSAGE value="leanear regression with Titanic dataset lab added" />
     <MESSAGE value="leanear regression with Titanic dataset lab completed" />
     <MESSAGE value="ensemble learning - statcking, bagging (Random Rorest), and boosting (AdaBoost) books added" />
-    <MESSAGE value="demos updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="demos updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="ensemble learning - statcking, bagging (Random Rorest), and boosting (AdaBoost) books added" />
   </component>
 </project>
