@@ -1,0 +1,10 @@
+[
+{"command":"MOVE_FORWARD", "distance":300, "speed":100},
+{"command":"TURN_LEFT", "distance":90, "speed":100},
+{"command":"MOVE_FORWARD", "distance":300, "speed":100},
+{"command":"TURN_LEFT", "distance":90, "speed":100},
+{"command":"MOVE_FORWARD", "distance":300, "speed":100},
+{"command":"TURN_LEFT", "distance":90, "speed":100},
+{"command":"MOVE_FORWARD", "distance":300, "speed":100},
+{"command":"TURN_LEFT", "distance":90, "speed":100}
+]

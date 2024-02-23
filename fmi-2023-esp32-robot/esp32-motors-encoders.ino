@@ -47,9 +47,7 @@ float rpsR = 0;
 void IRAM_ATTR isrSpeedL() {
   debounceTimeoutL = xTaskGetTickCount();  // get millis() inside ISR
   if (debounceTimeoutL - debounceTimeoutOldL > debounceTime) {
-    portENTER_CRITICAL_ISR(&muxL);
     interruptCountL++;
-    portEXIT_CRITICAL_ISR(&muxL);
     debounceTimeoutOldL = debounceTimeoutL;
   }
 }
@@ -57,9 +55,7 @@ void IRAM_ATTR isrSpeedL() {
 void IRAM_ATTR isrSpeedR() {
   debounceTimeoutR = xTaskGetTickCount();  // get millis() inside ISR
   if (debounceTimeoutR - debounceTimeoutOldR > debounceTime) {
-    portENTER_CRITICAL_ISR(&muxR);
     interruptCountR++;
-    portEXIT_CRITICAL_ISR(&muxR);
     debounceTimeoutOldR = debounceTimeoutR;
   }
 }
@@ -134,18 +130,14 @@ void setMotorSpeed(int motor, int speed) {
 // encoders
 void updateEncoderData() {
   if (interruptCountL > 0) {
-    portENTER_CRITICAL(&muxL);
     encoderCountL += interruptCountL;
     interruptCountL = 0;
-    portEXIT_CRITICAL(&muxL);
     Serial.printf("An interruptL has occurred. Total: %d\n", encoderCountL);
   }
 
   if (interruptCountR > 0) {
-    portENTER_CRITICAL(&muxR);
     encoderCountR += interruptCountR;
     interruptCountR = 0;
-    portEXIT_CRITICAL(&muxR);
     Serial.printf("An interruptR has occurred. Total: %d\n", encoderCountR);
   }
 

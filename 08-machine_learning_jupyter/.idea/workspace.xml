@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../fmi-2023-08-scikit-learn-lab/.ipynb_checkpoints/logistic_regression-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fmi-2023-08-scikit-learn-lab/bagging_vs_bosting.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2023-fastapi/robot_commands/square2.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_lle_digits.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/plot_lle_digits.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../11-dnn-keras/tensorboard_demo.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../11-dnn-keras/tensorboard_demo.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fmi-2023-08-scikit-learn-lab/logistic_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-08-scikit-learn-lab/logistic_regression.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arduino-esp32/blink-esp32-dev-board/blink-esp32-dev-board.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/blink-esp32-dev-board/blink-esp32-dev-board.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2023-arduino/simple-bilnk/simple-bilnk.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-arduino/simple-bilnk/simple-bilnk.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2023-esp32-robot/esp32-motors-encoders.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2023-esp32-robot/esp32-motors-encoders.ino" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,17 +42,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CourseDML\git\course-ml\08-machine_learning_jupyter" />
@@ -213,6 +212,7 @@
       <workItem from="1673370876203" duration="817000" />
       <workItem from="1673372033402" duration="597000" />
       <workItem from="1685725787618" duration="3745000" />
+      <workItem from="1702459345967" duration="627000" />
     </task>
     <task id="LOCAL-00001" summary="machine_learning_jupyter project config updated">
       <created>1606516029460</created>

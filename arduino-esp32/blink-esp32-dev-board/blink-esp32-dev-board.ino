@@ -22,7 +22,7 @@
   http://www.arduino.cc/en/Tutorial/Blink
 */
 
-int ESP32_LED = 2;
+int ESP32_LED = 1;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
