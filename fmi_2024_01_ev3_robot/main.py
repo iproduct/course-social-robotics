@@ -39,6 +39,14 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=32, axle_track=172)
 # print(grip_motor.angle())
 # grip_motor.run_target(500, -50)
 
+# Robot speaks
+ev3.speaker.set_speech_options('en', 'm1', 150, 50)
+ev3.speaker.set_volume(100)
+ev3.speaker.say('''I like to talk because I am a robot.
+Did you know that robots like to make sounds?
+Beep. Boop. Dit. Dit. Meep.
+I am just such a chatterbox.''')
+
 # Move robot
 # robot.straight(300)
 i = 0

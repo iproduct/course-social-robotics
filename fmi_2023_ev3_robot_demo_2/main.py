@@ -7,6 +7,9 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
+def is_on_red(rgb):
+    return rgb[0] > 2 * (rgb[1] + rgb[2])
+
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
@@ -68,16 +71,16 @@ while True:
     # distance is still greater than 300 mm.
 
     obstacle = touch_sensor.pressed()
-    color = color_sensor.color()
-    if i%10 == 0:
-        print(color)
+    rgb = color_sensor.rgb()
+    # if i%10 == 0:
+    print('RGB: ' + str(rgb))
 
-    while not obstacle and color == Color.RED:
+    while not obstacle and is_on_red(rgb):
         turn_dir = 1
         turn_angle = 3
         current_turn = 0
         obstacle = touch_sensor.pressed()
-        color = color_sensor.color()
+        rgb = color_sensor.rgb()
         # print(infrared_sensor.keypad())
         # buttons = infrared_sensor.buttons(1)
         # print(buttons)
@@ -85,7 +88,7 @@ while True:
         #     beacon = infrared_sensor.beacon(1)
         #     print(beacon)
         
-    if color != Color.RED:
+    if not is_on_red(rgb):
         if abs(current_turn) > turn_angle: 
             turn_dir = -turn_dir
             turn_angle += turn_increment
