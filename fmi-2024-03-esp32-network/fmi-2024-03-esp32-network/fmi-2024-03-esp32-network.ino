@@ -14,7 +14,7 @@ void handleRoot() {
   <h2>Arduino ESP32 Web Server &#9729;</h2>\
   </body>\
   </html>");
-  digitalWrite(led, 0);
+  // digitalWrite(led, 0);
 }
 
 
