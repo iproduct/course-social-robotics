@@ -3,12 +3,14 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include "arduino_secrets.h"
+#define potPin 36
+#define ledPin 12
 
-const int led = 12;
 WebServer server(80);
 
+int potVal;
+
 void handleRoot() {
-  // digitalWrite(led, 1);
   server.send(200, "text/html",
               "<!DOCTYPE html>\
   <html>\
@@ -16,11 +18,9 @@ void handleRoot() {
   <h2>Arduino ESP32 Web Server &#9729;</h2>\
   </body>\
   </html>");
-  // digitalWrite(led, 0);
 }
 
 void handleNotFound() {
-  digitalWrite(led, 1);
   String message = "File Not Found\n\n";
   message += "URI: ";
   message += server.uri();
@@ -33,7 +33,6 @@ void handleNotFound() {
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
   server.send(404, "text/plain", message);
-  digitalWrite(led, 0);
 }
 
 void handleLED() {
@@ -42,11 +41,11 @@ void handleLED() {
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
   if (server.arg("state") == "on") {
-    digitalWrite(led, 1);
+    digitalWrite(ledPin, 1);
     Serial.println("LED ON");
   } else {
-    digitalWrite(led, 0);
-     Serial.println("LED OFF");
+    digitalWrite(ledPin, 0);
+    Serial.println("LED OFF");
   }
   server.send(200, "text/html",
               "<!DOCTYPE html>\
@@ -59,8 +58,10 @@ void handleLED() {
 }
 
 void setup() {
-  pinMode(led, OUTPUT);
-  digitalWrite(led, 0);
+  pinMode(ledPin, OUTPUT);
+  // pinMode(potPin, INPUT);
+
+  digitalWrite(ledPin, 0);
 
   Serial.begin(115200);
 
@@ -104,4 +105,10 @@ void setup() {
 
 void loop() {
   server.handleClient();
+
+  potVal = analogRead(potPin);
+  Serial.print("potVal: ");
+  Serial.println(potVal);
+
+  delay(500);
 }
