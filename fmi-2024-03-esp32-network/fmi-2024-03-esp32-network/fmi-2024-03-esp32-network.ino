@@ -43,8 +43,10 @@ void handleLED() {
   }
   if (server.arg("state") == "on") {
     digitalWrite(led, 1);
+    Serial.println("LED ON");
   } else {
     digitalWrite(led, 0);
+     Serial.println("LED OFF");
   }
   server.send(200, "text/html",
               "<!DOCTYPE html>\
@@ -94,7 +96,7 @@ void setup() {
   });
 
   server.onNotFound(handleNotFound);
-  
+
   server.begin();
 
   Serial.println("Setup done");
