@@ -57,9 +57,22 @@ void handleLED() {
   </html>");
 }
 
+void handleValue() {
+  String message = "" + potVal;
+  
+  server.send(200, "text/html", 
+  "<!DOCTYPE html>\
+  <html>\
+  <body>\
+  <h2>" + message + "</h2>\
+  </body>\
+  </html>");
+  
+}
+
 void setup() {
   pinMode(ledPin, OUTPUT);
-  // pinMode(potPin, INPUT);
+  pinMode(potPin, INPUT);
 
   digitalWrite(ledPin, 0);
 
@@ -91,6 +104,7 @@ void setup() {
   server.on("/", handleRoot);
 
   server.on("/led", handleLED);
+  server.on("/val", handleValue);
 
   server.on("/inline", []() {
     server.send(200, "text/plain", "this works as well");
