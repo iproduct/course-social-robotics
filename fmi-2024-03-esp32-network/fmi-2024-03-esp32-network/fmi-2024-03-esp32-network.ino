@@ -1,6 +1,7 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WebServer.h>
+#include <ESPmDNS.h>
 #include "arduino_secrets.h"
 
 WebServer server(80);
@@ -41,6 +42,10 @@ void setup() {
   Serial.print("signal strength (RSSI):");
   Serial.print(rssi);
   Serial.println(" dBm");
+  
+  if (MDNS.begin("esp32trayan")) {
+    Serial.println("MDNS responder started");
+  }
 
   server.on("/", handleRoot);
   server.begin();
