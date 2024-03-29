@@ -58,7 +58,7 @@ void handleLED() {
 }
 
 void handleValue() {
-  String message = "" + potVal;
+  String message = String(potVal);
   
   server.send(200, "text/html", 
   "<!DOCTYPE html>\
