@@ -3,7 +3,7 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include "arduino_secrets.h"
-#define potPin 36
+#define potPin 34
 #define ledPin 12
 
 WebServer server(80);
@@ -72,7 +72,7 @@ void handleValue() {
 
 void setup() {
   pinMode(ledPin, OUTPUT);
-  pinMode(potPin, INPUT);
+  adcAttachPin(potPin);
 
   digitalWrite(ledPin, 0);
 
