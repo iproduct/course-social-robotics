@@ -10,6 +10,7 @@ app = FastAPI(debug=True)
 
 class Event(BaseModel):
     value: float
+    timestamp: int
     id: int = None
 
 
@@ -57,4 +58,4 @@ async def new_event(event: Event):
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=9000, reload=True, access_log=False)
+    uvicorn.run("main:app", host="192.168.1.100", port=9000, reload=True, access_log=False)

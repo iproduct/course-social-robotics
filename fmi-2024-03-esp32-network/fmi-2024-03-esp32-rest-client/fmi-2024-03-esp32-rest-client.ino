@@ -11,7 +11,7 @@
 
 const char* ssid = SECRET_SSID;
 const char* pass = SECRET_PASS;
-const char* apiUrl = "http://192.168.0.12:8080/api/events";    // your Events API URL
+const char* apiUrl = "http://192.168.1.100:9000/api/events";    // your Events API URL
 
 const char* headers[1]= {"Location"};
 const int trigPin = 15;
