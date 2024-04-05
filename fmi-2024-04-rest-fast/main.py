@@ -6,6 +6,9 @@ from fastapi import FastAPI
 from fastapi.openapi.models import Response
 from pydantic import BaseModel
 from starlette.responses import JSONResponse
+from pymongo import MongoClient
+from pymongo.collection import Collection
+from bson.json_util import dumps, ObjectId
 
 app = FastAPI(debug=True)
 
@@ -13,10 +16,10 @@ app = FastAPI(debug=True)
 class Event(BaseModel):
     value: float
     timestamp: int
-    id: int = None
+    _id: int = None
 
 
-class EventRepository:
+class EventRepositoryInMemory:
     next_id = 0
 
     @classmethod
@@ -31,12 +34,31 @@ class EventRepository:
         return list(self.events.values())
 
     def create(self, event: Event) -> Event:
-        event.id = self.get_next_id()
-        self.events[event.id] = event
+        event._id = self.get_next_id()
+        self.events[event._id] = event
         return event
 
 
-events_repo = EventRepository()
+class EventRepositoryMongoDb:
+    def __init__(self, client):
+        self.db = client.robot_events
+        self.events_db: Collection = self.db.events
+
+    def find_all(self) -> list[Event]:
+        def transformObjectIdToStr(eventObjId):
+            eventObjId["_id"] = str(eventObjId["_id"])
+            return eventObjId;
+        return list(map(transformObjectIdToStr, self.events_db.find()))
+
+    def create(self, event: Event) -> Event:
+        result = self.events_db.insert_one(event.__dict__)
+        if result.acknowledged:
+            return event
+        return None
+
+
+client = MongoClient('localhost', 27017)
+events_repo = EventRepositoryMongoDb(client)
 
 
 @app.get("/")
@@ -57,7 +79,7 @@ async def find_all_events():
 @app.post("/api/events", status_code=201)
 async def new_event(event: Event):
     created = events_repo.create(event)
-    return JSONResponse(content=created.json(), headers={'Location': f"/api/events/{created.id}"})
+    return JSONResponse(content=created.json(), headers={'Location': f"/api/events/{created._id}"})
 
 
 if __name__ == '__main__':
