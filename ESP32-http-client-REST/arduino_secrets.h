@@ -1,2 +1,2 @@
-#define SECRET_SSID "robot"
-#define SECRET_PASS "robots123"
+#define SECRET_SSID "robots"
+#define SECRET_PASS "robot123"
