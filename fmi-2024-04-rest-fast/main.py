@@ -3,7 +3,9 @@ from typing import Iterable
 
 import uvicorn
 from fastapi import FastAPI
+from fastapi.openapi.models import Response
 from pydantic import BaseModel
+from starlette.responses import JSONResponse
 
 app = FastAPI(debug=True)
 
@@ -52,9 +54,10 @@ async def find_all_events():
     return events_repo.find_all()
 
 
-@app.post("/api/events")
+@app.post("/api/events", status_code=201)
 async def new_event(event: Event):
-    return events_repo.create(event)
+    created = events_repo.create(event)
+    return JSONResponse(content=created.json(), headers={'Location': f"/api/events/{created.id}"})
 
 
 if __name__ == '__main__':

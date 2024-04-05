@@ -81,14 +81,13 @@ void printWifiStatus() {
 
 String sendReadingPOST(int distance) {
   Serial.print("[HTTP] begin...\n");
-  http.begin(apiUrl); //HTTP
-
   Serial.print("[HTTP] Post: ");
   Serial.println(apiUrl);
-  http.addHeader("Content-Type", "application/json");             //Specify content-type header
   char eventString[256];
   sprintf(eventString, "{\"timestamp\":%d, \"value\":%d}", millis(), distance);
   Serial.println(eventString);
+  http.begin(apiUrl); //HTTP
+  http.addHeader("Content-Type", "application/json");             //Specify content-type header
   http.collectHeaders(headers, 1);
   int httpResponseCode = http.POST(eventString);   //Send the actual POST request
  
