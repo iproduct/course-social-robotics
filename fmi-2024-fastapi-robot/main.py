@@ -2,14 +2,17 @@ import uvicorn
 from fastapi import FastAPI
 
 app = FastAPI(debug=True)
+sensors = [
+    {'id': 'DS_001', 'description': 'Front left US sensor of the robot'},
+    {'id': 'DS_002', 'description': 'Front right US sensor of the robot'}
+]
 
-
-@app.get("/")
+@app.get("/api/sensors")
 async def root():
-    return {"message": "Hello World"}
+    return sensors
 
 
-@app.get("/hello/{name}")
+@app.get("/api/sensors/{name}")
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
 
