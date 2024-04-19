@@ -5,7 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(debug=True)
 sensors = [
     {'id': 'DS_001', 'description': 'Front left US sensor of the robot'},
-    {'id': 'DS_002', 'description': 'Front right US sensor of the robot'}
+    {'id': 'DS_002', 'description': 'Front right US sensor of the robot'},
+    {'id': 'DS_003', 'description': 'Front IR sensor of the robot'},
 ]
 
 origins = [
