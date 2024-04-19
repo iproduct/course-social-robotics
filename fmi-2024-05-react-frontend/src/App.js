@@ -21,18 +21,15 @@ function App() {
       readings.current = API.readings.subscribe(
         {
           next: (reading) => {
-            setSensors(ssrs => {
-              console.log(ssrs)
-              const sid = reading.sid;
-              const ssr = ssrs.find(sr => sr.id === sid);
-              const otherSensors = ssrs.filter(sr => sr.id !== sid)
-              return [...otherSensors, { ...ssr, readings: [...ssr.readings, reading] }]
-            });
+            setSensors(ssrs => ssrs.map(ssr => ssr.id === reading.sid ?
+              { ...ssr, readings: [...ssr.readings, reading] }
+              : ssr)
+            );
           }
         }
       )
     })() // IIFE
-    return  () => readings.current.unsubscribe()
+    return () => readings.current.unsubscribe()
   }, []);
 
   const doCommand = (cmd) => {
