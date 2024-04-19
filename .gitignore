@@ -29,3 +29,4 @@ hs_err_pid*
 .idea/
 
 arduino_secrets.*
+fmi-2024-06-fastapi-robot/__pycache__/main.cpython-310.pyc

@@ -9,8 +9,10 @@ class ApiClient {
     async init() {
         this.ws = new WebSocket(this.wsBaseUrl);
         this.readings = new Subject();
-        this.ws.onmessage = function(message) {
+        this.ws.onmessage = (message) => {
+            // console.log(message.data);
             const event = JSON.parse(message.data);
+            // console.log(this.readings);
             this.readings.next(event);
         };
     }
