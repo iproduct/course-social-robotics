@@ -52,9 +52,9 @@ async def websocket_endpoint(websocket: WebSocket):
         })
         id += 1
 
-    # while True:
-    #     message = await ws.receive_text()
-    #     print(message)
+    while True:
+        message = await ws.receive_text()
+        print(message)
         # start_time = time.time()
         # resp = await send_command(message)
         # end_time = time.time()

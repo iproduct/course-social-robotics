@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import SensorView from './components/SensorView';
 
 import API from './services/api-client';
+import { CommandInput } from './components/CommandInput';
 
 function App() {
   const [sensors, setSensors] = useState([]);
@@ -33,9 +34,15 @@ function App() {
     })() // IIFE
     return  () => readings.current.unsubscribe()
   }, []);
+
+  const doCommand = (cmd) => {
+    console.log(cmd);
+    API.sendMessage(cmd);
+  }
   return (
     <div className="container">
       <h1>IoT First Demo</h1>
+      <CommandInput onCommnand={doCommand} />
       {sensors.map(sr => (<SensorView key={sr.id} sensor={sr} />))}
     </div>
   );

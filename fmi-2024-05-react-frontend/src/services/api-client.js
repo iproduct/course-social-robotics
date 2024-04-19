@@ -17,9 +17,8 @@ class ApiClient {
         };
     }
 
-    sendMessage(event) {
-        var input = document.getElementById("messageText");
-        this.ws.send(input.value);
+    sendMessage(message) {
+        this.ws.send(message);
     }
 
     async findAllSensors() {
