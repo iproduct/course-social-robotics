@@ -20,7 +20,6 @@ function App() {
       readings.current = API.readings.subscribe(
         {
           next: (reading) => {
-            console.log(reading)
             setSensors(ssrs => {
               console.log(ssrs)
               const sid = reading.sid;
