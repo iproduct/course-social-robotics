@@ -2,32 +2,16 @@
 import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import SensorView from './components/SensorView';
-import { Sensor } from './models/sensor-model';
 
-function getReading() {
-  const now =  Date.now();
-  return {id: now, timestamp: now, value: Math.random() * 50000 / 100}
-}
+import API from './services/api-client';
 
 function App() {
-  const [sensors, setSensors] = useState([ 
-    new Sensor('DS_001', 'Front left US sensor of the robot'),
-    new Sensor('DS_002', 'Front right US sensor of the robot'),
-  ])
-  const interval = useRef(undefined);
+  const [sensors, setSensors] = useState([]);
   useEffect(()=>{
-    interval.current = setInterval(() => {
-      setSensors(srs => {
-        const [s0, s1, ...otherSensors] = srs;
-        return [
-          {...s0, readings: s0.readings.concat(getReading())},
-          {...s1, readings: s1.readings.concat(getReading())},
-          ...otherSensors];
-      })
-    }, 3000)
-    return () => {
-      clearInterval(interval.current)
-    }
+      (async () => {
+         const ssors= (await API.findAllSensors()).map(sr => ({...sr, readings: []}));
+         setSensors(ssors);
+      })() // IIFE
   }, []);
   return (
     <div className="container">
