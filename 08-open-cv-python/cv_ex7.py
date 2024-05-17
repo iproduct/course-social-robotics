@@ -15,7 +15,7 @@ if __name__ == "__main__":
             # convert color space from BGR to HSV
             hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
             # set up lower and upper bound for color range of blue
-            lowBound = np.array([110,50,50])
+            lowBound = np.array([105,50,50])
             upBound = np.array([130,255,255])
             # filtering by color
             mask = cv2.inRange(hsv,lowBound,upBound)

@@ -22,7 +22,8 @@ if __name__ == "__main__":
             #            threshold to define lines
             #            min line length (optional)
             #            max line gap (optional)
-            lines = cv2.HoughLinesP(edges,1,np.pi/180,50,100,10)
+            lines = cv2.HoughLinesP(edges,1,np.pi/180,5,500,10)
+            print(lines.shape)
             # drawing out the detected lines in green (0,255,0)
             # argument : (draw on)image_array, (from)point1, (to)point2
             if(lines is not None):

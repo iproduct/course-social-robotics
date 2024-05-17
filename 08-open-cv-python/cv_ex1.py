@@ -17,12 +17,12 @@ if __name__ == "__main__":
     # cv2.imread(image_name,flag)
     # flag=1 (defalut): color , flag=0:grayscale
     img2 = cv2.imread('lena.bmp',cv2.IMREAD_GRAYSCALE)
-
-    # system will pause until it gets pressed key in 5000 ms
-    p=cv2.waitKey(5000)
-    # show the pressed key in ASCII code, if no key is pressed, p=-1
-    print('pressed key : ', p)
-
+    print(img2.shape)
+    # # system will pause until it gets pressed key in 5000 ms
+    # p=cv2.waitKey(5000)
+    # # show the pressed key in ASCII code, if no key is pressed, p=-1
+    # print('pressed key : ', p)
+    #
     cv2.imshow('image gray',img2)
 
     # cv2.waitKey(0) will pause the system until any key is pressed
