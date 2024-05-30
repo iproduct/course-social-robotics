@@ -1,0 +1,8 @@
+pandas~=2.1.4
+numpy~=1.26.3
+spacy~=3.7.2
+nltk~=3.8.1
+gensim~=4.3.2
+matplotlib~=3.8.2
+pyLDAvis~=3.4.1
+regex~=2023.12.25

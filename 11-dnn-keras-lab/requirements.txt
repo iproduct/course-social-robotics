@@ -1,0 +1,5 @@
+numpy~=1.24.4
+matplotlib~=3.7.4
+keras~=2.10.0
+tensorflow~=2.10.1
+tensorboard-plugin-profile~=2.8.0
