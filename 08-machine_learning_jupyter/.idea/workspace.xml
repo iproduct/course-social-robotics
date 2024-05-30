@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/.ipynb_checkpoints/pandas_intro_linear_regression-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/.ipynb_checkpoints/logistic_regression-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/pandas_intro_linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/pandas_intro_linear_regression.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +212,8 @@
       <workItem from="1673372033402" duration="597000" />
       <workItem from="1685725787618" duration="3745000" />
       <workItem from="1702459345967" duration="627000" />
-      <workItem from="1715960276501" duration="4263000" />
+      <workItem from="1715960276501" duration="5145000" />
+      <workItem from="1717081917340" duration="1622000" />
     </task>
     <task id="LOCAL-00001" summary="machine_learning_jupyter project config updated">
       <created>1606516029460</created>
