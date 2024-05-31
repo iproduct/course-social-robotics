@@ -62,7 +62,7 @@ if __name__ == '__main__':
     logdir = os.path.join("logs", datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
     tboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir,
                                                      histogram_freq=1,
-                                                     profile_batch='500,520')
+                                                     profile_batch='1,5')
 
     model.fit(train_images, train_labels, epochs=5, batch_size=64, callbacks=[tboard_callback])
     test_loss, test_acc = model.evaluate(test_images, test_labels)
