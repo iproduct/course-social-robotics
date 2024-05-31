@@ -12,9 +12,9 @@ import logging
 import aiocoap
 import aiocoap.resource as resource
 
-SERVER_IP='192.168.1.100'
+SERVER_IP='10.108.5.24'
 WEBAPP_PORT=5000
-ROBOT_IP='192.168.1.101'
+ROBOT_IP='10.108.4.147'
 
 logging.basicConfig(level=logging.INFO)
 logging.getLogger("coap-server").setLevel(logging.INFO)

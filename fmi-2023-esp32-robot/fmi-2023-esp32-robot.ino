@@ -29,10 +29,10 @@
 #define STOP 5            // stop robot movement command
 #define SWEEP_DISTANCE 6  //  measure disyances to objects command
 
-const char *ssid = "robots";
-const char *password = "robot123";
+const char *ssid = "FMI-AIR-NEW";
+const char *password = "";
 
-IPAddress remote_ip(192, 168, 1, 100);  // backend FastAPI python server IP
+IPAddress remote_ip(10,108,5,24);  // backend FastAPI python server IP
 const int remote_port = 5683;
 
 typedef struct
