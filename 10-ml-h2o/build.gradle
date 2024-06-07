@@ -1,6 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.1'
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'org.springframework.boot' version '3.3.0'
+    id 'io.spring.dependency-management' version '1.1.5'
     id 'java'
 }
 apply plugin: 'idea'
@@ -13,7 +13,7 @@ idea {
 
 group = 'org.iproduct.ml'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '17'
 
 configurations {
     compileOnly {
@@ -26,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.openpnp:opencv:4.3.0-2'
+    implementation 'org.openpnp:opencv:4.3.0-3'
 //    implementation files("libs/opencv-450.jar")
 //    runtimeOnly files("libs/x64/opencv_java450.dll")
     implementation 'org.springframework.boot:spring-boot-starter-actuator'

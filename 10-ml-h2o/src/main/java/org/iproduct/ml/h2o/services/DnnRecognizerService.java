@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.iproduct.ml.h2o.domain.RecognitionResult;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;

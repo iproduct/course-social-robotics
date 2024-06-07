@@ -1,28 +1,59 @@
 #!/usr/bin/env pybricks-micropython
-from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
-                                 InfraredSensor, UltrasonicSensor, GyroSensor)
-from pybricks.parameters import Port, Stop, Direction, Button, Color
-from pybricks.tools import wait, StopWatch, DataLog
+
+"""
+Example LEGO® MINDSTORMS® EV3 Robot Educator Color Sensor Down Program
+----------------------------------------------------------------------
+
+This program requires LEGO® EV3 MicroPython v2.0.
+Download: https://education.lego.com/en-us/support/mindstorms-ev3/python-for-ev3
+
+Building instructions can be found at:
+https://education.lego.com/en-us/support/mindstorms-ev3/building-instructions#robot
+"""
+
+from pybricks.ev3devices import Motor, ColorSensor
+from pybricks.parameters import Port
+from pybricks.tools import wait
 from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
 
+# Initialize the motors.
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
 
-# This program requires LEGO EV3 MicroPython v2.0 or higher.
-# Click "Open user guide" on the EV3 extension tab for more information.
+# Initilize sensors
+touch_sensor = TouchSensor(Port.S1)
+color_sensor = ColorSensor(Port.S4)
+infrared_sensor = InfraredSensor(Port.S3)
 
+# Initialize the drive base.
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 
-# Create your objects here.
-ev3 = EV3Brick()
+# Calculate the light threshold. Choose values based on your measurements.
+BLACK = 9
+WHITE = 85
+threshold = (BLACK + WHITE) / 2
 
-# Initialize a motor at port B.
-test_motor = Motor(Port.A)
+# Set the drive speed at 100 millimeters per second.
+DRIVE_SPEED = 100
 
-# Write your program here.
-# ev3.speaker.beep()
+# Set the gain of the proportional line controller. This means that for every
+# percentage point of light deviating from the threshold, we set the turn
+# rate of the drivebase to 1.2 degrees per second.
 
-# Run the motor up to 500 degrees per second. To a target angle of 90 degrees.
-# test_motor.run_target(500, 650)
-test_motor.run_until_stalled(500, then=Stop.HOLD, duty_limit=150)
-# Play another beep sound.
-ev3.speaker.beep(1000, 200)
+# For example, if the light value deviates from the threshold by 10, the robot
+# steers at 10*1.2 = 12 degrees per second.
+PROPORTIONAL_GAIN = 1.2
+
+# Start following the line endlessly.
+while True:
+    # Calculate the deviation from the threshold.
+    deviation = line_sensor.reflection() - threshold
+
+    # Calculate the turn rate.
+    turn_rate = PROPORTIONAL_GAIN * deviation
+
+    # Set the drive base speed and turn rate.
+    robot.drive(DRIVE_SPEED, turn_rate)
+
+    # You can wait for a short time or do other things in this loop.
+    wait(10)

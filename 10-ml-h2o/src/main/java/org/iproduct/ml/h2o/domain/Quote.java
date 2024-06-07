@@ -1,6 +1,6 @@
 package org.iproduct.ml.h2o.domain;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.time.Instant;
 
 //import org.springframework.data.mongodb.core.mapping.Document;

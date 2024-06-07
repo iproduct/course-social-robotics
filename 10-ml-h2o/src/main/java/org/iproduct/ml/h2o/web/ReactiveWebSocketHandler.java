@@ -38,7 +38,7 @@ public class ReactiveWebSocketHandler implements WebSocketHandler {
     @Autowired
     ObjectMapper mapper;
 
-    @Override
+        @Override
     public Mono<Void> handle(WebSocketSession webSocketSession) {
         Flux<RecognitionResult> recognitions = webSocketSession.receive()
                 .map(WebSocketMessage::getPayloadAsText)
@@ -81,23 +81,29 @@ public class ReactiveWebSocketHandler implements WebSocketHandler {
     }
 
 
-    public Mono<Void> handle2(WebSocketSession webSocketSession) {
+    public Mono<Void> handle3(WebSocketSession webSocketSession) {
         return webSocketSession.send(Flux.interval(Duration.ofMillis(1000))
-                .map(n -> n+ "")
-                .map(webSocketSession::textMessage))
+                        .map(n -> n + "")
+                        .map(webSocketSession::textMessage))
                 .and(webSocketSession.receive()
                         .map(WebSocketMessage::getPayloadAsText)
                         .log());
     }
 
+    public Mono<Void> handle2(WebSocketSession webSocketSession) {
+        return webSocketSession.send(generator.getQuoteStream(Duration.ofMillis(2000))
+                .map(obj -> {
+                    try {
+                        return mapper.writeValueAsString(obj);
+                    } catch (JsonProcessingException e) {
+                        log.error("Error mapping value to JSON:", e);
+                        throw new RuntimeException(e);
+                    }
+                }).map(webSocketSession::textMessage));
+//                .and(webSocketSession.receive()
+//                        .map(WebSocketMessage::getPayloadAsText)
+//                        .log());
+    }
+
 }
 
-//generator.getQuoteStream(Duration.ofMillis(5000))
-//        .map(obj -> {
-//        try {
-//        return mapper.writeValueAsString(obj);
-//        } catch (JsonProcessingException e) {
-//        log.error("Error mapping value to JSON:", e);
-//        throw new RuntimeException(e);
-//        }
-//        })
