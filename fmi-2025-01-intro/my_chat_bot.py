@@ -41,18 +41,26 @@ class ChatBot:
         sd.wait()
 
     def run(self):
-        resp = ollama.chat(self.model, messages=[
-            {
-                'role': 'system',
-                'content': 'You are an AI assistant',
-            },
-            {
-                'role': 'user',
-                'content': 'Why the sky is blue?',
-            }
-        ])
-        text = resp['message']['content']
-        print(text)
+        while True:
+            text = self.speech_to_text()  # input('>')
+            if text is not None:
+                print(text)
+                self.messages.append({
+                    'role': 'user',
+                    'content': text
+                })
+                resp = ollama.chat(model=self.model, messages=self.messages)
+                text = resp['message']['content']
+                print('AI -> ', text)
+                first_sentence = text
+                self.messages.append({
+                    'role': 'system',
+                    'content': first_sentence
+                })
+                self.text_to_speech(first_sentence)
+            else:
+                break
+
 
 if __name__ == '__main__':
     maya = ChatBot("Maya", 'llama3.2')
