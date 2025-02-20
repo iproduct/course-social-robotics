@@ -1,2 +1,2 @@
-#define SECRET_SSID "Tech_D3817913"
-#define SECRET_PASS "UESKXJDM"
+#define SECRET_SSID "Marina Royal Palace *****"
+#define SECRET_PASS 0

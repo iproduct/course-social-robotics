@@ -53,7 +53,7 @@ void setup() {
     status = WiFi.begin(ssid, pass);
 
     // wait 10 seconds for connection:
-    delay(10000);
+    delay(2000);
   }
   Serial.println("Connected to wifi");
   printWifiStatus();

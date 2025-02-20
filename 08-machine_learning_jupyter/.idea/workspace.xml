@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/.ipynb_checkpoints/logistic_regression-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2024-06-fastapi-robot/golden_fish_demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/.ipynb_checkpoints/k-means-clustering-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../generate-learning-artifacts/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/machine_learning_jupyter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/machine_learning_jupyter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/pandas_intro_linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/pandas_intro_linear_regression.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../14-nlp-python/out_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/../14-nlp-python/out_file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arduino-esp32/http-client-esp32-spring/arduino_secrets.h" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/http-client-esp32-spring/arduino_secrets.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arduino-esp32/simple-http-client-esp32/arduino_secrets.h" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/simple-http-client-esp32/arduino_secrets.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arduino-esp32/simple-http-client-esp32/simple-http-client-esp32.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../arduino-esp32/simple-http-client-esp32/simple-http-client-esp32.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/k-means-clustering.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/k-means-clustering.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/linear_regression.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/logistic_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/logistic_regression.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/plot_classification.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/plot_classification.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/plot_iris_svc.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2024-08-ml-sklearn/plot_iris_svc.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +37,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "iproduct"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/iproduct/course-social-robotics.git",
+    "accountId": "d1f1482b-35a7-4a66-96c4-4c4dbaea86f7"
+  }
+}]]></component>
   <component name="JupyterTrust" id="fc85bae8-a9c9-43a2-bf0c-e4843a0a33e1" />
   <component name="KotlinMultiplatform">
     <allAvailableExecutables />
@@ -33,6 +56,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="1ktMJdUhSMXoyycLW17m5mGNIl7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -41,26 +67,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.matplotlib_demo.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/CourseMSSR/git/course-social-robotics/fmi-2024-08-ml-sklearn/venv",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CourseDML\git\course-ml\08-machine_learning_jupyter" />
       <recent name="D:\CourseDML\git\course-ml\machine_learning_jupyter" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sets">
+  <component name="RunManager" selected="Python.matplotlib_demo">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="machine_learning_jupyter" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -83,6 +114,7 @@
     </configuration>
     <configuration name="linear-regression.ipynb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="machine_learning_jupyter" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -105,6 +137,7 @@
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="machine_learning_jupyter" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -127,11 +160,9 @@
     </configuration>
     <configuration name="matplotlib_demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="machine_learning_jupyter" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -149,6 +180,7 @@
     </configuration>
     <configuration name="sets" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="machine_learning_jupyter" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -171,10 +203,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sets" />
         <item itemvalue="Python.matplotlib_demo" />
+        <item itemvalue="Python.sets" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
+        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -214,6 +254,7 @@
       <workItem from="1702459345967" duration="627000" />
       <workItem from="1715960276501" duration="5145000" />
       <workItem from="1717081917340" duration="1622000" />
+      <workItem from="1728472109161" duration="3122000" />
     </task>
     <task id="LOCAL-00001" summary="machine_learning_jupyter project config updated">
       <created>1606516029460</created>
