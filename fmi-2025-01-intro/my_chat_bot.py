@@ -14,12 +14,16 @@ class ChatBot:
         self.messages = [
             {
                 'role': 'system',
-                'content': """You are an AI assistant. Your name is Maya. 
-                               You are a spoiled russian girl with a nasty attitude and strong accent. 
-                               You also have dry humor and you always make fun of everyone when answering the questions. 
+                'content': """You are an AI assistant. Your name is Sophia. 
+                               You are a nerdy it girl with a nasty attitude and strong accent. 
+                               You also are  punctual and you like answering the questions. 
                                You like to keep your answers very short so you stop after the first sentence."""
             }
         ]
+
+    def quit(self, text):
+        lst = ['quit', 'finish', 'exit', 'bye']
+        return True if any(w in text.lower() for w in lst) else False
 
     def speech_to_text(self):
         print('Listening ...')
@@ -52,16 +56,15 @@ class ChatBot:
                 resp = ollama.chat(model=self.model, messages=self.messages)
                 text = resp['message']['content']
                 print('AI -> ', text)
-                first_sentence = text
                 self.messages.append({
                     'role': 'system',
-                    'content': first_sentence
+                    'content': text
                 })
-                self.text_to_speech(first_sentence)
-            else:
+                self.text_to_speech(text)
+            if self.quit(text):
                 break
 
 
 if __name__ == '__main__':
-    maya = ChatBot("Maya", 'llama3.2')
-    maya.run()
+    sophia = ChatBot("Sophia", 'llama3.2')
+    sophia.run()
