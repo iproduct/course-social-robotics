@@ -22,7 +22,7 @@ class ChatBot:
         ]
 
     def quit(self, text):
-        lst = ['quit', 'finish', 'exit', 'bye']
+        lst = ['quit', 'finish', 'exit', 'bye', 'goodbye']
         return True if any(w in text.lower() for w in lst) else False
 
     def speech_to_text(self):
@@ -54,15 +54,15 @@ class ChatBot:
                     'content': text
                 })
                 resp = ollama.chat(model=self.model, messages=self.messages)
-                text = resp['message']['content']
+                ans = resp['message']['content']
                 print('AI -> ', text)
                 self.messages.append({
                     'role': 'system',
-                    'content': text
+                    'content': ans
                 })
-                self.text_to_speech(text)
-            if self.quit(text):
-                break
+                self.text_to_speech(ans)
+                if self.quit(text):
+                    break
 
 
 if __name__ == '__main__':
