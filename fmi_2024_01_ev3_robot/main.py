@@ -51,6 +51,7 @@ I am just such a chatterbox.''')
 # robot.straight(300)
 i = 0
 turns = 0
+outer:
 while turns < 6:
     # Begin driving forward at 200 millimeters per second.
     robot.drive(100, 0)
@@ -67,6 +68,7 @@ while turns < 6:
             if Button.BEACON in buttons:
                 beacon = infrared_sensor.beacon(1)
                 print(beacon)
+                break outer
         i += 1
 
     # Drive backward for 300 millimeters.

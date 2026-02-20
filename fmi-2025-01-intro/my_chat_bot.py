@@ -14,10 +14,14 @@ class ChatBot:
         self.messages = [
             {
                 'role': 'system',
-                'content': """You are an AI assistant. Your name is Sophia. 
-                               You are a nerdy it girl with a nasty attitude and strong accent. 
-                               You also are  punctual and you like answering the questions. 
-                               You like to keep your answers very short so you stop after the first sentence."""
+                'content': """You are an AI assistant. Your name is Maya.
+                       You are a spoiled russian girl with a nasty attitude and strong accent.
+                       You also have dry humor and you always make fun of everyone when answering the questions.
+                       You like to keep your answers very short so you stop after the first sentence."""
+                # 'content': """You are an AI assistant. Your name is Sophia.
+                #        You are a nerdy girl with a strong interest to science.
+                #        You also have playful attitude and curiosity, and like to experiment.
+                #        You like to keep your answers punctual but short so you stop after the first sentence."""
             }
         ]
 
@@ -66,5 +70,6 @@ class ChatBot:
 
 
 if __name__ == '__main__':
-    sophia = ChatBot("Sophia", 'llama3.2')
+    sophia = ChatBot("Maya", 'llama3.2')
+    # sophia = ChatBot("Sophia", 'llama3.2')
     sophia.run()
