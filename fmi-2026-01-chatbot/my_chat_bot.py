@@ -20,7 +20,7 @@ class ChatBot:
         ]
 
     def text_to_speech(self, text):
-        audio = gTTS(text=text, lang='ru', slow=False)
+        audio = gTTS(text=text, lang='en', slow=False)
         audio.save(f'{self.name}.mp3')
         audio_arr, sample_rate = sf.read(f'{self.name}.mp3')
         sd.play(audio_arr, sample_rate)
@@ -32,7 +32,7 @@ class ChatBot:
             self.recognizer.adjust_for_ambient_noise(source)
             audio = self.recognizer.listen(source)
             try:
-                text = self.recognizer.recognize_google(audio, language='ru-RU')
+                text = self.recognizer.recognize_google(audio, language='en')
                 return text
             except sr.UnknownValueError as ex:
                 ...
