@@ -40,7 +40,7 @@ right_motor = Motor(Port.C)
 
 # Test grip motor
 grip_motor.reset_angle(0)
-print('Initial angle:', grip_motor.angle())
+# print('Initial angle:', grip_motor.angle())
 # grip_motor.run_until_stalled(500)
 grip_motor.run_angle(500, 50)
 print('Final angle:', grip_motor.angle())
@@ -64,7 +64,7 @@ turns = 0
 finish = False
 while turns < 4 and not finish:
     # Begin driving forward at 100 millimeters per second.
-    # robot.drive(100, 0)
+    robot.drive(100, 0)
 
     # Wait until an obstacle is detected. This is done by repeatedly
     # doing nothing (waiting for 10 milliseconds) while the measured
