@@ -61,6 +61,7 @@ async def generate_rabdom_readings(ws):
             await ws.send_json({
                 'id': id + 1,
                 'sid': sensors[id % 3]['id'],
+                'type': 'distance',
                 'timestamp': round(time.time() * 1000),
                 'value': random.randint(5, 500)
             })

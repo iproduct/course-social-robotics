@@ -6,7 +6,7 @@ ws.onmessage = function (message) {
     const event = JSON.parse(message.data)
     // if (event.type === 'command_ack') {
     var li = document.createElement('li')
-    var content = document.createTextNode(event.payload)
+    var content = document.createTextNode(JSON.stringify(event))
     li.appendChild(content)
     messages.appendChild(li)
     // } 
