@@ -4,8 +4,8 @@
 #include <ESPmDNS.h>
 #include "arduino_secrets.h"
 
-const char* ssid = SECRET_SSID;
-const char* password = SECRET_PASS;
+const char* ssid = "FMI-AIR-NEW";
+const char* password = "";
 
 WebServer server(80);
 
@@ -80,7 +80,7 @@ void setup(void) {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("esp32-trayan")) {
+  if (MDNS.begin("esp32_trayan")) {
     Serial.println("MDNS responder started");
   }
 

@@ -22,8 +22,8 @@
 #include <WiFi.h>
 #include "arduino_secrets.h"
 
-const char* ssid = SECRET_SSID;
-const char* pass = SECRET_PASS;
+const char* ssid = "FMI-AIR-NEW";
+const char* pass = "";
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
@@ -41,21 +41,15 @@ WiFiClient client;
 void setup() {
   //Initialize serial and wait for port to open:
   Serial.begin(115200);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, pass);
+  Serial.println("");
 
-  // attempt to connect to Wifi network:
-  while (status != WL_CONNECTED) {
-    Serial.print("Attempting to connect to SSID: ");
-    Serial.println(ssid);
-    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
-    status = WiFi.begin(ssid, pass);
-
-    // wait 10 seconds for connection:
-    delay(2000);
+  // Wait for connection
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
   }
-  Serial.println("Connected to wifi");
   printWifiStatus();
 
   boolean isConnected = false;

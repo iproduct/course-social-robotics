@@ -1,7 +1,7 @@
 #include <ESP32Servo.h>
 
 #define potPin 36
-#define ledPin 23
+#define ledPin 121
 #define servoPin 22
 int potVal;
 int freq;
