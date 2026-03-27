@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESP32 Robot Control Demo</title>
+    <script src="js/main.js" defer type="module"></script>
 </head>
+
 <body>
     <h1>ESP32 Robot Control App</h1>
+    <form action="" onsubmit="sendMessage(event)">
+        <textarea rows="20" type="text" id="messageText" style="width:80%"></textarea>
+        <button>Send</button>
+    </form>
+    <div>Distances: <span id="distances"></span></div>
+    <div>Speeds: <span id="speeds"></span></div>
+    <ul id='messages'>
+    </ul>
 </body>
+
 </html>
