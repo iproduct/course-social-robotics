@@ -1,0 +1,26 @@
+{
+  "name": "fmi-2026-05-robot",
+  "version": "1.0.0",
+  "description": "Robot control frontend",
+  "keywords": [
+    "nodejs",
+    "frontend",
+    "robot",
+    "demo"
+  ],
+  "homepage": "https://github.com/iproduct/course-social-robotics#readme",
+  "bugs": {
+    "url": "https://github.com/iproduct/course-social-robotics/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iproduct/course-social-robotics.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Trayan Iliev",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
