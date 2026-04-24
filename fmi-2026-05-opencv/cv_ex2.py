@@ -5,7 +5,7 @@ if __name__ == "__main__":
     # cap = cv2.VideoCapture('test.mp4')
     cap = cv2.VideoCapture(0)
     if cap.isOpened():
-        while(cv2.waitKey(30) != ord('q')):
+        while(cv2.waitKey(1) != ord('q')):
             ret, frame = cap.read()
             if ret == False:
                 print('Video ends')
