@@ -32,7 +32,7 @@
 const char *ssid = "FMI-AIR-NEW";
 const char *password = "";
 
-IPAddress remote_ip(10,108,5,24);  // backend FastAPI python server IP
+IPAddress remote_ip(10,108,7,63);  // backend FastAPI python server IP
 const int remote_port = 5683;
 
 typedef struct
@@ -120,6 +120,9 @@ void processCommand(JsonObject cmdObj, int i) {
   // } else if (cmd.equals("LED_ON")) {
   //   digitalWrite(LED, HIGH);
   // } else
+  if (cmd.equals("STOP")) {
+    commands[i].id = STOP
+  } else
   if (cmd.equals("MOVE_FORWARD")) {
     commands[i].id = MOVE_FORWARD;
     commands[i].params[0] = cmdObj["distance"];
@@ -176,7 +179,7 @@ void processCommand(JsonObject cmdObj, int i) {
 
 // CoAP server endpoint URL
 void callback_commands(CoapPacket &packet, IPAddress ip, int port) {
-  Serial.println("[Light] ON/OFF");
+  Serial.println("[CoAP Callback] Command received");
 
   // send response
   char p[packet.payloadlen + 1];
@@ -280,10 +283,10 @@ void setup() {
   Serial.println("WiFi connected");
   printWifiStatus();
 
-  // LED State
+  //LED State
   // pinMode(LED, OUTPUT);
   // digitalWrite(LED, HIGH);
-  // LEDSTATE = true;
+  //LEDSTATE = true;
 
   // add server url endpoints.
   // can add multiple endpoint urls.
@@ -307,7 +310,10 @@ void setup() {
 void loop() {
   coap.loop();
 
-  if (commands[currentCommand].id == MOVE_FORWARD || digitalRead(BUTTON) == HIGH) {
+  if (commands[currentCommand].id == STOP || digitalRead(BUTTON) == HIGH) {
+    trunMotorsOff();
+  } else
+  if (commands[currentCommand].id == MOVE_FORWARD) {
     commands[currentCommand].id = NO_COMMAND;
     moveDuration = 0;
     moveDistance = commands[currentCommand].params[0];

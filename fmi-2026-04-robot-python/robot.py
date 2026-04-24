@@ -12,9 +12,9 @@ import logging
 import aiocoap
 import aiocoap.resource as resource
 
-SERVER_IP='10.108.5.24'
+SERVER_IP='10.108.7.63'
 WEBAPP_PORT=5000
-ROBOT_IP='10.108.4.147'
+ROBOT_IP='10.108.6.116'
 
 logging.basicConfig(level=logging.INFO)
 logging.getLogger("coap-server").setLevel(logging.INFO)
@@ -152,4 +152,4 @@ async def send_command(message):
         return response.payload.decode('utf8')
 
 if __name__ == "__main__":
-    uvicorn.run("websocket:app", port=WEBAPP_PORT, access_log=False, workers=1)
+    uvicorn.run("robot:app", port=WEBAPP_PORT, access_log=False, workers=1)
