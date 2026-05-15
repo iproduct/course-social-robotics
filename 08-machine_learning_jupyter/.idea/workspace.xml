@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jacobian-robot-arm-2-joints.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jacobian-robot-arm-3-joints-animated.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jacobian-robot-arm-3-joints.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/knn-hello.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lorenz-haken-chaos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shannon-information-limit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/van-der-pol-phase-portrait.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fmi-2026-05-opencv/sobel_scharr_edge_detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="750eb707-897e-4ba6-ade8-23a63b6bb2c7" name="Default Changelist" comment="demos added/updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/linear_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistic_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/logistic_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-01.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ml-01.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/pandas_intro_linear_regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_classification.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/plot_classification.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/.idea/image-recognition-python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/.idea/image-recognition-python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../09-image-recognition-opencv-dnn/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fmi-2026-05-opencv/cv_ex5.py" beforeDir="false" afterPath="$PROJECT_DIR$/../fmi-2026-05-opencv/cv_ex5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svc3.py" beforeDir="false" afterPath="$PROJECT_DIR$/svc3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,30 +54,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.jacobian-robot-arm-2-joints.executor&quot;: &quot;Run&quot;,
-    &quot;Python.jacobian-robot-arm-3-joints-animated.executor&quot;: &quot;Run&quot;,
-    &quot;Python.jacobian-robot-arm-3-joints.executor&quot;: &quot;Run&quot;,
-    &quot;Python.knn-hello.executor&quot;: &quot;Run&quot;,
-    &quot;Python.lorenz-haken-chaos.executor&quot;: &quot;Run&quot;,
-    &quot;Python.matplotlib_demo.executor&quot;: &quot;Run&quot;,
-    &quot;Python.shannon-information-limit.executor&quot;: &quot;Run&quot;,
-    &quot;Python.van-der-pol-phase-portrait.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CourseMSSR/git/course-social-robotics/08-machine_learning_jupyter&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.classifiers_comparison.executor": "Run",
+    "Python.decision_tree_simple.executor": "Run",
+    "Python.jacobian-robot-arm-2-joints.executor": "Run",
+    "Python.jacobian-robot-arm-3-joints-animated.executor": "Run",
+    "Python.jacobian-robot-arm-3-joints.executor": "Run",
+    "Python.knn-hello.executor": "Run",
+    "Python.lorenz-haken-chaos.executor": "Run",
+    "Python.matplotlib_demo.executor": "Run",
+    "Python.mlp_regularization_param.executor": "Run",
+    "Python.shannon-information-limit.executor": "Run",
+    "Python.svc1.executor": "Run",
+    "Python.svc2.executor": "Run",
+    "Python.svc3.executor": "Run",
+    "Python.svm-reg1.executor": "Run",
+    "Python.svm1.executor": "Run",
+    "Python.van-der-pol-phase-portrait.executor": "Run",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/CourseMSSR/git/course-social-robotics/08-machine_learning_jupyter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CourseMSSR\git\course-social-robotics\08-machine_learning_jupyter" />
@@ -101,7 +93,7 @@
       <recent name="D:\CourseDML\git\course-ml\machine_learning_jupyter" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.knn-hello">
+  <component name="RunManager" selected="Python.classifiers_comparison">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="machine_learning_jupyter" />
       <option name="ENV_FILES" value="" />
@@ -126,14 +118,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="jacobian-robot-arm-2-joints" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="classifiers_comparison" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="machine_learning_jupyter" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -141,7 +130,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/jacobian-robot-arm-2-joints.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classifiers_comparison.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,55 +139,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="jacobian-robot-arm-3-joints-animated" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="machine_learning_jupyter" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/jacobian-robot-arm-3-joints-animated.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="jacobian-robot-arm-3-joints" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="machine_learning_jupyter" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/jacobian-robot-arm-3-joints.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="knn-hello" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="decision_tree_simple" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="machine_learning_jupyter" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -210,7 +151,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/knn-hello.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/decision_tree_simple.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -243,14 +184,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="shannon-information-limit" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="svc3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="machine_learning_jupyter" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -258,7 +196,49 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shannon-information-limit.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/svc3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="svm-reg1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="machine_learning_jupyter" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/svm-reg1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="svm1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="machine_learning_jupyter" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/svm1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -269,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.knn-hello" />
-        <item itemvalue="Python.jacobian-robot-arm-3-joints-animated" />
-        <item itemvalue="Python.jacobian-robot-arm-3-joints" />
-        <item itemvalue="Python.jacobian-robot-arm-2-joints" />
-        <item itemvalue="Python.shannon-information-limit" />
+        <item itemvalue="Python.classifiers_comparison" />
+        <item itemvalue="Python.decision_tree_simple" />
+        <item itemvalue="Python.svm-reg1" />
+        <item itemvalue="Python.svm1" />
+        <item itemvalue="Python.svc3" />
       </list>
     </recent_temporary>
   </component>
@@ -326,7 +306,7 @@
       <workItem from="1728472109161" duration="3122000" />
       <workItem from="1778246909482" duration="2265000" />
       <workItem from="1778264780102" duration="3450000" />
-      <workItem from="1778852340379" duration="3735000" />
+      <workItem from="1778852340379" duration="7382000" />
     </task>
     <task id="LOCAL-00001" summary="machine_learning_jupyter project config updated">
       <created>1606516029460</created>
@@ -377,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1608543635014</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="demos added/updated">
+      <option name="closed" value="true" />
+      <created>1778856503473</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1778856503473</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +379,7 @@
     <MESSAGE value="leanear regression with Titanic dataset lab added" />
     <MESSAGE value="leanear regression with Titanic dataset lab completed" />
     <MESSAGE value="ensemble learning - statcking, bagging (Random Rorest), and boosting (AdaBoost) books added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ensemble learning - statcking, bagging (Random Rorest), and boosting (AdaBoost) books added" />
+    <MESSAGE value="demos added/updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="demos added/updated" />
   </component>
 </project>

@@ -13,9 +13,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Create SVC model with RBF kernel
 model = SVC(kernel='rbf', C=1.0, gamma='scale')
-# SVC(kernel='linear')
-# SVC(kernel='poly', degree=3)
-# SVC(kernel='sigmoid')
+# model = SVC(kernel='linear')
+# model = SVC(kernel='poly', degree=3)
+# model = SVC(kernel='sigmoid')
 
 
 # Train
