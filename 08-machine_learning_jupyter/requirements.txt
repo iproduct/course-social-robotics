@@ -1,0 +1,6 @@
+seaborn~=0.13.2
+matplotlib~=3.10.7
+pandas~=2.3.3
+numpy~=2.3.4
+scikit-learn~=1.7.2
+polars~=1.35.2

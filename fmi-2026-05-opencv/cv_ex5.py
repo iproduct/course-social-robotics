@@ -76,7 +76,7 @@ if __name__ == "__main__":
                 [1, -4, 1],
                 [0,  1, 0]
             ])
-            sarpened_img = cv2.filter2D(src=frame_gray, ddepth=-1, kernel= sobely_kernel)
+            sarpened_img = cv2.filter2D(src=frame_gray, ddepth=-1, kernel= laplace_kernel)
             vis = np.hstack((frame_gray, sarpened_img))
             cv2.imshow('video', vis)
     else:
