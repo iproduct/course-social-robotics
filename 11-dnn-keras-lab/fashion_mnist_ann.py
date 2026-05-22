@@ -5,10 +5,10 @@ import os
 import datetime
 
 if __name__ == '__main__':
-    os.environ["XLA_FLAGS"] = '--xla_gpu_cuda_data_dir="D:/Program Files/CUDA/v11.2/development"'
-    physical_devices = tf.config.list_physical_devices('GPU')
-    tf.config.experimental.set_memory_growth(physical_devices[0], True)  # important!
-    tf.config.optimizer.set_jit(True)
+    # os.environ["XLA_FLAGS"] = '--xla_gpu_cuda_data_dir="D:/Program Files/CUDA/v11.2/development"'
+    # physical_devices = tf.config.list_physical_devices('GPU')
+    # tf.config.experimental.set_memory_growth(physical_devices[0], True)  # important!
+    # tf.config.optimizer.set_jit(True)
 
     (x_train, y_train),(x_test, y_test) = fashion_mnist.load_data()
     x_train, x_test = x_train / 255.0, x_test / 255.0
