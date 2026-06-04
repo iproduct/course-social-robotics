@@ -11,8 +11,10 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
 
+# Run it as a task with Ctrl+Shift+B in VSCode
+
 def is_on_red(rgb):
-    return rgb[0] > (rgb[1] + rgb[2])
+    return rgb[0] > (rgb[1] + rgb[2]) * 3
     # return rgb[2] < black_treshold and rgb[0] < black_treshold and rgb[1] < black_treshold
 
 
@@ -21,7 +23,7 @@ ev3 = EV3Brick()
 
 
 # # Write your program here.
-# ev3.speaker.beep()
+ev3.speaker.beep()
 
 # # Robot speaks
 # ev3.speaker.set_speech_options('en', 'f1', 150, 80)
@@ -42,7 +44,7 @@ right_motor = Motor(Port.C)
 grip_motor.reset_angle(0)
 # print('Initial angle:', grip_motor.angle())
 # grip_motor.run_until_stalled(500)
-grip_motor.run_angle(500, 50)
+# grip_motor.run_angle(500, -50)
 print('Final angle:', grip_motor.angle())
 
 # DriverBase init
@@ -73,10 +75,11 @@ while turns < 4 and not finish:
     obstacle = touch_sensor.pressed()
     while not obstacle and not finish:
         rgb = color_sensor.rgb()
-        if is_on_red(rgb):
-            finish = True
         if i%10 == 0:
             print('RGB: ' + str(rgb))
+
+        if is_on_red(rgb):
+            finish = True
         
         wait(10)
         i += 1

@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Upload & Run Robot Interactive",
+            "type": "shell",
+            "command": "ssh robot@ev3dev.local 'mkdir -p /home/robot/robotics'; if ($?) { scp main.py robot@ev3dev.local:/home/robot/robotics/ }; if ($?) { ssh -t robot@ev3dev.local 'chmod +x /home/robot/robotics/main.py && brickrun -r -- pybricks-micropython /home/robot/robotics/main.py' }",
+            "options": {
+                "shell": {
+                    "executable": "powershell.exe",
+                    "args": ["-Command"]
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true,
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
